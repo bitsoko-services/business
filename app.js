@@ -1,7 +1,10 @@
 
 var express = require('express');
 
+var fs = require('fs');
 var app = express();
+
+var nCmd = require('node-cmd');
 
 var bitsC=
         `
@@ -19,7 +22,7 @@ var sokoC=
 	 
 	 
 	    
-    require('node-cmd').get(bitsC,function(data, err, stderr){
+    nCmd.get(bitsC,function(data, err, stderr){
             if (!err) {
 		    var hMsg ='updated bits';
                console.log(hMsg);
@@ -33,7 +36,7 @@ var sokoC=
  
         });
 	    
-    require('node-cmd').get(sokoC,function(data, err, stderr){
+    nCmd.get(sokoC,function(data, err, stderr){
             if (!err) {
 		    var hMsg ='updated soko';
                console.log(hMsg);
@@ -46,3 +49,60 @@ var sokoC=
             }
  
         });
+
+
+
+OpenInsecure();
+
+
+
+
+
+
+
+
+ReqRes = function ReqRes(req,res){
+	
+  try{
+	
+    fs.accessSync( __dirname + req.params[0], fs.F_OK);
+	
+   res.sendFile( __dirname + req.params[0]);
+
+        }catch(err){
+           // console.log(err);
+        return res.end('Error');     
+        }	
+	
+}
+
+
+
+
+
+
+function OpenInsecure(){
+
+critiMSG="RUNNING ON INSECURE ENVIROMENT!!";
+
+  
+insapp = express();
+insapp.use(compress());
+
+
+// If using express you should use the middleware
+insapp.use('/', le.middleware());
+http = require('http');    
+inserver = http.createServer(insapp);
+
+io = require('socket.io')(inserver);
+insapp.get(/^(.+)$/, function (req, res) {
+  ReqRes(req, res);   
+ 
+});
+ inserver.listen(insPORT, '127.0.0.1', function(err) {
+  if (err) throw err;
+console.log('insec port online at http://localhost:' + insPORT);
+});
+
+}
