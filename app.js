@@ -4,6 +4,8 @@ var express = require('express');
 var fs = require('fs');
 var app = express();
 
+var compress = require('compression');
+
 var nCmd = require('node-cmd');
 
 var bitsC=
