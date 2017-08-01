@@ -1,32 +1,32 @@
 {
-  "name": "bitsoko-enterprise",
-  "version": "0.0.1",
-  "description": "bitsoko for businesses",
-  "repository": "https://github.com/bitsoko-services/business",
-  "private": true,
-  "scripts": {
-    "start": "node app.js",
-    "test": "ava -t 30s test/*.test.js | tap-dot",
-    "cover": "nyc --cache npm test; nyc report --reporter=html"
-  },
-  "author": "Bitsoko Services",
-  "contributors": [
-    {
-      "name": "gaseema ndungu",
-      "email": "gaseema@bitsoko.io"
+    "name": "bitsoko-enterprise",
+    "version": "0.0.1",
+    "description": "bitsoko for businesses",
+    "repository": "https://github.com/bitsoko-services/business",
+    "private": true,
+    "scripts": {
+        "start": "node app.js",
+        "test": "ava -t 30s test/*.test.js | tap-dot",
+        "cover": "nyc --cache npm test; nyc report --reporter=html"
     },
-    {
-      "name": "samuel muiruri",
-      "email": "samuel@bitsoko.io"
+    "author": "Bitsoko Services",
+    "contributors": [
+        {
+            "name": "gaseema ndungu",
+            "email": "gaseema@bitsoko.io"
     },
-    {
-      "name": "allan juma",
-      "email": "allan@bitsoko.io"
+        {
+            "name": "samuel muiruri",
+            "email": "samuel@bitsoko.io"
+    },
+        {
+            "name": "allan juma",
+            "email": "allan@bitsoko.io"
     }
   ],
-  "license": "Apache-2.0",
-  "semistandard": {
-    "globals": [
+    "license": "Apache-2.0",
+    "semistandard": {
+        "globals": [
       "after",
       "afterEach",
       "before",
@@ -34,18 +34,24 @@
       "describe",
       "it"
     ]
-  },
-  "dependencies": {
-    "express": "~4.15.2",
-    "node-cmd": "latest"
-  },
-  "devDependencies": {
-    "ava": "~0.19.1",
-    "nodejs-repo-tools": "git+https://git@github.com/GoogleCloudPlatform/nodejs-repo-tools.git",
-    "supertest": "~3.0.0",
-    "tap-dot": "~1.0.5"
-  },
-  "engines": {
-    "node": ">=4.3.2"
-  }
+    },
+    "dependencies": {
+        "express": "~4.15.2",
+        "node-cmd": "latest",
+        "greenlock-cli": "latest",
+        "greenlock-express": "latest",
+        "greenlock": "latest",
+        "greenlock-express": "latest",
+        "socket.io": "latest",
+        "pug": "latest"
+    },
+    "devDependencies": {
+        "ava": "~0.19.1",
+        "nodejs-repo-tools": "git+https://git@github.com/GoogleCloudPlatform/nodejs-repo-tools.git",
+        "supertest": "~3.0.0",
+        "tap-dot": "~1.0.5"
+    },
+    "engines": {
+        "node": ">=4.3.2"
+    }
 }
