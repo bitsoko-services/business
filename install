@@ -1,2 +1,4 @@
 curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
-sudo apt-get install -y nodejs npm git
+sudo apt-get install -y nodejs npm git golang-go
+go get -u github.com/ipfs/go-ipfs
+npm install business/. && node business/app.js
