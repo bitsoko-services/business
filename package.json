@@ -40,6 +40,7 @@
         "node-cmd": "latest",
         "greenlock-cli": "latest",
         "greenlock-express": "latest",
+        "compression": "latest",
         "greenlock": "latest",
         "greenlock-express": "latest",
         "socket.io": "latest",
