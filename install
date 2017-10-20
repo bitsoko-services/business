@@ -1,2 +1,3 @@
 apt-get install -y curl nodejs npm git
-curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_4.x | bash -
+npm install package.json --save
