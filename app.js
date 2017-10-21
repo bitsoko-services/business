@@ -84,6 +84,7 @@ request("https://bitsoko.co.ke/getEnterprise/?uid=1", function(error, response, 
     if(!error){
     
   console.log(body);
+        allServices=JSON.parse(body).services;
     console.log(JSON.parse(body).services);
     console.log(JSON.parse(body).settings);
        
@@ -187,7 +188,7 @@ try{
                 name: 'test',
                 desc: 'desc',
                 img: '/img.png',
-                stores: [],
+                stores: allServices,
                 promos: [],
                 cid: '000'
             }
