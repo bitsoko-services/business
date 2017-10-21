@@ -77,6 +77,18 @@ OpenInsecure();
 
 }
 
+
+var request = require("request");
+
+request("https://bitsoko.co.ke/getEnterprise/?uid=1", function(error, response, body) {
+    if(!error){
+    
+  console.log(body);
+       
+
+
+
+
 try {
 
             fs.accessSync(__dirname + '/bits/index.html', fs.F_OK);
@@ -91,7 +103,17 @@ OpenInsecure();
             updateApps();
 
         }
-         
+          
+        
+    }else{
+    console.log('ERR! critical error connecting to bitsoko');
+    }
+    
+    
+});
+
+
+
 
 le = LE.create({
     agreeToTerms: leAgree // hook to allow user to view and accept LE TOS
