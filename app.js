@@ -152,11 +152,11 @@ ReqRes = function ReqRes(req, res) {
 try{
 
     console.log(req.params[0]);
-    if (req.params[0] == '/bitss/index.html') {
+    if (req.params[0] == '/bits/index.html') {
 
 
 
-        fs.readFile(__dirname + '/bits/index.html', function (error, source) {
+        fs.readFile(__dirname + '/bits/amp.pug', function (error, source) {
 
             //console.log(rr.stores);  
             var data = {
