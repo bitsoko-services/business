@@ -90,7 +90,7 @@ request("https://bitsoko.co.ke/getEnterprise/?uid=1", function(error, response, 
       allServices[ii].desc=allServices[ii].description
       allServices[ii].title=allServices[ii].name;  
         }
-    console.log(JSON.parse(body).services);
+    console.log(allServices);
       
 
 
