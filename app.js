@@ -86,7 +86,7 @@ request("https://bitsoko.co.ke/getEnterprise/?uid=1", function(error, response, 
      //console.log(JSON.parse(body).settings);
         
         for(var ii in allServices){
-      allServices[ii].item=allServices[ii].bannerPath;
+      allServices[ii].banner=allServices[ii].bannerPath;
       allServices[ii].desc=allServices[ii].description
       allServices[ii].title=allServices[ii].name;  
         }
