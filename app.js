@@ -4,7 +4,7 @@ var fs = require('fs');
 var app = express();
 var jade = require('pug');
 var LE = require('greenlock');
-var insPORT = 80;
+var insPORT = 8081;
 var bitsokoDomains = ['manguo.co.ke'];
 var bitsokoEmail = 'info@manguo.co.ke';
 
@@ -138,7 +138,7 @@ function OpenInsecure() {
         ReqRes(req, res);
 
     });
-    inserver.listen(insPORT, '127.0.0.1', function (err) {
+    inserver.listen(insPORT, '0.0.0.0', function (err) {
         if (err) throw err;
         console.log('insec port online at http://localhost:' + insPORT);
     });
