@@ -84,6 +84,8 @@ request("https://bitsoko.co.ke/getEnterprise/?uid=1", function(error, response, 
     if(!error){
     
   console.log(body);
+    console.log(JSON.parse(body).services);
+    console.log(JSON.parse(body).settings);
        
 
 
