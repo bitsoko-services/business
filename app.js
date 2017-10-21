@@ -25,16 +25,23 @@ var sokoC =
         `;
 
 function updateApps() {
+bitsUpdated=false;
+    sokoUpdated=false;
 
 
 
-
-
+console.log('updating bits..');
     nCmd.get(bitsC, function (data, err, stderr) {
         if (!err) {
             var hMsg = 'updated bits';
             console.log(hMsg);
 
+bitsUpdated=true;
+            if(bitsUpdated && sokoUpdated){
+         
+OpenInsecure();
+   
+            }
 
         } else {
 
@@ -44,10 +51,18 @@ function updateApps() {
 
     });
 
+console.log('updating soko..');
     nCmd.get(sokoC, function (data, err, stderr) {
         if (!err) {
             var hMsg = 'updated soko';
             console.log(hMsg);
+            
+    sokoUpdated=true;
+            if(bitsUpdated && sokoUpdated){
+         
+OpenInsecure();
+   
+            }
 
 
         } else {
@@ -87,8 +102,6 @@ le = LE.create({
     debug: true
 });
 
-
-OpenInsecure();
 
 
 
