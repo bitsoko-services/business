@@ -152,7 +152,7 @@ ReqRes = function ReqRes(req, res) {
 try{
 
     console.log(req.params[0]);
-    if (req.params[0] == '/bits/index.html') {
+    if (req.params[0] == '/index.html') {
 
 
 
@@ -193,10 +193,31 @@ try{
 
         } catch (err) {
             // console.log(err);
+            /*
             res.writeHead(301, {
                 location: "/bits/index.html"
             });
             return res.end();
+            */
+            
+        fs.readFile(__dirname + '/bits/amp.pug', function (error, source) {
+
+            //console.log(rr.stores);  
+            var data = {
+                name: 'test',
+                desc: 'desc',
+                img: '/img.png',
+                stores: [],
+                promos: [],
+                cid: '000'
+            }
+            data.body = process.argv[2];
+            //jade.render
+            var template = jade.compile(source);
+            var html = template(data);
+            //res.writeHead(200);
+            return res.end(html);
+        });
         }
 
     }
