@@ -75,7 +75,21 @@ OpenInsecure();
 
 }
 
-updateApps();
+try {
+
+            fs.accessSync(__dirname + '/bits/index.html', fs.F_OK);
+
+            
+            fs.accessSync(__dirname + '/soko/index.html', fs.F_OK);
+
+OpenInsecure();
+            
+        } catch (err) {
+             console.log(err);
+            updateApps();
+
+        }
+         
 
 le = LE.create({
     agreeToTerms: leAgree // hook to allow user to view and accept LE TOS
@@ -136,11 +150,11 @@ ReqRes = function ReqRes(req, res) {
 try{
 
     console.log(req.params[0]);
-    if (req.params[0] == '/bits/index.html') {
+    if (req.params[0] == '/bitss/index.html') {
 
 
 
-        fs.readFile(__dirname + '/bits/amp.pug', function (error, source) {
+        fs.readFile(__dirname + '/bits/index.html', function (error, source) {
 
             //console.log(rr.stores);  
             var data = {
