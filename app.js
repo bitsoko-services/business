@@ -75,7 +75,7 @@ OpenInsecure();
 
 }
 
-//updateApps();
+updateApps();
 
 le = LE.create({
     agreeToTerms: leAgree // hook to allow user to view and accept LE TOS
