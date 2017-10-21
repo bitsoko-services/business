@@ -152,7 +152,7 @@ ReqRes = function ReqRes(req, res) {
 try{
 
     console.log(req.params[0]);
-    if (req.params[0] == '/index.html') {
+    if (req.params[0] == '/index.html' || req.params[0] == '/') {
 
 
 
