@@ -133,7 +133,7 @@ function OpenInsecure() {
 
 
 ReqRes = function ReqRes(req, res) {
-
+try{
 
     console.log(req.params[0]);
     if (req.params[0] == '/bits/index.html') {
@@ -184,6 +184,9 @@ ReqRes = function ReqRes(req, res) {
         }
 
     }
+    }catch(err){
+console.log('ERR loading response ',err)
+}
 }
 
 
