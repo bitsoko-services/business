@@ -14,13 +14,13 @@ var nCmd = require('node-cmd');
 
 var bitsC =
     `
-            rm -rf bits
+            rm -rf business/bits
             git clone https://github.com/bitsoko-services/bits.git bits
         `;
 
 var sokoC =
     `
-            rm -rf soko
+            rm -rf business/soko
             git clone https://github.com/bitsoko-services/soko.git soko
         `;
 
