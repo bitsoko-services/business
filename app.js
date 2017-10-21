@@ -82,18 +82,16 @@ var request = require("request");
 
 request("https://bitsoko.co.ke/getEnterprise/?uid=1", function(error, response, body) {
     if(!error){
-    
-  console.log(body);
-        allServices=JSON.parse(body).services;
-    console.log(JSON.parse(body).services);
-    console.log(JSON.parse(body).settings);
+     allServices=JSON.parse(body).services;
+     //console.log(JSON.parse(body).settings);
         
         for(var ii in allServices){
       allServices[ii].item=allServices[ii].bannerPath;
       allServices[ii].desc=allServices[ii].description
       allServices[ii].title=allServices[ii].name;  
         }
-       
+    console.log(JSON.parse(body).services);
+      
 
 
 
