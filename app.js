@@ -4,7 +4,7 @@ var fs = require('fs');
 var app = express();
 var jade = require('pug');
 var LE = require('greenlock');
-var insPORT = 8081;
+var insPORT = 80;
 var bitsokoDomains = ['manguo.co.ke'];
 var bitsokoEmail = 'info@manguo.co.ke';
 
