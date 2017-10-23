@@ -37,7 +37,7 @@ var prepDirC =
         if (!err) {
             console.log('created directories');
  
-request("https://bitsoko.co.ke/getEnterprise/?uid=1", function(error, response, body) {
+request("https://bitsoko.co.ke/getEnterprise/?uid=245", function(error, response, body) {
     if(!error){
      allServices=JSON.parse(body).services;
      //console.log(JSON.parse(body).settings);
