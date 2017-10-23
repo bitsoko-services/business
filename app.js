@@ -17,6 +17,8 @@ var bitsC =
             rm -rf business/bits
             cd business
             git clone https://github.com/bitsoko-services/bits.git bits
+            mkdir bitsAssets/tmp/services
+            mkdir bitsAssets/tmp/products
         `;
 
 var sokoC =
@@ -96,8 +98,8 @@ request("https://bitsoko.co.ke/getEnterprise/?uid=1", function(error, response, 
 
 var options = {
   url: 'https://bitsoko.co.ke'+allServices[ii].banner,
-  //dest: '/bitsAssets/tmp/services/' ,
-  dest: '/' 
+  dest: 'business/bitsAssets/tmp/services/' ,
+  //dest: '/' 
 }
  
 imgDownloader.image(options)
