@@ -12,13 +12,102 @@ var compress = require('compression');
 
 var nCmd = require('node-cmd');
 
+
+var request = require("request");
+             imgDownloader = require('image-downloader');
+
+
+
+
+
+
+
+var prepDirC =
+    `
+            cd business
+            mkdir bitsAssets
+            cd bitsAssets
+            mkdir tmp
+            cd tmp
+            mkdir products
+            mkdir services
+        `;
+
+    nCmd.get(prepDirC, function (data, err, stderr) {
+        if (!err) {
+            console.log('created directories');
+ 
+request("https://bitsoko.co.ke/getEnterprise/?uid=1", function(error, response, body) {
+    if(!error){
+     allServices=JSON.parse(body).services;
+     //console.log(JSON.parse(body).settings);
+        
+        for(var ii in allServices){
+      allServices[ii].banner=allServices[ii].bannerPath;
+      allServices[ii].desc=allServices[ii].description
+      allServices[ii].title=allServices[ii].name;  
+
+
+ // Download to a directory and save with the original filename
+
+var options = {
+  url: 'https://bitsoko.co.ke'+allServices[ii].banner,
+  dest: 'business/bitsAssets/tmp/services/' ,
+  //dest: '/' 
+}
+ 
+imgDownloader.image(options)
+  .then(function( filename, image ){
+    console.log('File saved to', filename)
+  }).catch(function(err){
+    console.log(err)
+  })
+ 
+        }
+    console.log(allServices);
+      
+
+
+
+
+try {
+
+            fs.accessSync(__dirname + '/bits/index.html', fs.F_OK);
+
+            
+            fs.accessSync(__dirname + '/soko/index.html', fs.F_OK);
+
+OpenInsecure();
+            
+        } catch (err) {
+             console.log(err);
+            updateApps();
+
+        }
+          
+        
+    }else{
+    console.log('ERR! critical error connecting to bitsoko');
+    }
+    
+    
+});
+
+
+        } else {
+
+
+            console.log(err);
+        }
+
+    });
+
+
 var bitsC =
     `
             rm -rf business/bits
             cd business
             git clone https://github.com/bitsoko-services/bits.git bits
-            mkdir bitsAssets/tmp/services
-            mkdir bitsAssets/tmp/products
         `;
 
 var sokoC =
@@ -78,68 +167,6 @@ OpenInsecure();
     });
 
 }
-
-
-var request = require("request");
-             imgDownloader = require('image-downloader');
- 
-request("https://bitsoko.co.ke/getEnterprise/?uid=1", function(error, response, body) {
-    if(!error){
-     allServices=JSON.parse(body).services;
-     //console.log(JSON.parse(body).settings);
-        
-        for(var ii in allServices){
-      allServices[ii].banner=allServices[ii].bannerPath;
-      allServices[ii].desc=allServices[ii].description
-      allServices[ii].title=allServices[ii].name;  
-
-
- // Download to a directory and save with the original filename
-
-var options = {
-  url: 'https://bitsoko.co.ke'+allServices[ii].banner,
-  dest: 'business/bitsAssets/tmp/services/' ,
-  //dest: '/' 
-}
- 
-imgDownloader.image(options)
-  .then(function( filename, image ){
-    console.log('File saved to', filename)
-  }).catch(function(err){
-    console.log(err)
-  })
- 
-        }
-    console.log(allServices);
-      
-
-
-
-
-try {
-
-            fs.accessSync(__dirname + '/bits/index.html', fs.F_OK);
-
-            
-            fs.accessSync(__dirname + '/soko/index.html', fs.F_OK);
-
-OpenInsecure();
-            
-        } catch (err) {
-             console.log(err);
-            updateApps();
-
-        }
-          
-        
-    }else{
-    console.log('ERR! critical error connecting to bitsoko');
-    }
-    
-    
-});
-
-
 
 
 le = LE.create({
