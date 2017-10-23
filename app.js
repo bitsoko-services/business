@@ -99,7 +99,7 @@ var options = {
   dest: '/bitsAssets/tmp/services/' 
 }
  
-download.image(options)
+imgDownloader.image(options)
   .then(({ filename, image }) => {
     console.log('File saved to', filename)
   }).catch((err) => {
