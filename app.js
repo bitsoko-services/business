@@ -95,15 +95,16 @@ request("https://bitsoko.co.ke/getEnterprise/?uid=1", function(error, response, 
  // Download to a directory and save with the original filename
 
 var options = {
-  url: 'https://bitsoko.co.ke/'+allServices[ii].banner,
-  dest: '/bitsAssets/tmp/services/' 
+  url: 'https://bitsoko.co.ke'+allServices[ii].banner,
+  //dest: '/bitsAssets/tmp/services/' ,
+  dest: '/' 
 }
  
 imgDownloader.image(options)
   .then(function( filename, image ){
     console.log('File saved to', filename)
   }).catch(function(err){
-    throw err
+    console.log(err)
   })
  
         }
