@@ -100,9 +100,9 @@ var options = {
 }
  
 imgDownloader.image(options)
-  .then({ filename, image } => {
+  .then(function( filename, image ){
     console.log('File saved to', filename)
-  }).catch((err) => {
+  }).catch(function(err){
     throw err
   })
  
