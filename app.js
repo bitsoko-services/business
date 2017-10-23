@@ -97,13 +97,18 @@ var options = {
   dest: '/bitsAssets/tmp/services/'                  // Save to /path/to/dest/image.jpg
 }
  
-imgDownloader.image(options)
-  .then(({ filename, image }) => {
-    console.log('File saved to', filename)
-  }).catch((err) => {
-    throw err
-  })
  
+async function downloadIMG() {
+  try {
+    const { filename, image } = await imgDownloader.image(options)
+    console.log(filename) // => /path/to/dest/image.jpg 
+  } catch (e) {
+    throw e
+  }
+}
+ 
+downloadIMG()
+
         }
     console.log(allServices);
       
