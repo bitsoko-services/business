@@ -79,7 +79,8 @@ OpenInsecure();
 
 
 var request = require("request");
-
+             imgDownloader = require('image-downloader');
+ 
 request("https://bitsoko.co.ke/getEnterprise/?uid=1", function(error, response, body) {
     if(!error){
      allServices=JSON.parse(body).services;
@@ -89,6 +90,20 @@ request("https://bitsoko.co.ke/getEnterprise/?uid=1", function(error, response, 
       allServices[ii].banner=allServices[ii].bannerPath;
       allServices[ii].desc=allServices[ii].description
       allServices[ii].title=allServices[ii].name;  
+
+// Download to a directory and save with the original filename
+var options = {
+  url: 'https://bitsoko.co.ke/'+allServices[ii].banner,
+  dest: '/bitsAssets/tmp/services/'                  // Save to /path/to/dest/image.jpg
+}
+ 
+imgDownloader.image(options)
+  .then(({ filename, image }) => {
+    console.log('File saved to', filename)
+  }).catch((err) => {
+    throw err
+  })
+ 
         }
     console.log(allServices);
       
