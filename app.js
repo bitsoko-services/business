@@ -91,23 +91,20 @@ request("https://bitsoko.co.ke/getEnterprise/?uid=1", function(error, response, 
       allServices[ii].desc=allServices[ii].description
       allServices[ii].title=allServices[ii].name;  
 
-// Download to a directory and save with the original filename
+
+ // Download to a directory and save with the original filename
 var options = {
   url: 'https://bitsoko.co.ke/'+allServices[ii].banner,
-  dest: '/bitsAssets/tmp/services/'                  // Save to /path/to/dest/image.jpg
-}
- 
- 
-async function downloadIMG() {
-  try {
-    const { filename, image } = await imgDownloader.image(options)
-    console.log(filename) // => /path/to/dest/image.jpg 
-  } catch (e) {
-    throw e
+  dest: '/bitsAssets/tmp/services/' ,                  // Save to /path/to/dest/image.jpg
+  done: function(err, filename, image) {
+    if (err) {
+      throw err
+    }
+    console.log('File saved to', filename)
   }
 }
+imgDownloader(options)
  
-downloadIMG()
 
         }
     console.log(allServices);
