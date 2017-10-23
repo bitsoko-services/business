@@ -100,11 +100,11 @@ var options = {
 }
  
 imgDownloader.image(options)
-  .then(({ filename, image }) => {
+  .then({ filename, image } => {
     console.log('File saved to', filename)
   }).catch((err) => {
     throw err
-  }))
+  })
  
         }
     console.log(allServices);
