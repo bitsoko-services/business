@@ -179,11 +179,11 @@ le = LE.create({
         ,
     challenges: {
         'http-01': require('le-challenge-fs').create({
-            webrootPath: '/root/bitsoko'
+            webrootPath: '/root/business'
         })
     },
     store: require('le-store-certbot').create({
-            webrootPath: '/root/bitsoko'
+            webrootPath: '/root/business'
         })
         // handles saving of config, accounts, and certificates
         //, challenges: { 'http-01': leChallenge }                  // handles /.well-known/acme-challege keys and tokens
