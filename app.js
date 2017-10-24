@@ -561,9 +561,9 @@ function createCert() {
 function OpenSecure(){
   
    servCerts = {
-    key: fs.readFileSync('/root/letsencrypt/etc/live/'+allDomains[0]+'/privkey.pem'),
-    cert: fs.readFileSync('/root/letsencrypt/etc/live/'+allDomains[0]+'/fullchain.pem'),
-    ca: [fs.readFileSync('/root/letsencrypt/etc/live/'+allDomains[0]+'/chain.pem')] // <----- note this part
+    key: fs.readFileSync('/root/business/letsencrypt/etc/live/'+allDomains[0]+'/privkey.pem'),
+    cert: fs.readFileSync('/root/business/letsencrypt/etc/live/'+allDomains[0]+'/fullchain.pem'),
+    ca: [fs.readFileSync('/root/business/letsencrypt/etc/live/'+allDomains[0]+'/chain.pem')] // <----- note this part
 };   
   
 app.use(compress());  
