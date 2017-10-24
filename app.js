@@ -339,7 +339,7 @@ var leChallenge = require('le-challenge-fs').create({
 function leAgree(opts, agreeCb) {
   // opts = { email, domains, tosUrl }
     opts = {
-      domains: bitsokoDomains
+      domains: allDomains
     , email: bitsokoEmail // user@example.com
     , agreeTos: true
     }
@@ -352,8 +352,8 @@ le = LE.create({
 //, server: LE.stagingServerUrl 
 //, store: leStore 
 	
-, challenges: { 'http-01': require('le-challenge-fs').create({ webrootPath: '/root/bitsoko' }) }
-, store: require('le-store-certbot').create({ webrootPath: '/root/bitsoko' })
+, challenges: { 'http-01': require('le-challenge-fs').create({ webrootPath: '/root/business' }) }
+, store: require('le-store-certbot').create({ webrootPath: '/root/business' })
 // handles saving of config, accounts, and certificates
 //, challenges: { 'http-01': leChallenge }                  // handles /.well-known/acme-challege keys and tokens
 , challengeType: 'http-01'                                // default to this challenge type
@@ -401,7 +401,7 @@ app.use('/', function (req, res) {
 
 
 // Check in-memory cache of certificates for the named domain
-le.check({ domains: bitsokoDomains }).then(function (results) {
+le.check({ domains: allDomains }).then(function (results) {
   if (results) {
     // we already have certificates
     console.log(results);
@@ -414,7 +414,7 @@ le.check({ domains: bitsokoDomains }).then(function (results) {
 
   le.register({
 
-    domains: bitsokoDomains                                // CHANGE TO YOUR DOMAIN (list for SANS)
+    domains: allDomains                                // CHANGE TO YOUR DOMAIN (list for SANS)
   , email: bitsokoEmail                                 // CHANGE TO YOUR EMAIL
   , agreeTos: true                                            // set to tosUrl string (or true) to pre-approve (and skip agreeToTerms)
   , rsaKeySize: 2048                                        // 2048 or higher
@@ -437,7 +437,7 @@ le.check({ domains: bitsokoDomains }).then(function (results) {
     console.error('[Error]: node-letsencrypt/examples/standalone');
     console.error(err.stack);
 console.log('certification failed. will try again in one hour');
- setTimeout(bitsoko.doInstallCerts(), (60*60*1000)); 
+ setTimeout(installCerts(), (60*60*1000)); 
   });
 
 });
@@ -448,7 +448,7 @@ console.log('certification failed. will try again in one hour');
 function leAgree(opts, agreeCb) {
     // opts = { email, domains, tosUrl }
     opts = {
-        domains: bitsokoDomains,
+        domains: allDomains,
         email: bitsokoEmail // user@example.com
             ,
         agreeTos: true
@@ -485,7 +485,7 @@ function createCert() {
 
     // Check in-memory cache of certificates for the named domain
     le.check({
-        domains: bitsokoDomains
+        domains: allDomains
     }).then(function (results) {
         if (results) {
             // we already have certificates
@@ -499,7 +499,7 @@ function createCert() {
 
         le.register({
 
-            domains: bitsokoDomains // CHANGE TO YOUR DOMAIN (list for SANS)
+            domains: allDomains // CHANGE TO YOUR DOMAIN (list for SANS)
                 ,
             email: bitsokoEmail // CHANGE TO YOUR EMAIL
                 ,
@@ -549,16 +549,7 @@ server = https.createServer(servCerts, app);
 io = require('socket.io')(server);
 
 server.setTimeout(0, socketTimeout);
- try{
-  	
-var redis = require('socket.io-redis');
-io.adapter(redis({ host: 'localhost', port: marketWatcherBotPORT }));
 
-
-   }catch(err){
-	   
-console.log('ERR! is redis-server running?');	   
-   }
 	
 app.get(/^(.+)$/, function (req, res) {
     
