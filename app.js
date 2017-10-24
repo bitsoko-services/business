@@ -132,8 +132,19 @@ bitsUpdated=true;
          
 //OpenInsecure();
   
-OpenSecure(); 
-            }
+  try{
+     OpenSecure();
+
+
+   }catch(err){
+       console.log(err);
+ 
+ console.log('security certificates not found! initiating letsencrypt..',err);
+
+	   
+	installCerts();   
+   }      
+                }
 
         } else {
 
@@ -153,8 +164,19 @@ console.log('updating soko..');
             if(bitsUpdated && sokoUpdated){
          
 //OpenInsecure();
-OpenSecure();
-   
+  try{
+     OpenSecure();
+
+
+   }catch(err){
+       console.log(err);
+ 
+ console.log('security certificates not found! initiating letsencrypt..',err);
+
+	   
+	installCerts();   
+   }      
+      
             }
 
 
@@ -220,19 +242,7 @@ function OpenInsecure() {
         if (err) throw err;
         console.log('insec port online at http://localhost:' + insPORT);
       
-   try{
-     OpenSecure();
-
-
-   }catch(err){
-       console.log(err);
  
- console.log('security certificates not found! initiating letsencrypt..',err);
-
-	   
-	installCerts();   
-   }      
-    
       
     });
 
