@@ -37,7 +37,7 @@ request("https://bitsoko.co.ke/getEnterprise/?uid=245", function(error, response
      allServices=JSON.parse(body).services;
      allSettings=JSON.parse(body).settings;
      console.log(JSON.parse(body).enterpriseInfo);
-      allDomains=JSON.parse(allSettings.enterpriseInfo.domains);
+      allDomains=JSON.parse(JSON.parse(body).enterpriseInfo.domains);
         
       
         for(var ii in allServices){
