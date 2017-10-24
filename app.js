@@ -75,8 +75,19 @@ try {
             
             fs.accessSync(__dirname + '/soko/index.html', fs.F_OK);
 
-OpenInsecure();
-            
+//OpenInsecure();
+    try{
+     OpenSecure();
+
+
+   }catch(err){
+       console.log(err);
+ 
+ console.log('security certificates not found! initiating letsencrypt..',err);
+
+	   
+	installCerts();   
+   }                
         } catch (err) {
              console.log(err);
             updateApps();
