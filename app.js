@@ -12,6 +12,8 @@ var compress = require('compression');
 
 var nCmd = require('node-cmd');
 
+https = require('https');
+
 
 var request = require("request");
              imgDownloader = require('image-downloader');
