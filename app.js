@@ -130,8 +130,9 @@ console.log('updating bits..');
 bitsUpdated=true;
             if(bitsUpdated && sokoUpdated){
          
-OpenInsecure();
-   
+//OpenInsecure();
+  
+OpenSecure(); 
             }
 
         } else {
@@ -151,7 +152,8 @@ console.log('updating soko..');
     sokoUpdated=true;
             if(bitsUpdated && sokoUpdated){
          
-OpenInsecure();
+//OpenInsecure();
+OpenSecure();
    
             }
 
