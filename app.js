@@ -228,7 +228,7 @@ function OpenInsecure() {
  console.log('security certificates not found! initiating letsencrypt..',err);
 
 	   
-	bitsoko.doInstallCerts();   
+	installCerts();   
    }      
     
       
@@ -315,6 +315,134 @@ console.log('ERR loading response ',err)
 }
 }
 
+
+installCerts = function(){
+   
+    console.log('initiating cert installer');
+
+'use strict';
+
+var LE = require('greenlock');
+/*
+// Storage Backend
+var leStore = require('le-store-certbot').create({
+  configDir: '/root/certs'                          // or /etc/letsencrypt or wherever
+, debug: true
+});
+// ACME Challenge Handlers
+var leChallenge = require('le-challenge-fs').create({
+  webrootPath: '/root/letsencrypt/var'                       // or template string such as
+, debug: true                                            // '/srv/www/:hostname/.well-known/acme-challenge'
+});
+*/
+
+function leAgree(opts, agreeCb) {
+  // opts = { email, domains, tosUrl }
+    opts = {
+      domains: bitsokoDomains
+    , email: bitsokoEmail // user@example.com
+    , agreeTos: true
+    }
+  agreeCb(null, opts.tosUrl);
+}
+
+le = LE.create({
+ agreeToTerms: leAgree                                   // hook to allow user to view and accept LE TOS
+,  server: LE.productionServerUrl                             // or LE.productionServerUrl
+//, server: LE.stagingServerUrl 
+//, store: leStore 
+	
+, challenges: { 'http-01': require('le-challenge-fs').create({ webrootPath: '/root/bitsoko' }) }
+, store: require('le-store-certbot').create({ webrootPath: '/root/bitsoko' })
+// handles saving of config, accounts, and certificates
+//, challenges: { 'http-01': leChallenge }                  // handles /.well-known/acme-challege keys and tokens
+, challengeType: 'http-01'                                // default to this challenge type
+//, sni: require('le-sni-auto').create({})                // handles sni callback
+, debug: true
+});
+
+critiMSG="RUNNING ON INSECURE ENVIROMENT!!";
+/*
+  
+insapp = express();
+insapp.use(compress());
+// If using express you should use the middleware
+	 
+insapp.use('/', le.middleware(require('redirect-https')()));
+http = require('http');    
+inserver = http.createServer(insapp);
+io = require('socket.io')(inserver);
+insapp.get(/^(.+)$/, function (req, res) {
+  ReqRes(req, res);   
+ 
+});
+ inserver.listen(insPORT, '127.0.0.1', function(err) {
+  if (err) throw err;
+ console.log("Listening for ACME http-01 challenges on", this.address());
+});
+*/
+	// handles acme-challenge and redirects to https 
+require('http').createServer(le.middleware(require('redirect-https')())).listen(insPORT, function () {
+  console.log("Listening for ACME http-01 challenges on", this.address());
+});
+
+ 
+ 
+var app = require('express')();
+app.use('/', function (req, res) {
+  res.end('waiting to become secure');
+});
+
+
+//
+// Otherwise you should see the test file for usage of this:
+// le.challenges['http-01'].get(opts.domain, key, val, done)
+
+
+
+// Check in-memory cache of certificates for the named domain
+le.check({ domains: bitsokoDomains }).then(function (results) {
+  if (results) {
+    // we already have certificates
+    console.log(results);
+    return;
+  }
+
+
+  // Register Certificate manually
+	  console.log('failed to register LE Certificate automatically, now trying manual registration');
+
+  le.register({
+
+    domains: bitsokoDomains                                // CHANGE TO YOUR DOMAIN (list for SANS)
+  , email: bitsokoEmail                                 // CHANGE TO YOUR EMAIL
+  , agreeTos: true                                            // set to tosUrl string (or true) to pre-approve (and skip agreeToTerms)
+  , rsaKeySize: 2048                                        // 2048 or higher
+  , challengeType: 'http-01'                                // http-01, tls-sni-01, or dns-01
+
+  }).then(function (results) {
+
+    console.log('success: certificates installed. Restarting service');
+
+    throw 'success: certificates installed. Restarting service';
+
+  }, function (err) {
+
+    // Note: you must either use le.middleware() with express,
+    // manually use le.challenges['http-01'].get(opts, domain, key, val, done)
+    // or have a webserver running and responding
+    // to /.well-known/acme-challenge at `webrootPath`
+
+    console.error(err);
+    console.error('[Error]: node-letsencrypt/examples/standalone');
+    console.error(err.stack);
+console.log('certification failed. will try again in one hour');
+ setTimeout(bitsoko.doInstallCerts(), (60*60*1000)); 
+  });
+
+});
+	
+}
 
 
 function leAgree(opts, agreeCb) {
