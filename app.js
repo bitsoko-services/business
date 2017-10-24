@@ -5,8 +5,8 @@ var app = express();
 var jade = require('pug');
 var LE = require('greenlock');
 var insPORT = 8081;
-var bitsokoDomains = ['manguo.co.ke'];
-var bitsokoEmail = 'info@manguo.co.ke';
+var allDomains;
+var bitsokoEmail = 'bitsokokenya@gmail.com';
 
 var compress = require('compression');
 
@@ -15,11 +15,6 @@ var nCmd = require('node-cmd');
 
 var request = require("request");
              imgDownloader = require('image-downloader');
-
-
-
-
-
 
 
 var prepDirC =
@@ -40,8 +35,11 @@ var prepDirC =
 request("https://bitsoko.co.ke/getEnterprise/?uid=245", function(error, response, body) {
     if(!error){
      allServices=JSON.parse(body).services;
-     //console.log(JSON.parse(body).settings);
+     allSettings=JSON.parse(body).settings;
+     console.log(JSON.parse(body).enterpriseInfo);
+      allDomains=allSettings.enterpriseinfo.domains;
         
+      
         for(var ii in allServices){
       allServices[ii].banner=allServices[ii].bannerPath;
       allServices[ii].desc=allServices[ii].description
@@ -219,6 +217,21 @@ function OpenInsecure() {
     inserver.listen(insPORT, '0.0.0.0', function (err) {
         if (err) throw err;
         console.log('insec port online at http://localhost:' + insPORT);
+      
+   try{
+     OpenSecure();
+
+
+   }catch(err){
+       console.log(err);
+ 
+ console.log('security certificates not found! initiating letsencrypt..',err);
+
+	   
+	bitsoko.doInstallCerts();   
+   }      
+    
+      
     });
 
 }
@@ -392,3 +405,51 @@ function createCert() {
 
 
 }
+
+
+function OpenSecure(){
+  
+   servCerts = {
+    key: fs.readFileSync('/root/letsencrypt/etc/live/'+allDomains[0]+'/privkey.pem'),
+    cert: fs.readFileSync('/root/letsencrypt/etc/live/'+allDomains[0]+'/fullchain.pem'),
+    ca: [fs.readFileSync('/root/letsencrypt/etc/live/'+allDomains[0]+'/chain.pem')] // <----- note this part
+};   
+  
+app.use(compress());  
+server = https.createServer(servCerts, app);
+    
+io = require('socket.io')(server);
+
+server.setTimeout(0, socketTimeout);
+ try{
+  	
+var redis = require('socket.io-redis');
+io.adapter(redis({ host: 'localhost', port: marketWatcherBotPORT }));
+
+
+   }catch(err){
+	   
+console.log('ERR! is redis-server running?');	   
+   }
+	
+app.get(/^(.+)$/, function (req, res) {
+    
+    ReqRes(req, res);
+ 
+    
+});
+
+
+server.listen(PORT, function(err) {
+  
+  if (err) throw err;
+console.log('Secure now online at https://localhost:' + PORT);
+	
+
+//OpenSecureRedirect();
+	
+});
+
+
+}
+
