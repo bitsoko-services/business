@@ -207,7 +207,7 @@ function OpenInsecure() {
 
 
     // If using express you should use the middleware
-   // insapp.use('/', le.middleware());
+    insapp.use('/', le.middleware());
     http = require('http');
     inserver = http.createServer(insapp);
 
