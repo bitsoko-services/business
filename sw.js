@@ -1,4 +1,4 @@
-importScripts('/bitsAssets/js/storeManager.js');
+importScripts('https://bitsoko.co.ke/bitsAssets/js/storeManager.js');
 importScripts('/bits/server.js');
 importScripts('/soko/server.js');
 try{
@@ -7,7 +7,7 @@ importScripts('/bits/js/bitsCore.js');
 console.log(err);
 }
 
-importScripts('/bitsAssets/js/moment.js');
+importScripts('https://bitsoko.co.ke/bitsAssets/js/moment.js');
 
 // Give the service worker access to Firebase Messaging.
 // Note that you can only use Firebase Messaging here, other Firebase libraries
@@ -41,6 +41,25 @@ messaging.setBackgroundMessageHandler(function(payload) {
 var externalDeps = [
 
 	'https://apis.google.com/js/client:platform.js?onload=startGoogle',
+	'https://bitsoko.co.ke/bitsAssets/js/storeManager.js',
+	'https://bitsoko.co.ke/bitsAssets/js/hooked-web3-provider/build/hooked-web3-provider.js',
+	'https://bitsoko.co.ke/bitsAssets/js/web3/web3.js',
+	'https://bitsoko.co.ke/bitsAssets/js/lightwallet/lightwallet.min.js',
+	'https://bitsoko.co.ke/bitsAssets/js/async/lib/async.js',
+	'https://bitsoko.co.ke/bitsAssets/js/jquery-2.1.1.min.js',
+	'https://bitsoko.co.ke/bitsAssets/html/connect.html',
+	'https://bitsoko.co.ke/bitsAssets/js/broadcastChannel.js',
+	'https://bitsoko.co.ke/bitsAssets/js/qrcodesvg.js',
+	'https://bitsoko.co.ke/bitsAssets/js/globalVariables.js',
+	'https://bitsoko.co.ke/bitsAssets/js/bits-addMobiVeri.js',
+	'https://bitsoko.co.ke/bitsAssets/js/pushManager/google-fcm.js',
+	'https://bitsoko.co.ke/bitsAssets/js/jspdf/jspdf.js',
+	'https://bitsoko.co.ke/bitsAssets/js/jspdf/jspdf.min.js',
+	'https://bitsoko.co.ke/bitsAssets/js/moment.js',
+	'https://bitsoko.co.ke/bitsAssets/js/raphQR.js',
+	'https://bitsoko.co.ke/bitsAssets/js/locationManager.js',
+	'https://bitsoko.co.ke/bitsAssets/js/jspdf/jspdf.plugin.autotable.js',
+	'https://bitsoko.co.ke/bitsAssets/js/globalServices.js',
 	'https://www.gstatic.com/firebasejs/3.6.7/firebase.js'
 ]
 
@@ -54,22 +73,16 @@ var appFiles = [
 	'/bits/css/materialize.css',
 	'/bits/css/materialize-css.css',
 	'/bits/css/style.css',
-	'/bitsAssets/js/storeManager.js',
 	'/bits/images/merchantsBanner.png',
 	'/bits/images/merchants.png',
 	'/bits/js/update_services.js',
-	'/bitsAssets/js/hooked-web3-provider/build/hooked-web3-provider.js',
 	'/bits/js/plugins/jquery-1.11.2.min.js',
 	'/bits/js/functions.js',
 	'/bitsAssets/js/browserDetect.js',
 	'/bits/js/materialize-css.js',
 	'/bits/js/delRate.js',
-	'/bitsAssets/js/web3/web3.js',
 	'/socket.io/socket.io.js',
-	'/bitsAssets/js/lightwallet/lightwallet.min.js',
-	'/bitsAssets/js/async/lib/async.js',
 	'/bits/js/products-promo-match.js',
-	'/bitsAssets/js/jquery-2.1.1.min.js',
 	'/soko/js/plugins/perfect-scrollbar/perfect-scrollbar.min.js',
 	'/soko/css/materialize.css',
 	'/soko/css/style.css',
@@ -77,39 +90,16 @@ var appFiles = [
 	'/soko/js/plugins/prism/prism.css',
 	'/soko/js/plugins/perfect-scrollbar/perfect-scrollbar.css',
 	'/soko/js/plugins/chartist-js/chartist.min.css',
-	'/bitsAssets/html/connect.html',
-	'/bitsAssets/js/broadcastChannel.js',
-	'/bitsAssets/js/qrcodesvg.js',
-	'/bitsAssets/js/globalVariables.js',
 	'/soko/css/materialize.css',
 	'/soko/css/materialize-css.css',
 	'/soko/js/custom-script.js',
 	'/soko/js/bitsoko.js',
 	'/soko/js/materialize.js',
-	'/bitsAssets/js/bits-addMobiVeri.js',
-	'/bitsAssets/js/pushManager/google-fcm.js',
-	'/bitsAssets/js/jspdf/jspdf.js',
-	'/bitsAssets/js/jspdf/jspdf.min.js',
 	'/soko/js/rewards.js',
 	'/soko/js/promo.js',
 	'/soko/js/sales.js',
 	'/soko/images/icon.png',
 	'/soko/js/products.js',
-	'/bitsAssets/js/moment.js',
-	'/bitsAssets/js/raphQR.js',
-	'/bitsAssets/js/locationManager.js',
-	'/bitsAssets/js/jspdf/jspdf.plugin.autotable.js',
-	'/home/css/gallery-materialize.min.css',
-	'/home/css/app.css',
-	'/home/js/masonry.pkgd.min.js',
-	'/home/js/imagesloaded.pkgd.min.js',
-	'/bitsAssets/js/globalServices.js',
-	'/home/js/color-thief.min.js',
-	'/home/js/galleryExpand.js',
-	'/home/images/Slide.jpg',
-	'/home/js/homeActions.js',
-	'/home/js/init.js',
-	'/home/soko.html',
 	'/soko/'
 
 ];
