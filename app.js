@@ -42,7 +42,7 @@ request("https://bitsoko.co.ke/getEnterprise/?uid=245", function(error, response
      allInfo=JSON.parse(body).enterpriseInfo;
      console.log(JSON.parse(body).enterpriseInfo);
 	    
-      allDomains=JSON.parse(JSON.parse(body).enterpriseInfo.domains);
+      allDomains=allInfo.domains;
         
       
         for(var ii in allServices){
