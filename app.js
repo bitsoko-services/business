@@ -121,7 +121,7 @@ var bitsC =
     `
             rm -rf business/bits
             cd business
-            git clone https://github.com/bitsoko-services/bits.git bits
+            git clone -b StableVersion1 https://github.com/bitsoko-services/bits.git bits
         `;
 
 var sokoC =
