@@ -276,6 +276,7 @@ try{
         fs.readFile(__dirname + '/bits/amp.pug', function (error, source) {
 
             //console.log(rr.stores);  
+		var allProms=false;
             var data = {
                 name: 'test',
   		cover: allInfo.cover,
@@ -283,7 +284,7 @@ try{
                 desc: 'desc',
                 img: '/img.png',
                 stores: allServices,
-                promos: [],
+                promos: allProms,
                 cid: '000'
             }
             data.body = process.argv[2];
