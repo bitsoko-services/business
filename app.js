@@ -40,7 +40,6 @@ request("https://bitsoko.co.ke/getEnterprise/?uid=245", function(error, response
      allServices=JSON.parse(body).services;
      allSettings=JSON.parse(body).settings;
      allInfo=JSON.parse(body).enterpriseInfo;
-     console.log(JSON.parse(body).enterpriseInfo);
 	    
       allDomains=allInfo.domains;
         
@@ -294,11 +293,11 @@ console.log('serving homepage')
             //console.log(rr.stores);  
 		var allProms=false;
             var data = {
-                name: 'test',
+                name: allInfo.name,
   		cover: allInfo.cover,
   		tagline: allInfo.tagline,
                 desc: 'desc',
-                img: '/img.png',
+                img: allInfo.icon,
                 stores: allServices,
                 promos: allProms,
                 cid: '000'
