@@ -287,7 +287,7 @@ try{
     console.log(req.params[0]);
     if (req.params[0] == '/index.html' || req.params[0] == '/') {
 
-
+console.log('serving homepage')
 
         fs.readFile(__dirname + '/bits/amp.pug', function (error, source) {
 
@@ -335,6 +335,8 @@ try{
             });
             return res.end();
             */
+		console.log('redirecting to homepage')
+
             
         fs.readFile(__dirname + '/bits/amp.pug', function (error, source) {
 
