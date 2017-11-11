@@ -66,6 +66,22 @@ imgDownloader.image(options)
     console.log(err)
   })
  
+
+ // Download smaller image
+
+var options = {
+  url: 'https://bitsoko.co.ke'+allServices[ii].banner.replace(".png","-128.png"),
+  dest: 'business/bitsAssets/tmp/services/' ,
+  //dest: '/' 
+}
+ 
+imgDownloader.image(options)
+  .then(function( filename, image ){
+    console.log('File saved to', filename)
+  }).catch(function(err){
+    console.log(err)
+  })
+ 
         }
     console.log(allServices);
       
