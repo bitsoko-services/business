@@ -345,7 +345,7 @@ console.log('serving homepage')
                 desc: 'desc',
                 img: '/img.png',
                 stores: [],
-                promos: [[id: 257, discount: null, promoName: "Test", promoBanner: "/bitsAssets/tmp/promotions/55JLVp34WnKXO86Cu8t8yZcDiLQ8y7U2NLKRaeJg0DhDOZUZfnAnE67DPuMN.png", promoOwner: 12], [id: 257, discount: null, promoName: "Test", promoBanner: "/bitsAssets/tmp/promotions/55JLVp34WnKXO86Cu8t8yZcDiLQ8y7U2NLKRaeJg0DhDOZUZfnAnE67DPuMN.png", promoOwner: 12]], managers: [[id: 80, name: "Allan Juma", icon: "https://lh4.googleusercontent.com/-ut5M1KdkFOU/AAAAAAAAAAI/AAAAAAAAAGM/BkNl4_WfakY/s96-c/photo.jpg"],[id: 81, name: "DUNCAN NJIBU", icon: "https://lh6.googleusercontent.com/-Oh3heqsfXXU/AAA…FiYof3UWgWzyPb54M4hugc5zNzJSUjltg/s96-c/photo.jpg"],[id: 83, name: "Frank Deya", icon: "https://lh6.googleusercontent.com/-IWmxz6kLV5k/AAAAAAAAAAI/AAAAAAAABJ0/2ByDqMDEUHA/s96-c/photo.jpg"]],
+                promos: [],
                 cid: '000'
             }
             data.body = process.argv[2];
