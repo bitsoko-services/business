@@ -8,6 +8,7 @@ var insPORT = 8081;
 var PORT = 8080;
 var allDomains;
 var bitsokoEmail = 'bitsokokenya@gmail.com';
+var mainDomain = 'https://bitsoko.co.ke'
 
 var compress = require('compression');
 
@@ -35,10 +36,11 @@ var prepDirC =
         if (!err) {
             console.log('created directories');
  
-request("https://bitsoko.co.ke/getEnterprise/?uid=245", function(error, response, body) {
+request(mainDomain+"/getEnterprise/?uid=245", function(error, response, body) {
     if(!error){
      allServices=JSON.parse(body).services;
      allSettings=JSON.parse(body).settings;
+     allPromos=JSON.parse(body).promos;
      allInfo=JSON.parse(body).enterpriseInfo;
 	    
       allDomains=allInfo.domains;
@@ -53,7 +55,7 @@ request("https://bitsoko.co.ke/getEnterprise/?uid=245", function(error, response
  // Download to a directory and save with the original filename
 
 var options = {
-  url: 'https://bitsoko.co.ke'+allServices[ii].banner,
+  url: mainDomain+allServices[ii].banner,
   dest: 'business/bitsAssets/tmp/services/' ,
   //dest: '/' 
 }
@@ -69,7 +71,7 @@ imgDownloader.image(options)
  // Download smaller image
 
 var options = {
-  url: 'https://bitsoko.co.ke'+allServices[ii].banner.replace(".png","-128.png"),
+  url: mainDomain+allServices[ii].banner.replace(".png","-128.png"),
   dest: 'business/bitsAssets/tmp/services/' ,
   //dest: '/' 
 }
@@ -290,8 +292,7 @@ console.log('serving homepage')
 
         fs.readFile(__dirname + '/bits/amp.pug', function (error, source) {
 
-            //console.log(rr.stores);  
-		var allProms=false;
+            //console.log(rr.stores);
             var data = {
                 name: allInfo.name,
   		cover: allInfo.cover,
@@ -299,7 +300,7 @@ console.log('serving homepage')
                 desc: 'desc',
                 img: allInfo.icon,
                 stores: allServices,
-                promos: allProms,
+                promos: allPromos,
                 cid: '000'
             }
             data.body = process.argv[2];
