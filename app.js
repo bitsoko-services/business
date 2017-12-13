@@ -52,7 +52,8 @@ request(mainDomain+"/getEnterprise/?uid=245", function(error, response, body) {
       allServices[ii].banner=allServices[ii].bannerPath;
       allServices[ii].desc=allServices[ii].description
       allServices[ii].title=allServices[ii].name; 
-            
+          
+            console.log(allServices[ii].promotions);  
         var aMans = allServices[ii].managers
         for(var iii in aMans){
             
