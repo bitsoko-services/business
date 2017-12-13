@@ -63,9 +63,12 @@ request(mainDomain+"/getEnterprise/?uid=245", function(error, response, body) {
             
         }
             
-          
+          if(typeof allServices[ii].promotions=='object'){
+              
+              
       allPromos.concat(allServices[ii].promotions); 
       
+          }
              
 
 
