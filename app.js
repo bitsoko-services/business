@@ -72,18 +72,18 @@ request(mainDomain+"/getEnterprise/?uid=245", function(error, response, body) {
         }
              
           try{
-              consol.log('b',allPromos)
+              console.log('b',allPromos)
               var aPs=allServices[ii].promotions;
                for(var iiii in aPs){
                    
       allPromos.push(aPs[iiii]); 
                }
               
-              consol.log('a',allPromos)
+              console.log('a',allPromos)
               
       allPromoss.push(allServices[ii].promotions); 
               
-              consol.log('aa',allPromoss)
+              console.log('aa',allPromoss)
           }   catch(err){
               
               console.log(err)
