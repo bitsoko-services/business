@@ -41,6 +41,7 @@ request(mainDomain+"/getEnterprise/?uid=245", function(error, response, body) {
      allServices=JSON.parse(body).services;
      allSettings=JSON.parse(body).settings;
      allPromos=JSON.parse(body).promos;
+        console.log(allPromos)
      allInfo=JSON.parse(body).enterpriseInfo;
         allManagers=[];
 	    
