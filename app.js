@@ -341,8 +341,8 @@ console.log('serving homepage')
             
         fs.readFile(__dirname + '/bits/amp.pug', function (error, source) {
 
-            console.log(rr.promos,"Promotions");  
-            console.log(rr.stores, "Stores");  
+//            console.log(rr.promos,"Promotions");  
+//            console.log(rr.stores, "Stores");  
             var data = {
                 name: 'test',
                 desc: 'desc',
