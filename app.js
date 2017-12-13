@@ -50,6 +50,7 @@ request(mainDomain+"/getEnterprise/?uid=245", function(error, response, body) {
       allServices[ii].banner=allServices[ii].bannerPath;
       allServices[ii].desc=allServices[ii].description
       allServices[ii].title=allServices[ii].name;  
+      allServices[ii].title=allServices[ii].managers;  
 
 
  // Download to a directory and save with the original filename
@@ -340,7 +341,8 @@ console.log('serving homepage')
             
         fs.readFile(__dirname + '/bits/amp.pug', function (error, source) {
 
-            //console.log(rr.stores);  
+            console.log(rr.promos,"Promotions");  
+            console.log(rr.stores, "Stores");  
             var data = {
                 name: 'test',
                 desc: 'desc',
