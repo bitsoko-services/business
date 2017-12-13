@@ -40,13 +40,13 @@ request(mainDomain+"/getEnterprise/?uid=245", function(error, response, body) {
     if(!error){
      allServices=JSON.parse(body).services;
      allSettings=JSON.parse(body).settings;
-     allPromos=JSON.parse(body).promos;
-        console.log(allPromos)
+     
      allInfo=JSON.parse(body).enterpriseInfo;
         allManagers=[];
 	    
       allDomains=allInfo.domains;
-        
+      
+        allPromos = [];  
       
         for(var ii in allServices){
       allServices[ii].banner=allServices[ii].bannerPath;
@@ -62,6 +62,9 @@ request(mainDomain+"/getEnterprise/?uid=245", function(error, response, body) {
             
         }
             
+          
+      allPromos.concat(allServices[ii].promotions); 
+      
              
 
 
