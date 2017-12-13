@@ -42,6 +42,7 @@ request(mainDomain+"/getEnterprise/?uid=245", function(error, response, body) {
      allSettings=JSON.parse(body).settings;
      allPromos=JSON.parse(body).promos;
      allInfo=JSON.parse(body).enterpriseInfo;
+        allManagers=[];
 	    
       allDomains=allInfo.domains;
         
@@ -49,8 +50,18 @@ request(mainDomain+"/getEnterprise/?uid=245", function(error, response, body) {
         for(var ii in allServices){
       allServices[ii].banner=allServices[ii].bannerPath;
       allServices[ii].desc=allServices[ii].description
-      allServices[ii].title=allServices[ii].name;  
-      allServices[ii].title=allServices[ii].managers;  
+      allServices[ii].title=allServices[ii].name; 
+            
+        var aMans = allServices[ii].managers
+        for(var iii in aMans){
+            
+            aMans[iii].sID=allServices[ii].id;
+         
+      allManagers.push(aMans[iii]); 
+            
+        }
+            
+             
 
 
  // Download to a directory and save with the original filename
@@ -293,7 +304,7 @@ console.log('serving homepage')
 
         fs.readFile(__dirname + '/bits/amp.pug', function (error, source) {
 
-            //console.log(rr.stores);
+           console.log(rr.allPromos);
             var data = {
                 name: allInfo.name,
   		cover: allInfo.cover,
@@ -302,6 +313,7 @@ console.log('serving homepage')
                 img: allInfo.icon,
                 stores: allServices,
                 promos: allPromos,
+                managers:allManagers,
                 cid: '000'
             }
             data.body = process.argv[2];
@@ -329,35 +341,15 @@ console.log('serving homepage')
             res.sendFile(__dirname + req.params[0]);
 
         } catch (err) {
-            // console.log(err);
-            /*
-            res.writeHead(301, {
+            
+             console.log(err);
+             res.writeHead(301, {
                 location: "/bits/index.html"
             });
             return res.end();
-            */
-		console.log('redirecting to homepage')
-
             
-        fs.readFile(__dirname + '/bits/amp.pug', function (error, source) {
+            
 
-//            console.log(rr.promos,"Promotions");  
-//            console.log(rr.stores, "Stores");  
-            var data = {
-                name: 'test',
-                desc: 'desc',
-                img: '/img.png',
-                stores: [],
-                promos: [],
-                cid: '000'
-            }
-            data.body = process.argv[2];
-            //jade.render
-            var template = jade.compile(source);
-            var html = template(data);
-            //res.writeHead(200);
-            return res.end(html);
-        });
         }
 
     }
