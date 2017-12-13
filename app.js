@@ -32,6 +32,15 @@ var prepDirC =
             mkdir services
         `;
 
+
+//variables
+allManagers=[];
+	    
+        allPromos = [];
+
+
+
+
     nCmd.get(prepDirC, function (data, err, stderr) {
         if (!err) {
             console.log('created directories');
@@ -42,11 +51,9 @@ request(mainDomain+"/getEnterprise/?uid=245", function(error, response, body) {
      allSettings=JSON.parse(body).settings;
      
      allInfo=JSON.parse(body).enterpriseInfo;
-        allManagers=[];
-	    
+        
       allDomains=allInfo.domains;
-      
-        allPromos = [];  
+        
       
         for(var ii in allServices){
       allServices[ii].banner=allServices[ii].bannerPath;
@@ -62,14 +69,14 @@ request(mainDomain+"/getEnterprise/?uid=245", function(error, response, body) {
       allManagers.push(aMans[iii]); 
             
         }
-            
-          if(typeof allServices[ii].promotions=='object'){
-              
-              
-      allPromos.concat(allServices[ii].promotions); 
-      
-          }
              
+          try{
+      allPromos.concat(JSON.parse(allServices[ii].promotions)); 
+              
+          }   catch(err){
+              
+              console.log(err)
+          } 
 
 
  // Download to a directory and save with the original filename
