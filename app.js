@@ -455,7 +455,7 @@ function matchShops(){
     //matching shops to their managers
     var deduped = allManagers.filter( (el, i, arr) => arr.indexOf(el) === i);
 
-console.log(deduped); // [ 1, 'a' ]				
+console.log(deduped ,"******** match! *******" ); // [ 1, 'a' ]				
 			
 //    for (var iv in allManagers) {
 //        console.log("looping managers",allManagers[iv].sID,allManagers[iv].uid,allManagers[iv].name)
