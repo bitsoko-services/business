@@ -214,6 +214,7 @@ ReqRes = function ReqRes(req, res) {
 			fs.readFile(__dirname + '/bits/amp.pug', function(error, source) {
 				console.log(allPromos);
 				console.log(allManagers);
+                matchShops();
 				var data = {
 					name: allInfo.name,
 					cover: allInfo.cover,
