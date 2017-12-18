@@ -456,11 +456,11 @@ function matchShops(){
     				
 			
     for (var iv in allManagers) {
-        console.log("looping managers",allManagers[iv].sid)
+        console.log("looping managers",allManagers[iv].sID)
         
         for (var iiiv in allServices)  {
-             console.log("looping services ",allServices[iiiv].id,allManagers[iv].sid )
-             if (allManagers[iv].sid == allServices[iiiv].id) {
+             console.log("looping services ",allServices[iiiv].id,allManagers[iv].sID )
+             if (allManagers[iv].sID == allServices[iiiv].id) {
                     console.log("******** match! *******");
         }
             
