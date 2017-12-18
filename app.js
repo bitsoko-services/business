@@ -453,13 +453,19 @@ function socketTimeout() {
 };
 function matchShops(){
     //matching shops to their managers
-    				console.log(allServices,"shops zote");
-				console.log(allManagers,"managers wote");
+    				
+			
+    for (var iv in allManagers) {
+        for (var iiiv in allServices)  {
+             if (allManagers[iv].sid == allServices[iiiv].id) {
+                    console.log("******** match! *******");
+        }
+            
+        }
+    }
 //    for (var i = 0; i < courseHwork.length; i++) {
 //    for (var j = 0; j < daysArray.length; j++) {
-//        if (courseHwork[i] == daysArray[j]) {
-//          $('div:contains("'+daysArray[j]+'")').append("<div class='assignment'>"+courseHwork[i]+" - appended</div>");
-//        }
+//       
 //    }
 //}
 }
