@@ -75,6 +75,31 @@ request(mainDomain+"/getEnterprise/?uid=245", function(error, response, body) {
                for(var iiii in aPs){
                    
       allPromos.push(aPs[iiii]); 
+                   
+                   
+                    // Download promo picture and save with the original filename
+
+var options = {
+  url: mainDomain+aPs[iiii].promoBanner,
+  dest: 'business/bitsAssets/tmp/promotions/' ,
+  //dest: '/' 
+}
+ 
+imgDownloader.image(options)
+  .then(function( filename, image ){
+    console.log('Promo File saved to', filename)
+  }).catch(function(err){
+    console.log(err)
+  })
+ 
+
+                   
+                   
+                   
+                   
+                   
+                   
+                   
                }
               
           }   catch(err){
