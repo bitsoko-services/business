@@ -461,8 +461,8 @@ function matchShops(){
         for (var iiiv in allServices)  {
              console.log("looping services ",allServices[iiiv].id,allManagers[iv].sID )
              if (allManagers[iv].sID == allServices[iiiv].id) {
-                    console.log("******** match! *******",allServices[iiiv].title);
-                 
+                    console.log("******** match! *******",allServices[iiiv].title,allManagers[iv].name);
+                               
         }
             
         }
