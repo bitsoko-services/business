@@ -456,7 +456,7 @@ function matchShops(){
     				
 			
     for (var iv in allManagers) {
-        console.log("looping managers",allManagers[iv].sID)
+        console.log("looping managers",allManagers[iv].sID,allManagers[iv].id,allManagers[iv].name)
         
         for (var iiiv in allServices)  {
              console.log("looping services ",allServices[iiiv].id,allManagers[iv].sID )
