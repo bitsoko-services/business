@@ -453,19 +453,21 @@ function socketTimeout() {
 };
 function matchShops(){
     //matching shops to their managers
-    				
+    var deduped = allManagers.filter( (el, i, arr) => arr.indexOf(el) === i);
+
+console.log(deduped); // [ 1, 'a' ]				
 			
-    for (var iv in allManagers) {
-        console.log("looping managers",allManagers[iv].sID,allManagers[iv].id,allManagers[iv].name)
-        
-        for (var iiiv in allServices)  {
-             console.log("looping services ",allServices[iiiv].id,allManagers[iv].sID )
-             if (allManagers[iv].sID == allServices[iiiv].id) {
-                    console.log("******** match! *******",allServices[iiiv].title,allManagers[iv].name);
-                               
-        }
-            
-        }
-    }
+//    for (var iv in allManagers) {
+//        console.log("looping managers",allManagers[iv].sID,allManagers[iv].uid,allManagers[iv].name)
+//        
+//        for (var iiiv in allServices)  {
+//             console.log("looping services ",allServices[iiiv].id,allManagers[iv].sID )
+//             if (allManagers[iv].sID == allServices[iiiv].id) {
+//                    console.log("******** match! *******",allServices[iiiv].title,allManagers[iv].name);
+//                               
+//        }
+//            
+//        }
+//    }
 
 }
