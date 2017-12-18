@@ -39,7 +39,7 @@ nCmd.get(prepDirC, function(data, err, stderr) {
 					allServices[ii].banner = allServices[ii].bannerPath;
 					allServices[ii].desc = allServices[ii].description
 					allServices[ii].title = allServices[ii].name;
-					console.log(allServices[ii].promotions);
+					console.log(allServices[ii].id);
 					var aMans =allServices[ii].managers
                     console.log(aMans)
 					for (var iii in aMans) {
@@ -456,7 +456,10 @@ function matchShops(){
     				
 			
     for (var iv in allManagers) {
+        console.log("looping managers",allManagers[iv].sid)
+        
         for (var iiiv in allServices)  {
+             console.log("looping services ",allServices[iiiv].id,allManagers[iv].sid )
              if (allManagers[iv].sid == allServices[iiiv].id) {
                     console.log("******** match! *******");
         }
