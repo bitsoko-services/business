@@ -30,6 +30,7 @@ var prepDirC =
             cd tmp
             mkdir products
             mkdir services
+            mkdir promotions
         `;
 
 
