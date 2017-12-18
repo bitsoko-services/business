@@ -461,14 +461,11 @@ function matchShops(){
         for (var iiiv in allServices)  {
              console.log("looping services ",allServices[iiiv].id,allManagers[iv].sID )
              if (allManagers[iv].sID == allServices[iiiv].id) {
-                    console.log("******** match! *******");
+                    console.log("******** match! *******",allServices[iiiv].title);
+                 
         }
             
         }
     }
-//    for (var i = 0; i < courseHwork.length; i++) {
-//    for (var j = 0; j < daysArray.length; j++) {
-//       
-//    }
-//}
+
 }
