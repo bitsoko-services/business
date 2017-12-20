@@ -453,21 +453,21 @@ function socketTimeout() {
 };
 function matchShops(){
     //matching shops to their managers
-    var deduped = allManagers.filter( (el, i, arr) => arr.indexOf(el) === i);
-
-console.log(deduped ,"******** match! *******" ); // [ 1, 'a' ]				
-			
-//    for (var iv in allManagers) {
-//        console.log("looping managers",allManagers[iv].sID,allManagers[iv].uid,allManagers[iv].name)
-//        
-//        for (var iiiv in allServices)  {
-//             console.log("looping services ",allServices[iiiv].id,allManagers[iv].sID )
-//             if (allManagers[iv].sID == allServices[iiiv].id) {
-//                    console.log("******** match! *******",allServices[iiiv].title,allManagers[iv].name);
-//                               
-//        }
-//            
-//        }
-//    }
+    // create empty array for the reconstructed manager array.
+    newManager[];
+    //step one loop thu managers list and get m.name, shopID and userID	
+    var mn, shID, usID
+	for (var iv in allManagers) {
+        //console.log("looping managers",allManagers[iv].sID,allManagers[iv].uid,allManagers[iv].name)
+                for (var iiiv in allServices)  {
+             console.log("looping services ",allServices[iiiv].title,allManagers[iv].uid,allManagers[iv].name )
+             if (allManagers[iv].sID == allServices[iiiv].id) {
+                    //console.log("******** match! *******",allServices[iiiv].title,allManagers[iv].uid,allManagers[iv].name);
+                               
+        }
+            
+        }
+    
+    }
 
 }
