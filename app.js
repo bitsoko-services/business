@@ -473,6 +473,9 @@ function matchShops(){
   var existing = output.filter(function(v, i) {
     return v.name == value.name;
   });
- console.log('new man',allManagers)
-
+ console.log("nw m------------",allManagers)
 });
+    
+
+
+}
