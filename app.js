@@ -475,4 +475,4 @@ function matchShops(){
   });
  console.log('new man',allManagers)
 
-}
+});
