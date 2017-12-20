@@ -456,18 +456,23 @@ function matchShops(){
     // create empty array for the reconstructed manager array.
     newManager =  [];
     //step one loop thu managers list and get m.name, shopID and userID	
-    var mn, shID, usID
-	for (var iv in allManagers) {
-        //console.log("looping managers",allManagers[iv].sID,allManagers[iv].uid,allManagers[iv].name)
-                for (var iiiv in allServices)  {
-             console.log("looping services ",allServices[iiiv].title,allManagers[iv].uid,allManagers[iv].name )
-             if (allManagers[iv].sID == allServices[iiiv].id) {
-                    //console.log("******** match! *******",allServices[iiiv].title,allManagers[iv].uid,allManagers[iv].name);
-                               
-        }
-            
-        }
-    
-    }
+//    var mn, shID, usID
+//	for (var iv in allManagers) {
+//        //console.log("looping managers",allManagers[iv].sID,allManagers[iv].uid,allManagers[iv].name)
+//                for (var iiiv in allServices)  {
+//             console.log("looping services ",allServices[iiiv].title,allManagers[iv].uid,allManagers[iv].name )
+//             if (allManagers[iv].sID == allServices[iiiv].id) {
+//                    //console.log("******** match! *******",allServices[iiiv].title,allManagers[iv].uid,allManagers[iv].name);
+//                               
+//        }
+//            
+//        }
+//    
+//    }
+    allManagers.forEach(function(value) {
+  var existing = output.filter(function(v, i) {
+    return v.name == value.name;
+  });
+ console.log('new man',allManagers)
 
 }
