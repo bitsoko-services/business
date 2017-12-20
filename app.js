@@ -454,7 +454,7 @@ function socketTimeout() {
 function matchShops(){
     //matching shops to their managers
     // create empty array for the reconstructed manager array.
-    newManager[];
+    newManager =  [];
     //step one loop thu managers list and get m.name, shopID and userID	
     var mn, shID, usID
 	for (var iv in allManagers) {
