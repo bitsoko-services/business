@@ -7,7 +7,7 @@ var insPORT = 8081;
 var PORT = 8080;
 var allDomains;
 var bitsokoEmail = 'bitsokokenya@gmail.com';
-var mainDomain = 'https://bitsoko.co.ke'
+var mainDomain = 'https://bitsoko.io'
 var compress = require('compression');
 var nCmd = require('node-cmd');
 https = require('https');
