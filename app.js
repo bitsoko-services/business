@@ -469,13 +469,13 @@ function matchShops(){
 //        }
 //    
 //    }
-    allManagers.forEach(function(value) {
-  var existing = output.filter(function(v, i) {
-    return v.name == value.name;
-  });
- console.log("nw m------------",allManagers)
-});
-    
+//    allManagers.forEach(function(value) {
+//  var existing = output.filter(function(v, i) {
+//    return v.name == value.name;
+//  });
+// console.log("nw m------------",allManagers)
+//});
+//    
 
 
 }
