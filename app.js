@@ -469,6 +469,14 @@ managersShop.manager = new Array();
         }
          
         }
+        var obj = {};
+
+for ( var i=0, len=managersShop.manager.length; i < len; i++ )
+    obj[managersShop.manager[i]['uid']] = managersShop.manager[i];
+
+managersShop.manager = new Array();
+for ( var key in obj )
+    managersShop.manager.push(obj[key]);
     console.log(managersShop.manager,"******** new managers *******")
     }
 //    allManagers.forEach(function(value) {
