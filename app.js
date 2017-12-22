@@ -40,8 +40,8 @@ nCmd.get(prepDirC, function(data, err, stderr) {
 					allServices[ii].desc = allServices[ii].description
 					allServices[ii].title = allServices[ii].name;
 					console.log(allServices[ii].id);
-					var aMans =allServices[ii].managers
-                    console.log(aMans)
+					var aMans = allServices[ii].managers
+					console.log(aMans)
 					for (var iii in aMans) {
 						aMans[iii].sID = allServices[ii].id;
 						allManagers.push(aMans[iii]);
@@ -215,7 +215,7 @@ ReqRes = function ReqRes(req, res) {
 			fs.readFile(__dirname + '/bits/amp.pug', function(error, source) {
 				console.log(allPromos);
 				console.log(allManagers);
-                matchShops();
+				matchShops();
 				var data = {
 					name: allInfo.name,
 					cover: allInfo.cover,
@@ -451,41 +451,33 @@ function OpenSecure() {
 function socketTimeout() {
 	console.log('sockets timed out: not receiving connecions!!')
 };
-function matchShops(){
-    //matching shops to their managers
-    // create empty array for the reconstructed manager array.
-managersShop = new Object();
-managersShop.manager = new Array();
-    //step one loop thu managers list and get m.name, shopID and userID	
-  
+
+function matchShops() {
+	//matching shops to their managers
+	// create empty array for the reconstructed manager array.
+	managersShop = new Object();
+	managersShop.manager = new Array();
+	//step one loop thu managers list and get m.name, shopID and userID	
 	for (var iv in allManagers) {
-        //console.log("looping managers",allManagers[iv].sID,allManagers[iv].uid,allManagers[iv].name)
-       
-                for (var iiiv in allServices)  {
-            // console.log("looping services ",allServices[iiiv].title,allManagers[iv].uid,allManagers[iv].name )
-             if (allManagers[iv].sID == allServices[iiiv].id) {
-               console.log("******** managers *******",allServices[iiiv].title,allManagers[iv].uid,allManagers[iv].name);
-                 managersShop.manager.push(allServices[iiiv].title,allManagers[iv].uid,allManagers[iv].name);
-        }
-         
-        }
-        var obj = {};
-
-for ( var i=0, len=managersShop.manager.length; i < len; i++ )
-    obj[managersShop.manager[i]['uid']] = managersShop.manager[i];
-
-managersShop.manager = new Array();
-for ( var key in obj )
-    managersShop.manager.push(obj[key]);
-    console.log(managersShop.manager,"******** new managers *******")
-    }
-//    allManagers.forEach(function(value) {
-//  var existing = output.filter(function(v, i) {
-//    return v.name == value.name;
-//  });
-// console.log("nw m------------",allManagers)
-//});
-//    
-
-
+		//console.log("looping managers",allManagers[iv].sID,allManagers[iv].uid,allManagers[iv].name)
+		for (var iiiv in allServices) {
+			// console.log("looping services ",allServices[iiiv].title,allManagers[iv].uid,allManagers[iv].name )
+			if (allManagers[iv].sID == allServices[iiiv].id) {
+				//console.log("******** managers *******", allServices[iiiv].title, allManagers[iv].uid, allManagers[iv].name);
+				managersShop.manager.push(allServices[iiiv].title, allManagers[iv].uid, allManagers[iv].name);
+			}
+		}
+	}
+	var obj = {};
+	for (var i = 0, len = managersShop.manager.length; i < len; i++) obj[managersShop.manager[i]['name']] = managersShop.manager[i];
+	managersShop.manager = new Array();
+	for (var key in obj) managersShop.manager.push(obj[key]);
+	console.log(managersShop.manager, "******** new managers *******")
+	//    allManagers.forEach(function(value) {
+	//  var existing = output.filter(function(v, i) {
+	//    return v.name == value.name;
+	//  });
+	// console.log("nw m------------",allManagers)
+	//});
+	//    
 }
