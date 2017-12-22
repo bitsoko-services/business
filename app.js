@@ -454,21 +454,23 @@ function socketTimeout() {
 function matchShops(){
     //matching shops to their managers
     // create empty array for the reconstructed manager array.
-    newManager =  [];
+managersShop = new Object();
+managersShop.manager = new Array();
     //step one loop thu managers list and get m.name, shopID and userID	
-//    var mn, shID, usID
-//	for (var iv in allManagers) {
-//        //console.log("looping managers",allManagers[iv].sID,allManagers[iv].uid,allManagers[iv].name)
-//                for (var iiiv in allServices)  {
-//             console.log("looping services ",allServices[iiiv].title,allManagers[iv].uid,allManagers[iv].name )
-//             if (allManagers[iv].sID == allServices[iiiv].id) {
-//                    //console.log("******** match! *******",allServices[iiiv].title,allManagers[iv].uid,allManagers[iv].name);
-//                               
-//        }
-//            
-//        }
-//    
-//    }
+  
+	for (var iv in allManagers) {
+        //console.log("looping managers",allManagers[iv].sID,allManagers[iv].uid,allManagers[iv].name)
+       
+                for (var iiiv in allServices)  {
+            // console.log("looping services ",allServices[iiiv].title,allManagers[iv].uid,allManagers[iv].name )
+             if (allManagers[iv].sID == allServices[iiiv].id) {
+               console.log("******** managers *******",allServices[iiiv].title,allManagers[iv].uid,allManagers[iv].name);
+                 managersShop.manager.push(allServices[iiiv].title,allManagers[iv].uid,allManagers[iv].name);
+        }
+         
+        }
+    console.log(managersShop.manager,"******** new managers *******")
+    }
 //    allManagers.forEach(function(value) {
 //  var existing = output.filter(function(v, i) {
 //    return v.name == value.name;
