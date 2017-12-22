@@ -25,6 +25,7 @@ var prepDirC = `
         `;
 //variables
 allManagers = [];
+allNewManagers = [];
 allPromos = [];
 nCmd.get(prepDirC, function(data, err, stderr) {
 	if (!err) {
@@ -213,8 +214,8 @@ ReqRes = function ReqRes(req, res) {
 		if (req.params[0] == '/index.html' || req.params[0] == '/') {
 			console.log('serving homepage')
 			fs.readFile(__dirname + '/bits/amp.pug', function(error, source) {
-				console.log(allPromos);
-				console.log(allManagers);
+				//console.log(allPromos);
+				//console.log(allManagers);
 				matchShops();
 				var data = {
 					name: allInfo.name,
@@ -224,7 +225,7 @@ ReqRes = function ReqRes(req, res) {
 					img: allInfo.icon,
 					stores: allServices,
 					promos: allPromos,
-					managers: allManagers,
+					managers: allNewManagers,
 					cid: '000'
 				}
 				data.body = process.argv[2];
@@ -468,6 +469,7 @@ function matchShops() {
                 nm.shop = allServices[iiiv].title;
                 nm.id = allManagers[iv].uid
                 nm.name =  allManagers[iv].name
+                nm.icon =  allManagers[iv].icon
 				managersShop.manager.push(nm);
 			}
 		}
@@ -475,13 +477,7 @@ function matchShops() {
 	var obj = {};
 	for (var i = 0, len = managersShop.manager.length; i < len; i++) obj[managersShop.manager[i]['name']] = managersShop.manager[i];
 	managersShop.manager = new Array();
-	for (var key in obj) managersShop.manager.push(obj[key]);
-	console.log(managersShop.manager, "******** new managers *******")
-	//    allManagers.forEach(function(value) {
-	//  var existing = output.filter(function(v, i) {
-	//    return v.name == value.name;
-	//  });
-	// console.log("nw m------------",allManagers)
-	//});
-	//    
+	for (var key in obj) allNewManagers.push(obj[key];// managersShop.manager.push(obj[key]);
+	console.log(allNewManagers, "******** new managers *******")
+    
 }
