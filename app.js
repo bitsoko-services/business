@@ -464,7 +464,8 @@ function matchShops() {
 			// console.log("looping services ",allServices[iiiv].title,allManagers[iv].uid,allManagers[iv].name )
 			if (allManagers[iv].sID == allServices[iiiv].id) {
 				//console.log("******** managers *******", allServices[iiiv].title, allManagers[iv].uid, allManagers[iv].name);
-				managersShop.manager.push({allServices[iiiv].title, allManagers[iv].uid, allManagers[iv].name});
+                var nm = {allServices[iiiv].title, allManagers[iv].uid, allManagers[iv].name};
+				managersShop.manager.push(nm);
 			}
 		}
 	}
