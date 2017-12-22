@@ -477,7 +477,7 @@ function matchShops() {
 	var obj = {};
 	for (var i = 0, len = managersShop.manager.length; i < len; i++) obj[managersShop.manager[i]['name']] = managersShop.manager[i];
 	managersShop.manager = new Array();
-	for (var key in obj) allNewManagers.push(obj[key];// managersShop.manager.push(obj[key]);
+	for (var key in obj) allNewManagers.push(obj[key]);// managersShop.manager.push(obj[key]);
 	console.log(allNewManagers, "******** new managers *******")
     
 }
