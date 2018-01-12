@@ -364,8 +364,8 @@ installCerts = function () {
             console.error(err);
             console.error('[Error]: node-letsencrypt/examples/standalone');
             console.error(err.stack);
-            console.log('certification failed. will try again in one hour');
-            setTimeout(installCerts(), (60 * 60 * 1000));
+            //console.log('certification failed. will try again in one hour');
+            //setTimeout(installCerts(), (60 * 60 * 1000));
         });
     });
 }
