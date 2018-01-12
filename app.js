@@ -170,9 +170,9 @@ function updateApps() {
 }
 le = LE.create({
     agreeToTerms: leAgree // hook to allow user to view and accept LE TOS
+        //        ,
+        //server: LE.productionServerUrl // or LE.productionServerUrl
         ,
-    //server: LE.productionServerUrl // or LE.productionServerUrl
-    ,
     server: LE.stagingServerUrl
         //, store: leStore 
         ,
