@@ -106,7 +106,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                     updateApps();
                 }
             } else {
-                console.log('ERR! critical error connecting to bitsoko');
+                console.log('ERR! critical error connecting to bitsoko', error);
             }
         });
     } else {
