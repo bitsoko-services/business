@@ -116,12 +116,12 @@ nCmd.get(prepDirC, function (data, err, stderr) {
 var bitsC = `
             rm -rf business/bits
             cd business
-            git clone https://github.com/bitsoko-services/bits.git bits
+            git clone -b StableVersion1 https://github.com/bitsoko-services/bits.git bits
         `;
 var sokoC = `
             rm -rf business/soko
             cd business
-            git clone https://github.com/bitsoko-services/soko.git soko
+            git clone -b StableVersion1 https://github.com/bitsoko-services/soko.git soko
         `;
 
 function updateApps() {
