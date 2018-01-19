@@ -30,7 +30,7 @@ allPromos = [];
 nCmd.get(prepDirC, function (data, err, stderr) {
     if (!err) {
         console.log('created directories');
-        request(mainDomain + "/getEnterprise/?uid=245", function (error, response, body) {
+        request(mainDomain + "/getEnterprise/?uid=93", function (error, response, body) {
             if (!error) {
                 allServices = JSON.parse(body).services;
                 allSettings = JSON.parse(body).settings;
@@ -170,10 +170,10 @@ function updateApps() {
 }
 le = LE.create({
     agreeToTerms: leAgree // hook to allow user to view and accept LE TOS
-                ,
-        server: LE.productionServerUrl // or LE.productionServerUrl
-//        ,
- //    server: LE.stagingServerUrl
+        ,
+    server: LE.productionServerUrl // or LE.productionServerUrl
+        //        ,
+        //    server: LE.stagingServerUrl
         //, store: leStore 
         ,
     challenges: {
