@@ -35,36 +35,18 @@ nCmd.get(prepDirC, function(data, err, stderr) {
 				allServices = JSON.parse(body).services;
 				allSettings = JSON.parse(body).settings;
 				allInfo = JSON.parse(body).enterpriseInfo;
+				aPs = JSON.parse(body).enterprisePromos;
 				allDomains = allInfo.domains;
 				for (var ii in allServices) {
 					allServices[ii].banner = allServices[ii].bannerPath;
 					allServices[ii].desc = allServices[ii].description
 					allServices[ii].title = allServices[ii].name;
-					console.log(allServices[ii].promotions,"======== Promotions ====");
+					//console.log(allServices[ii].promotions,"======== Promotions ====");
 					var aMans = allServices[ii].managers
 					console.log(aMans)
 					for (var iii in aMans) {
 						aMans[iii].sID = allServices[ii].id;
 						allManagers.push(aMans[iii]);
-					}
-					try {
-						var aPs = allServices[ii].promotions;
-						for (var iiii in aPs) {
-							allPromos.push(aPs[iiii]);
-							// Download promo picture and save with the original filename
-							var options = {
-								url: mainDomain + aPs[iiii].promoBanner,
-								dest: 'business/bitsAssets/tmp/promotions/',
-								//dest: '/' 
-							}
-							imgDownloader.image(options).then(function(filename, image) {
-								console.log('Promo File saved to', filename)
-							}).catch(function(err) {
-								console.log(err)
-							})
-						}
-					} catch (err) {
-						console.log(err)
 					}
 					// Download to a directory and save with the original filename
 					var options = {
@@ -90,6 +72,34 @@ nCmd.get(prepDirC, function(data, err, stderr) {
 					})
 				}
 				console.log(allServices);
+
+
+
+
+					try {
+						//var aPs = allPromos;
+						for (var iiii in aPs) {
+							allPromos.push(aPs[iiii]);
+							// Download promo picture and save with the original filename
+							var options = {
+								url: mainDomain + aPs[iiii].promoBanner,
+								dest: 'business/bitsAssets/tmp/promotions/',
+								//dest: '/' 
+							}
+							imgDownloader.image(options).then(function(filename, image) {
+								console.log('Promo File saved to', filename)
+							}).catch(function(err) {
+								console.log(err)
+							})
+						}
+					} catch (err) {
+						console.log(err)
+					}
+
+
+
+
+					
 				try {
 					fs.accessSync(__dirname + '/bits/index.html', fs.F_OK);
 					fs.accessSync(__dirname + '/soko/index.html', fs.F_OK);
