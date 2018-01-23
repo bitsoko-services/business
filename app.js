@@ -40,7 +40,7 @@ nCmd.get(prepDirC, function(data, err, stderr) {
 					allServices[ii].banner = allServices[ii].bannerPath;
 					allServices[ii].desc = allServices[ii].description
 					allServices[ii].title = allServices[ii].name;
-					console.log(allServices[ii].id);
+					console.log(allServices[ii].promotions);
 					var aMans = allServices[ii].managers
 					console.log(aMans)
 					for (var iii in aMans) {
