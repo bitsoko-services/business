@@ -4,3 +4,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 nvm install node
 npm install package.json --save
+
+ iptables -t nat -I PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8081
+ iptables -t nat -I PREROUTING -p tcp --dport 443 -j REDIRECT --to-port 8080
