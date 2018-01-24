@@ -13,6 +13,9 @@ var nCmd = require('node-cmd');
 https = require('https');
 var request = require("request");
 imgDownloader = require('image-downloader');
+var forceSSL = require('express-force-ssl');
+
+ 
 var prepDirC = `
             cd business
             mkdir bitsAssets
@@ -203,22 +206,7 @@ le = LE.create({
     debug: true
 });
 
-function OpenInsecure() {
-    insapp = express();
-    insapp.use(compress());
-    // If using express you should use the middleware
-    insapp.use('/', le.middleware());
-    http = require('http');
-    inserver = http.createServer(insapp);
-    io = require('socket.io')(inserver);
-    insapp.get(/^(.+)$/, function (req, res) {
-        ReqRes(req, res);
-    });
-    inserver.listen(insPORT, '0.0.0.0', function (err) {
-        if (err) throw err;
-        console.log('insec port online at http://localhost:' + insPORT);
-    });
-}
+
 ReqRes = function ReqRes(req, res) {
     try {
         console.log(req.params[0]);
@@ -456,10 +444,26 @@ function OpenSecure() {
     server.listen(PORT, function (err) {
         if (err) throw err;
         console.log('Secure now online at https://localhost:' + PORT);
-        //OpenSecureRedirect();
+        OpenInsecure();
     });
 }
-
+function OpenInsecure() {
+    insapp = express();
+    insapp.use(compress());
+    insapp.use(forceSSL);
+    // If using express you should use the middleware
+    insapp.use('/', le.middleware());
+    http = require('http');
+    inserver = http.createServer(insapp);
+    //io = require('socket.io')(inserver);
+    //insapp.get(/^(.+)$/, function (req, res) {
+    //    ReqRes(req, res);
+    //});
+    inserver.listen(insPORT, '0.0.0.0', function (err) {
+        if (err) throw err;
+        console.log('insec port online at http://localhost:' + insPORT);
+    });
+}
 function socketTimeout() {
     console.log('sockets timed out: not receiving connecions!!')
 };
