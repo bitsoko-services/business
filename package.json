@@ -44,7 +44,8 @@
         "greenlock": "latest",
         "greenlock-express": "latest",
         "socket.io": "latest",
-        "pug": "latest"
+        "pug": "latest",
+        "express-force-ssl": "latest"
     },
     "devDependencies": {
         "ava": "~0.19.1",
