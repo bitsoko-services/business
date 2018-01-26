@@ -15,7 +15,7 @@ var request = require("request");
 imgDownloader = require('image-downloader');
 var forceSSL = require('express-force-ssl');
 
- 
+
 var prepDirC = `
             cd business
             mkdir bitsAssets
@@ -30,101 +30,101 @@ var prepDirC = `
 allManagers = [];
 allNewManagers = [];
 allPromos = [];
-nCmd.get(prepDirC, function(data, err, stderr) {
-	if (!err) {
-		console.log('created directories');
-		request(mainDomain + "/getEnterprise/?uid=245", function(error, response, body) {
-			if (!error) {
-				allServices = JSON.parse(body).services;
-				allSettings = JSON.parse(body).settings;
-				allInfo = JSON.parse(body).enterpriseInfo;
-				aPs = JSON.parse(body).enterprisePromos;
-				allDomains = allInfo.domains;
-				for (var ii in allServices) {
-					allServices[ii].banner = allServices[ii].bannerPath;
-					allServices[ii].desc = allServices[ii].description
-					allServices[ii].title = allServices[ii].name;
-					//console.log(allServices[ii].promotions,"======== Promotions ====");
-					var aMans = allServices[ii].managers
-					console.log(aMans)
-					for (var iii in aMans) {
-						aMans[iii].sID = allServices[ii].id;
-						allManagers.push(aMans[iii]);
-					}
-					// Download to a directory and save with the original filename
-					var options = {
-						url: mainDomain + allServices[ii].banner,
-						dest: 'business/bitsAssets/tmp/services/',
-						//dest: '/' 
-					}
-					imgDownloader.image(options).then(function(filename, image) {
-						console.log('File saved to', filename)
-					}).catch(function(err) {
-						console.log(err)
-					})
-					// Download smaller image
-					var options = {
-						url: mainDomain + allServices[ii].banner.replace(".png", "-128.png"),
-						dest: 'business/bitsAssets/tmp/services/',
-						//dest: '/' 
-					}
-					imgDownloader.image(options).then(function(filename, image) {
-						console.log('File saved to', filename)
-					}).catch(function(err) {
-						console.log(err)
-					})
-				}
-				console.log(allServices);
+nCmd.get(prepDirC, function (data, err, stderr) {
+    if (!err) {
+        console.log('created directories');
+        request(mainDomain + "/getEnterprise/?uid=93", function (error, response, body) {
+            if (!error) {
+                allServices = JSON.parse(body).services;
+                allSettings = JSON.parse(body).settings;
+                allInfo = JSON.parse(body).enterpriseInfo;
+                aPs = JSON.parse(body).enterprisePromos;
+                allDomains = allInfo.domains;
+                for (var ii in allServices) {
+                    allServices[ii].banner = allServices[ii].bannerPath;
+                    allServices[ii].desc = allServices[ii].description
+                    allServices[ii].title = allServices[ii].name;
+                    //console.log(allServices[ii].promotions,"======== Promotions ====");
+                    var aMans = allServices[ii].managers
+                    console.log(aMans)
+                    for (var iii in aMans) {
+                        aMans[iii].sID = allServices[ii].id;
+                        allManagers.push(aMans[iii]);
+                    }
+                    // Download to a directory and save with the original filename
+                    var options = {
+                        url: mainDomain + allServices[ii].banner,
+                        dest: 'business/bitsAssets/tmp/services/',
+                        //dest: '/' 
+                    }
+                    imgDownloader.image(options).then(function (filename, image) {
+                        console.log('File saved to', filename)
+                    }).catch(function (err) {
+                        console.log(err)
+                    })
+                    // Download smaller image
+                    var options = {
+                        url: mainDomain + allServices[ii].banner.replace(".png", "-128.png"),
+                        dest: 'business/bitsAssets/tmp/services/',
+                        //dest: '/' 
+                    }
+                    imgDownloader.image(options).then(function (filename, image) {
+                        console.log('File saved to', filename)
+                    }).catch(function (err) {
+                        console.log(err)
+                    })
+                }
+                console.log(allServices);
 
 
 
 
-					try {
-						//var aPs = allPromos;
-						for (var iiii in aPs) {
-							allPromos.push(aPs[iiii]);
-							// Download promo picture and save with the original filename
-							var options = {
-								url: mainDomain + aPs[iiii].promoBanner,
-								dest: 'business/bitsAssets/tmp/promotions/',
-								//dest: '/' 
-							}
-							imgDownloader.image(options).then(function(filename, image) {
-								console.log('Promo File saved to', filename)
-							}).catch(function(err) {
-								console.log(err)
-							})
-						}
-					} catch (err) {
-						console.log(err)
-					}
+                try {
+                    //var aPs = allPromos;
+                    for (var iiii in aPs) {
+                        allPromos.push(aPs[iiii]);
+                        // Download promo picture and save with the original filename
+                        var options = {
+                            url: mainDomain + aPs[iiii].promoBanner,
+                            dest: 'business/bitsAssets/tmp/promotions/',
+                            //dest: '/' 
+                        }
+                        imgDownloader.image(options).then(function (filename, image) {
+                            console.log('Promo File saved to', filename)
+                        }).catch(function (err) {
+                            console.log(err)
+                        })
+                    }
+                } catch (err) {
+                    console.log(err)
+                }
 
 
 
 
-					
-				try {
-					fs.accessSync(__dirname + '/bits/index.html', fs.F_OK);
-					fs.accessSync(__dirname + '/soko/index.html', fs.F_OK);
-					//OpenInsecure();
-					try {
-						OpenSecure();
-					} catch (err) {
-						console.log(err);
-						console.log('security certificates not found! initiating letsencrypt..', err);
-						installCerts();
-					}
-				} catch (err) {
-					console.log(err);
-					updateApps();
-				}
-			} else {
-				console.log('ERR! critical error connecting to bitsoko');
-			}
-		});
-	} else {
-		console.log(err);
-	}
+
+                try {
+                    fs.accessSync(__dirname + '/bits/index.html', fs.F_OK);
+                    fs.accessSync(__dirname + '/soko/index.html', fs.F_OK);
+                    //OpenInsecure();
+                    try {
+                        OpenSecure();
+                    } catch (err) {
+                        console.log(err);
+                        console.log('security certificates not found! initiating letsencrypt..', err);
+                        installCerts();
+                    }
+                } catch (err) {
+                    console.log(err);
+                    updateApps();
+                }
+            } else {
+                console.log('ERR! critical error connecting to bitsoko');
+            }
+        });
+    } else {
+        console.log(err);
+    }
 });
 var bitsC = `
             rm -rf business/bits
@@ -447,6 +447,7 @@ function OpenSecure() {
         OpenInsecure();
     });
 }
+
 function OpenInsecure() {
     insapp = express();
     insapp.use(compress());
@@ -464,6 +465,7 @@ function OpenInsecure() {
         console.log('insec port online at http://localhost:' + insPORT);
     });
 }
+
 function socketTimeout() {
     console.log('sockets timed out: not receiving connecions!!')
 };
