@@ -137,16 +137,23 @@ var sokoC = `
             git clone -b StableVersion1 https://github.com/bitsoko-services/soko.git soko
         `;
 
+var tmC = `
+            rm -rf business/tm
+            cd business
+            git clone -b StableVersion1 https://github.com/bitsoko-services/token-market.git tm
+        `;
+
 function updateApps() {
     bitsUpdated = false;
     sokoUpdated = false;
+    tmUpdated = false;
     console.log('updating bits..');
     nCmd.get(bitsC, function (data, err, stderr) {
         if (!err) {
             var hMsg = 'updated bits';
             console.log(hMsg);
             bitsUpdated = true;
-            if (bitsUpdated && sokoUpdated) {
+            if (bitsUpdated && sokoUpdated && tmUpdated) {
                 //OpenInsecure();
                 try {
                     OpenSecure();
@@ -166,7 +173,27 @@ function updateApps() {
             var hMsg = 'updated soko';
             console.log(hMsg);
             sokoUpdated = true;
-            if (bitsUpdated && sokoUpdated) {
+            if (bitsUpdated && sokoUpdated && tmUpdated) {
+                //OpenInsecure();
+                try {
+                    OpenSecure();
+                } catch (err) {
+                    console.log(err);
+                    console.log('security certificates not found! initiating letsencrypt..', err);
+                    installCerts();
+                }
+            }
+        } else {
+            console.log(err);
+        }
+    });
+    console.log('updating token market..');
+    nCmd.get(sokoC, function (data, err, stderr) {
+        if (!err) {
+            var hMsg = 'updated token market';
+            console.log(hMsg);
+            tmUpdated = true;
+            if (bitsUpdated && sokoUpdated && tmUpdated) {
                 //OpenInsecure();
                 try {
                     OpenSecure();
