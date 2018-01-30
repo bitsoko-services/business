@@ -237,7 +237,16 @@ le = LE.create({
 ReqRes = function ReqRes(req, res) {
     try {
         console.log(req.params[0]);
-        if (req.params[0] == '/index.html' || req.params[0] == '/') {
+        if (req.params[0].includes('/tm/')) {
+                 
+                console.log('INFO! going to token market');
+                res.writeHead(301, {
+                    location: "/tm/"
+                });
+                return res.end();   
+                    
+                    
+        } else if (req.params[0] == '/index.html' || req.params[0] == '/') {
             console.log('serving homepage')
             fs.readFile(__dirname + '/bits/amp.pug', function (error, source) {
                 //console.log(allPromos);
