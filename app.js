@@ -38,6 +38,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                 allServices = JSON.parse(body).services;
                 allSettings = JSON.parse(body).settings;
                 allInfo = JSON.parse(body).enterpriseInfo;
+                console.log(allInfo);
                 aPs = JSON.parse(body).enterprisePromos;
                 allDomains = allInfo.domains;
                 for (var ii in allServices) {
