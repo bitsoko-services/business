@@ -248,6 +248,8 @@ ReqRes = function ReqRes(req, res) {
                     name: allInfo.name,
                     cover: allInfo.cover,
                     tagline: allInfo.tagline,
+                    phone: allInfo.phone,
+                    email: allInfo.email,
                     desc: 'desc',
                     img: allInfo.icon,
                     stores: allServices,
