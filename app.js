@@ -38,6 +38,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                 allServices = JSON.parse(body).services;
                 allSettings = JSON.parse(body).settings;
                 allInfo = JSON.parse(body).enterpriseInfo;
+                entContract = JSON.parse(body).enterpriseContract;
                 console.log(allInfo);
                 aPs = JSON.parse(body).enterprisePromos;
                 allDomains = allInfo.domains;
@@ -248,8 +249,11 @@ ReqRes = function ReqRes(req, res) {
                     name: allInfo.name,
                     cover: allInfo.cover,
                     tagline: allInfo.tagline,
+                    socialLinks: ['', '', ''],
                     phone: allInfo.phone,
                     email: allInfo.email,
+                    rate: allInfo.contractRate,
+                    entContract: entContract,
                     desc: 'desc',
                     img: allInfo.icon,
                     stores: allServices,
