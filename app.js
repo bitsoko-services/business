@@ -274,11 +274,13 @@ ReqRes = function ReqRes(req, res) {
           fs.accessSync(__dirname + req.params[0], fs.F_OK);
           return res.sendFile(__dirname + req.params[0]);
                     
-        //res.writeHead(301, {
-        //            location: "/soko/"
-        //        });
                     
-        //return res.end();
+        } else if (req.url.includes('/tm')){
+                    
+          console.log('Token Market Request, ',req.params[0]);        
+          fs.accessSync(__dirname + req.params[0], fs.F_OK);
+          return res.sendFile(__dirname + req.params[0]);
+                    
                     
         } else {
             try {
