@@ -1,9 +1,10 @@
 f=require('forever');
 conf={
-    uid: 'business'
+    uid: 'business',
+    c: '93'
 };
 
-var startURL = 'business/app.js '+process.argv[3];
+var startURL = 'business/app.js';
 
 switch (process.argv[2]) {
 
