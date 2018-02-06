@@ -33,7 +33,7 @@ allPromos = [];
 nCmd.get(prepDirC, function (data, err, stderr) {
     if (!err) {
         console.log('created directories');
-        request(mainDomain + "/getEnterprise/?uid=93", function (error, response, body) {
+        request(mainDomain + "/getEnterprise/?uid=245", function (error, response, body) {
             if (!error) {
                 allServices = JSON.parse(body).services;
                 allSettings = JSON.parse(body).settings;
@@ -268,20 +268,20 @@ ReqRes = function ReqRes(req, res) {
                 //res.writeHead(200);
                 return res.end(html);
             });
-        } else if (req.url.includes('/soko')){
-                    
-          console.log('SOKO Request, ',req.params[0]);        
-          fs.accessSync(__dirname + req.params[0], fs.F_OK);
-          return res.sendFile(__dirname + req.params[0]);
-                    
-                    
-        } else if (req.url.includes('/tm')){
-                    
-          console.log('Token Market Request, ',req.params[0]);        
-          fs.accessSync(__dirname + req.params[0], fs.F_OK);
-          return res.sendFile(__dirname + req.params[0]);
-                    
-                    
+        } else if (req.url.includes('/soko')) {
+
+            console.log('SOKO Request, ', req.params[0]);
+            fs.accessSync(__dirname + req.params[0], fs.F_OK);
+            return res.sendFile(__dirname + req.params[0]);
+
+
+        } else if (req.url.includes('/tm')) {
+
+            console.log('Token Market Request, ', req.params[0]);
+            fs.accessSync(__dirname + req.params[0], fs.F_OK);
+            return res.sendFile(__dirname + req.params[0]);
+
+
         } else {
             try {
                 fs.accessSync(__dirname + req.params[0], fs.F_OK);
