@@ -21,7 +21,7 @@ var forceSSL = require('express-force-ssl');
 // get the store id from the process command
 // storeId = process.argv[2];
 
-storeId = '93';
+storeId = '245';
 
 
 
@@ -42,7 +42,7 @@ allPromos = [];
 nCmd.get(prepDirC, function (data, err, stderr) {
     if (!err) {
         console.log('created directories');
-        request(mainDomain + "/getEnterprise/?uid="+storeId, function (error, response, body) {
+        request(mainDomain + "/getEnterprise/?uid=" + storeId, function (error, response, body) {
             if (!error) {
                 allServices = JSON.parse(body).services;
                 allSettings = JSON.parse(body).settings;
