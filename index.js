@@ -3,7 +3,7 @@ conf={
     uid: 'business'
 };
 
-var startURL = 'business/app.js';
+var startURL = 'business/app.js '+process.argv[3];
 
 switch (process.argv[2]) {
 
