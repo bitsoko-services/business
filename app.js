@@ -270,14 +270,15 @@ ReqRes = function ReqRes(req, res) {
             });
         } else if (req.url.includes('/soko')){
                     
-            console.log('SOKO Request, ',req.params[0]);        
+          console.log('SOKO Request, ',req.params[0]);        
           fs.accessSync(__dirname + req.params[0], fs.F_OK);
-                res.sendFile(__dirname + req.params[0]);
+          return res.sendFile(__dirname + req.params[0]);
+                    
         //res.writeHead(301, {
         //            location: "/soko/"
         //        });
                     
-        return res.end();
+        //return res.end();
                     
         } else {
             try {
