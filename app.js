@@ -268,6 +268,16 @@ ReqRes = function ReqRes(req, res) {
                 //res.writeHead(200);
                 return res.end(html);
             });
+        } else if (req.includes('/soko')){
+                    
+            console.log('SOKO Request, ',req.params[0]);        
+        
+        res.writeHead(301, {
+                    location: "/soko/"
+                });
+                    
+        return res.end();
+                    
         } else {
             try {
                 fs.accessSync(__dirname + req.params[0], fs.F_OK);
