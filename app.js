@@ -16,6 +16,10 @@ imgDownloader = require('image-downloader');
 var forceSSL = require('express-force-ssl');
 
 
+storeId = process.argv[2];
+
+
+
 var prepDirC = `
             cd business
             mkdir bitsAssets
@@ -33,7 +37,7 @@ allPromos = [];
 nCmd.get(prepDirC, function (data, err, stderr) {
     if (!err) {
         console.log('created directories');
-        request(mainDomain + "/getEnterprise/?uid=93", function (error, response, body) {
+        request(mainDomain + "/getEnterprise/?uid="+storeId, function (error, response, body) {
             if (!error) {
                 allServices = JSON.parse(body).services;
                 allSettings = JSON.parse(body).settings;
