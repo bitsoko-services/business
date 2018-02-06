@@ -16,7 +16,12 @@ imgDownloader = require('image-downloader');
 var forceSSL = require('express-force-ssl');
 
 
-storeId = process.argv[2];
+
+//TO-DO
+// get the store id from the process command
+// storeId = process.argv[2];
+
+storeId = '93';
 
 
 
