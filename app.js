@@ -261,6 +261,7 @@ ReqRes = function ReqRes(req, res) {
                     socialLinks: ['', '', ''],
                     phone: allInfo.phone,
                     email: allInfo.email,
+                    managerState: allInfo.managerState,
                     rate: allInfo.contractRate,
                     entContract: entContract,
                     desc: 'desc',
