@@ -16,6 +16,8 @@ var request = require("request");
 imgDownloader = require('image-downloader');
 var forceSSL = require('express-force-ssl');
 fs = require('fs');
+when = require("promised-io/promise").when;
+Deferred = require("promised-io/promise").Deferred;
 
 
 //database credentials
