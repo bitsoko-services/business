@@ -14,6 +14,8 @@ https = require('https');
 var request = require("request");
 imgDownloader = require('image-downloader');
 var forceSSL = require('express-force-ssl');
+fs = require('fs');
+
 
 //database credentials
 dbHost = '104.199.152.117';
