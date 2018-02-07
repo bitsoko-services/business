@@ -586,26 +586,26 @@ function matchShops() {
     managersShop.manager = new Array();
     //step one loop thu managers list and get m.name, shopID and userID	
     for (var iv in allManagers) {
-        console.log("Store IDS are" + allServices[iiiv].id))
-    //console.log("looping managers",allManagers[iv].sID,allManagers[iv].uid,allManagers[iv].name)
-    for (var iiiv in allServices) {
-        // console.log("looping services ",allServices[iiiv].title,allManagers[iv].uid,allManagers[iv].name )
-        if (allManagers[iv].sID == allServices[iiiv].id) {
-            //console.log("******** managers *******", allServices[iiiv].title, allManagers[iv].uid, allManagers[iv].name);
-            var nm = new Object();
-            nm.shop = allServices[iiiv].title;
-            nm.id = allManagers[iv].uid
-            nm.name = allManagers[iv].name
-            nm.icon = allManagers[iv].icon
-            managersShop.manager.push(nm);
+        console.log("Store IDS are" + allServices[iiiv].id);
+        //console.log("looping managers",allManagers[iv].sID,allManagers[iv].uid,allManagers[iv].name)
+        for (var iiiv in allServices) {
+            // console.log("looping services ",allServices[iiiv].title,allManagers[iv].uid,allManagers[iv].name )
+            if (allManagers[iv].sID == allServices[iiiv].id) {
+                //console.log("******** managers *******", allServices[iiiv].title, allManagers[iv].uid, allManagers[iv].name);
+                var nm = new Object();
+                nm.shop = allServices[iiiv].title;
+                nm.id = allManagers[iv].uid
+                nm.name = allManagers[iv].name
+                nm.icon = allManagers[iv].icon
+                managersShop.manager.push(nm);
+            }
         }
     }
-}
-var obj = {};
-for (var i = 0, len = managersShop.manager.length; i < len; i++) obj[managersShop.manager[i]['name']] = managersShop.manager[i];
-managersShop.manager = new Array();
-allNewManagers = new Array();
-for (var key in obj) allNewManagers.push(obj[key]); // managersShop.manager.push(obj[key]);
-console.log(allNewManagers, "******** new managers *******")
+    var obj = {};
+    for (var i = 0, len = managersShop.manager.length; i < len; i++) obj[managersShop.manager[i]['name']] = managersShop.manager[i];
+    managersShop.manager = new Array();
+    allNewManagers = new Array();
+    for (var key in obj) allNewManagers.push(obj[key]); // managersShop.manager.push(obj[key]);
+    console.log(allNewManagers, "******** new managers *******")
 
 }
