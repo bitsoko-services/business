@@ -21,7 +21,7 @@ opts={
 };
 
 if(dbHost!='localhost'){
-    opts.ssl=certs;
+    //opts.ssl=certs;
 }
 
 
