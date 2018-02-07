@@ -15,10 +15,18 @@ var request = require("request");
 imgDownloader = require('image-downloader');
 var forceSSL = require('express-force-ssl');
 
+//database credentials
+dbHost = '104.199.152.117';
+dbUser = 'root';
+dbPass = '12sokorus12';
+dbName = 'bitsoko';
+
 //Load Service Dependencies
 
 //Messaging support - sms and notofications
 messageManager=require("/root/business/libs/messageManager.js"); 
+//Database support
+connectionSQL=require("/root/business/libs/database.js").getClient(); 
 
 //Load bots
 
@@ -26,6 +34,28 @@ messageManager=require("/root/business/libs/messageManager.js");
 orderManager=require("/root/business/bots/orderManager.js"); 
 
 
+
+bsConn={
+  /*
+  maria: function (){
+      
+     var q= new Client({
+  host: dbHost,
+  user: dbUser, 
+  password: dbPass,
+  db: 'bitsoko'
+});
+      q.on("error", function (err) {
+    console.log('connection error:', err);
+    });
+      q.connect();
+      return q;
+      
+                    }(),
+    */
+    mysql: connectionSQL
+
+  }
 
 //TO-DO
 // get the store id from the process command
