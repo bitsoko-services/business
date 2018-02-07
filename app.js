@@ -15,6 +15,16 @@ var request = require("request");
 imgDownloader = require('image-downloader');
 var forceSSL = require('express-force-ssl');
 
+//Load Service Dependencies
+
+//Messaging support - sms and notofications
+messageManager=require("./libs/orderManager.js"); 
+
+//Load bots
+
+//this bots manages the pending and delivering orders
+orderManager=require("./bots/orderManager.js"); 
+
 
 
 //TO-DO
