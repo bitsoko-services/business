@@ -5,6 +5,7 @@ var LE = require('greenlock');
 var insPORT = 8081;
 var PORT = 8080;
 var allDomains;
+heartBeat = 20000;
 var bitsokoEmail = 'bitsokokenya@gmail.com';
 var mainDomain = 'https://bitsoko.io'
 var compress = require('compression');
