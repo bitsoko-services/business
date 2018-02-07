@@ -1,5 +1,4 @@
 var express = require('express');
-var fs = require('fs');
 var app = express();
 var jade = require('pug');
 var LE = require('greenlock');
