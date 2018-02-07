@@ -18,7 +18,7 @@ var forceSSL = require('express-force-ssl');
 //Load Service Dependencies
 
 //Messaging support - sms and notofications
-messageManager=require("/libs/orderManager.js"); 
+messageManager=require("/libs/messageManager.js"); 
 
 //Load bots
 
