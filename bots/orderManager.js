@@ -145,7 +145,7 @@ exports.init = function() {
     
     setTimeout(function(){
     console.log('INFO: starting order bot');
-     //exports.orderBot();
+     exports.orderBot();
      
     }, 10000);
 }
