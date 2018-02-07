@@ -6,12 +6,13 @@
  
  */
 console.log(__dirname.slice(0,-15)+'/certs/db/key.pem');
+/*
 certs = {
     key: fs.readFileSync(__dirname.slice(0,-15)+'/certs/db/key.pem'),
     cert: fs.readFileSync(__dirname.slice(0,-15)+'/certs/db/cert.pem'),
     ca: fs.readFileSync(__dirname.slice(0,-15)+'/certs/db/ca.pem')
 };
-
+*/
 opts={
   host: dbHost,
   database: dbName,
