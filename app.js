@@ -579,12 +579,13 @@ function socketTimeout() {
     console.log('sockets timed out: not receiving connecions!!')
 };
 
+stores = new Array();
+
 function matchShops() {
     //matching shops to their managers
     // create empty array for the reconstructed manager array.
     managersShop = new Object();
     managersShop.manager = new Array();
-    stores = new Array();
     //step one loop thu managers list and get m.name, shopID and userID	
     for (var iv in allManagers) {
         //console.log("looping managers",allManagers[iv].sID,allManagers[iv].uid,allManagers[iv].name)
