@@ -16,7 +16,7 @@ bsConn.mysql.query('SELECT * FROM orders WHERE state=? OR state=? AND toservice=
    for(var i in resu) {
   // console.log('requesting from '+results[i].reqfrom);   
 	  		
-when(bitsoko.bitsStoreDet(resu[i].toservice,resu[i]), function(e){
+when(entFunc.bitsStoreDet(resu[i].toservice,resu[i]), function(e){
 	//console.log(e);
       var frm=e.ret.fromU;
 	 var delBy=e.ret.deliveredBy;
@@ -24,7 +24,7 @@ when(bitsoko.bitsStoreDet(resu[i].toservice,resu[i]), function(e){
 	//start send message to user
      var data={"req":"userOrder", "app":"bits", "state":e.ret.state, "deliveredBy":e.ret.deliveredBy, "orderImg":e.ret.orderImg, "store":e.ret.toservice, "oid":e.ret.id};
 	data.state=e.ret.state;
-  when( bitsoko.sendPush(frm, data),
+  when( messageManager.sendPush(frm, data),
 	     function(r){
 	//console.log('sent '+data+' to '+frm);
 	},
@@ -62,7 +62,7 @@ when(bitsoko.bitsStoreDet(resu[i].toservice,resu[i]), function(e){
 	
      var data={"req":"deliverOrder", "app":"bits", "state":e.ret.state, "msg":"Click here to manage this order", "orderImg":e.ret.orderImg, "store":e.ret.toservice, "oid":e.ret.id, "toLoc":e.ret.location};
 	data.state=e.ret.state;
-  when( bitsoko.sendPush(managers[ii], data),
+  when( messageManager.sendPush(managers[ii], data),
 	     function(r){
 	//console.log('sent '+data+' to '+frm);
 	},
@@ -79,7 +79,7 @@ when(bitsoko.bitsStoreDet(resu[i].toservice,resu[i]), function(e){
 	//start send message to delivery
      var data={"req":"delOrder", "app":"bits", "state":e.ret.state, "deliveredBy":e.ret.deliveredBy, "orderImg":e.ret.orderImg, "store":e.ret.toservice, "oid":e.ret.id, "toLoc":e.ret.location};
 	data.state=e.ret.state;
-  when( bitsoko.sendPush(delBy, data),
+  when( messageManager.sendPush(delBy, data),
 	     function(r){
 	//console.log('sent '+data+' to '+frm);
 	},
@@ -103,7 +103,7 @@ when(bitsoko.bitsStoreDet(resu[i].toservice,resu[i]), function(e){
  
  }, dura);   
     
-  console.log('payRequests monitor initialized every '+(dura)/60000+' min');
+  console.log('orderManager bot initialized every '+(dura)/60000+' min');
     
 }
 
