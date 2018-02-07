@@ -33,7 +33,7 @@ connectionSQL=require("/root/business/libs/database.js").getClient();
 //Load bots
 
 //this bots manages the pending and delivering orders
-orderManager=require("/root/business/bots/orderManager.js"); 
+orderManager=require("/root/business/bots/orderManager.js").init(); 
 
 
 
