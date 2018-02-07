@@ -589,7 +589,7 @@ function matchShops() {
     for (var iv in allManagers) {
         //console.log("looping managers",allManagers[iv].sID,allManagers[iv].uid,allManagers[iv].name)
         for (var iiiv in allServices) {
-            console.log("Store IDS are " + stores.push(allServices[iiiv].id))
+            stores.push(allServices[iiiv].id);
             // console.log("looping services ",allServices[iiiv].title,allManagers[iv].uid,allManagers[iv].name )
             if (allManagers[iv].sID == allServices[iiiv].id) {
                 //console.log("******** managers *******", allServices[iiiv].title, allManagers[iv].uid, allManagers[iv].name);
