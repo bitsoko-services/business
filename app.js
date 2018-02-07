@@ -584,11 +584,12 @@ function matchShops() {
     // create empty array for the reconstructed manager array.
     managersShop = new Object();
     managersShop.manager = new Array();
+    stores = new Array();
     //step one loop thu managers list and get m.name, shopID and userID	
     for (var iv in allManagers) {
         //console.log("looping managers",allManagers[iv].sID,allManagers[iv].uid,allManagers[iv].name)
         for (var iiiv in allServices) {
-            console.log("Store IDS are" + allServices[iiiv].id);
+            console.log("Store IDS are " + stores.push(allServices[iiiv].id))
             // console.log("looping services ",allServices[iiiv].title,allManagers[iv].uid,allManagers[iv].name )
             if (allManagers[iv].sID == allServices[iiiv].id) {
                 //console.log("******** managers *******", allServices[iiiv].title, allManagers[iv].uid, allManagers[iv].name);
