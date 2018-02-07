@@ -28,6 +28,9 @@ dbName = 'bitsoko';
 
 //Load Service Dependencies
 
+//Globally available helper scripts
+entFunc=require("/root/business/libs/enterpriseFunctions.js"); 
+
 //Messaging support - sms and notofications
 messageManager=require("/root/business/libs/messageManager.js"); 
 //Database support
