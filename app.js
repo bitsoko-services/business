@@ -32,22 +32,22 @@ dbName = 'bitsoko';
 //Load Service Dependencies
 
 //Globally available helper scripts
-entFunc=require("/root/business/libs/enterpriseFunctions.js"); 
+entFunc = require("/root/business/libs/enterpriseFunctions.js");
 
 //Messaging support - sms and notofications
-messageManager=require("/root/business/libs/messageManager.js"); 
+messageManager = require("/root/business/libs/messageManager.js");
 //Database support
-connectionSQL=require("/root/business/libs/database.js").getClient(); 
+connectionSQL = require("/root/business/libs/database.js").getClient();
 
 //Load bots
 
 //this bots manages the pending and delivering orders
-orderManager=require("/root/business/bots/orderManager.js").init(); 
+orderManager = require("/root/business/bots/orderManager.js").init();
 
 
 
-bsConn={
-  /*
+bsConn = {
+    /*
   maria: function (){
       
      var q= new Client({
@@ -66,7 +66,7 @@ bsConn={
     */
     mysql: connectionSQL
 
-  }
+}
 
 //TO-DO
 // get the store id from the process command
@@ -586,25 +586,26 @@ function matchShops() {
     managersShop.manager = new Array();
     //step one loop thu managers list and get m.name, shopID and userID	
     for (var iv in allManagers) {
-        //console.log("looping managers",allManagers[iv].sID,allManagers[iv].uid,allManagers[iv].name)
-        for (var iiiv in allServices) {
-            // console.log("looping services ",allServices[iiiv].title,allManagers[iv].uid,allManagers[iv].name )
-            if (allManagers[iv].sID == allServices[iiiv].id) {
-                //console.log("******** managers *******", allServices[iiiv].title, allManagers[iv].uid, allManagers[iv].name);
-                var nm = new Object();
-                nm.shop = allServices[iiiv].title;
-                nm.id = allManagers[iv].uid
-                nm.name = allManagers[iv].name
-                nm.icon = allManagers[iv].icon
-                managersShop.manager.push(nm);
-            }
+        console.log("Store IDS are" + allServices[iiiv].id))
+    //console.log("looping managers",allManagers[iv].sID,allManagers[iv].uid,allManagers[iv].name)
+    for (var iiiv in allServices) {
+        // console.log("looping services ",allServices[iiiv].title,allManagers[iv].uid,allManagers[iv].name )
+        if (allManagers[iv].sID == allServices[iiiv].id) {
+            //console.log("******** managers *******", allServices[iiiv].title, allManagers[iv].uid, allManagers[iv].name);
+            var nm = new Object();
+            nm.shop = allServices[iiiv].title;
+            nm.id = allManagers[iv].uid
+            nm.name = allManagers[iv].name
+            nm.icon = allManagers[iv].icon
+            managersShop.manager.push(nm);
         }
     }
-    var obj = {};
-    for (var i = 0, len = managersShop.manager.length; i < len; i++) obj[managersShop.manager[i]['name']] = managersShop.manager[i];
-    managersShop.manager = new Array();
-    allNewManagers = new Array();
-    for (var key in obj) allNewManagers.push(obj[key]); // managersShop.manager.push(obj[key]);
-    console.log(allNewManagers, "******** new managers *******")
+}
+var obj = {};
+for (var i = 0, len = managersShop.manager.length; i < len; i++) obj[managersShop.manager[i]['name']] = managersShop.manager[i];
+managersShop.manager = new Array();
+allNewManagers = new Array();
+for (var key in obj) allNewManagers.push(obj[key]); // managersShop.manager.push(obj[key]);
+console.log(allNewManagers, "******** new managers *******")
 
 }
