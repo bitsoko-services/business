@@ -72,7 +72,7 @@ bsConn = {
 // get the store id from the process command
 // storeId = process.argv[2];
 
-storeId = '245';
+storeId = '246';
 
 
 
