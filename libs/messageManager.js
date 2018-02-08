@@ -3,6 +3,7 @@ var exports = module.exports = {};
 
 
 
+
 exports.doPush = function(message,pid) {
 
 
@@ -10,7 +11,21 @@ exports.doPush = function(message,pid) {
  
 // Set up the sender with you API key, prepare your recipients' registration tokens. 
 var sender = new gcm.Sender(googlePushKey);
-var regTokens = [pid.pushID];
+
+var regTokens = [];
+	try{
+
+var pushes=JSON.parse(pid.pushID);
+		 for (var dmn in allDomains){
+			// console.log(dmn);
+			 if(allDomains[dmn] != undefined || allDomains[dmn] != "undefined" ){
+			 
+regTokens.push(pushes[allDomains[dmn]]);
+				 
+			 }
+ }	
+	
+		
 sender.send(message, { registrationTokens: regTokens }, function (err, response) {
     if(err) {
 	   // console.error(err);
@@ -27,10 +42,21 @@ sender.send(message, { registrationTokens: regTokens }, function (err, response)
 	    
 	 }
 });
+		
+	}catch(er){
+	console.log('no bitsoko registrations found for this user ');
+		
+if(regTokens.length==0)
+	    deferred.reject({err:er,dt:pid});
+		
+	}
+
 	
 return deferred;
 	
 }	
+
+	
 
 
 exports.sendPush = function(pid,dataa,socket) {
