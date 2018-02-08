@@ -13,19 +13,22 @@ exports.doPush = function(message,pid) {
 var sender = new gcm.Sender(googlePushKey);
 
 var regTokens = [];
+	
 	try{
 
 var pushes=JSON.parse(pid.pushID);
 		 for (var dmn in allDomains){
-			 console.log(allDomains[dmn]);
+			 
 			 if(allDomains[dmn] != undefined || allDomains[dmn] != "undefined" ){
 			 
 regTokens.push(pushes[allDomains[dmn]]);
 				 
 			 }
+			 
  }	
 	
-		
+
+console.log('THESE TOKENS!', allDomains, pid.pushID, pushes, regTokens);		
 sender.send(message, { registrationTokens: regTokens }, function (err, response) {
     if(err) {
 	   // console.error(err);
