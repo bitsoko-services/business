@@ -47,7 +47,7 @@ sender.send(message, { registrationTokens: regTokens }, function (err, response)
 });
 		
 	}catch(er){
-	console.log('no bitsoko registrations found for this user ');
+	console.log('no bitsoko registrations found for this user '+allDomains);
 		
 if(regTokens.length==0)
 	    deferred.reject({err:er,dt:pid});
