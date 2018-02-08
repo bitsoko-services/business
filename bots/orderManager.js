@@ -5,7 +5,7 @@ exports.orderBot = function () {
     // This bot checks the the incoming transactions database and alers the admin whenever there are pending transactions at every heartbeat
     var dura = heartBeat * 3;
     setInterval(function () {
-
+console.log(stores);
         for (var store in stores) {
             bsConn.mysql.query('SELECT * FROM orders WHERE state=? OR state=? AND toservice=?', ['pending', 'delivering', store],
                 function (err, resu) {
