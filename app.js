@@ -96,6 +96,14 @@ nCmd.get(prepDirC, function (data, err, stderr) {
         request(mainDomain + "/getEnterprise/?uid=" + storeId, function (error, response, body) {
             if (!error) {
                 allServices = JSON.parse(body).services;
+
+                stores = new Array();
+                for (var servi in allServices) {
+
+
+                    stores.push(servi.id);
+                }
+
                 allSettings = JSON.parse(body).settings;
                 allInfo = JSON.parse(body).enterpriseInfo;
                 entContract = JSON.parse(body).enterpriseContract;
@@ -579,7 +587,6 @@ function socketTimeout() {
     console.log('sockets timed out: not receiving connecions!!')
 };
 
-stores = new Array();
 
 function matchShops() {
     //matching shops to their managers
@@ -590,7 +597,6 @@ function matchShops() {
     for (var iv in allManagers) {
         //console.log("looping managers",allManagers[iv].sID,allManagers[iv].uid,allManagers[iv].name)
         for (var iiiv in allServices) {
-            stores.push(allServices[iiiv].id);
             // console.log("looping services ",allServices[iiiv].title,allManagers[iv].uid,allManagers[iv].name )
             if (allManagers[iv].sID == allServices[iiiv].id) {
                 //console.log("******** managers *******", allServices[iiiv].title, allManagers[iv].uid, allManagers[iv].name);
