@@ -107,7 +107,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                 allSettings = JSON.parse(body).settings;
                 allInfo = JSON.parse(body).enterpriseInfo;
                 entContract = JSON.parse(body).enterpriseContract;
-                console.log(allInfo);
+                //console.log(allInfo);
                 aPs = JSON.parse(body).enterprisePromos;
                 allDomains = allInfo.domains;
                 for (var ii in allServices) {
@@ -116,7 +116,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                     allServices[ii].title = allServices[ii].name;
                     //console.log(allServices[ii].promotions,"======== Promotions ====");
                     var aMans = allServices[ii].managers
-                    console.log(aMans)
+                    //console.log(aMans)
                     for (var iii in aMans) {
                         aMans[iii].sID = allServices[ii].id;
                         allManagers.push(aMans[iii]);
@@ -128,7 +128,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                         //dest: '/' 
                     }
                     imgDownloader.image(options).then(function (filename, image) {
-                        console.log('File saved to', filename)
+                        //console.log('File saved to', filename)
                     }).catch(function (err) {
                         console.log(err)
                     })
@@ -139,12 +139,12 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                         //dest: '/' 
                     }
                     imgDownloader.image(options).then(function (filename, image) {
-                        console.log('File saved to', filename)
+                        //console.log('File saved to', filename)
                     }).catch(function (err) {
                         console.log(err)
                     })
                 }
-                console.log(allServices);
+                //console.log(allServices);
 
 
 
@@ -160,7 +160,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                             //dest: '/' 
                         }
                         imgDownloader.image(options).then(function (filename, image) {
-                            console.log('Promo File saved to', filename)
+                            //console.log('Promo File saved to', filename)
                         }).catch(function (err) {
                             console.log(err)
                         })
