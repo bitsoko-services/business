@@ -17,7 +17,7 @@ var regTokens = [];
 
 var pushes=JSON.parse(pid.pushID);
 		 for (var dmn in allDomains){
-			// console.log(dmn);
+			 console.log(allDomains[dmn]);
 			 if(allDomains[dmn] != undefined || allDomains[dmn] != "undefined" ){
 			 
 regTokens.push(pushes[allDomains[dmn]]);
