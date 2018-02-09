@@ -344,7 +344,7 @@ ReqRes = function ReqRes(req, res) {
             return res.sendFile(__dirname + req.params[0]);
 
 
-        } else if (req.url.includes('/tm')) {
+        } else if (req.url.includes('/tm/')) {
 
             console.log('Token Market Request, ', req.params[0]);
             fs.accessSync(__dirname + req.params[0], fs.F_OK);
