@@ -210,7 +210,7 @@ var sokoC = `
 var tmC = `
             rm -rf business/tm
             cd business
-            git clone -b StableVersion1 https://github.com/bitsoko-services/token-market.git tm
+            git clone -b stableVersion1 https://github.com/bitsoko-services/token-market.git tm
         `;
 
 function updateApps() {
