@@ -258,7 +258,7 @@ function updateApps() {
         }
     });
     console.log('updating token market..');
-    nCmd.get(sokoC, function (data, err, stderr) {
+    nCmd.get(tmC, function (data, err, stderr) {
         if (!err) {
             var hMsg = 'updated token market';
             console.log(hMsg);
