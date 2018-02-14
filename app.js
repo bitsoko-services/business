@@ -4,7 +4,7 @@ var jade = require('pug');
 var LE = require('greenlock');
 var insPORT = 8081;
 var PORT = 8080;
-allDomains=[];
+allDomains = [];
 heartBeat = 20000;
 var bitsokoEmail = 'bitsokokenya@gmail.com';
 var mainDomain = 'https://bitsoko.io'
@@ -72,7 +72,7 @@ bsConn = {
 // get the store id from the process command
 // storeId = process.argv[2];
 
-storeId = '93';
+storeId = '245';
 
 
 
