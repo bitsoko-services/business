@@ -152,6 +152,9 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                 try {
                     //var aPs = allPromos;
                     for (var iiii in aPs) {
+                        
+                        console.log(aPs[iiii]);
+                        
                         if(aPs[iiii].active=="true"){
                         
                         allPromos.push(aPs[iiii]);
