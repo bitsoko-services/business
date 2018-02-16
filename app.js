@@ -155,7 +155,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                         
                         console.log(aPs[iiii]);
                         
-                        if(aPs[iiii].active=="true"){
+                        if(aPs[iiii].promoStatus=="active"){
                         
                         allPromos.push(aPs[iiii]);
                         }
