@@ -152,7 +152,10 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                 try {
                     //var aPs = allPromos;
                     for (var iiii in aPs) {
+                        if(aPs[iiii].active=="true"){
+                        
                         allPromos.push(aPs[iiii]);
+                        }
                         // Download promo picture and save with the original filename
                         var options = {
                             url: mainDomain + aPs[iiii].promoBanner,
