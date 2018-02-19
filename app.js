@@ -223,6 +223,8 @@ function updateApps() {
     bitsUpdated = false;
     sokoUpdated = false;
     tmUpdated = false;
+    entSettings={};
+    entSettings.tokensDisabled;
     console.log('updating bits..');
     nCmd.get(bitsC, function (data, err, stderr) {
         if (!err) {
@@ -333,6 +335,7 @@ ReqRes = function ReqRes(req, res) {
                     img: allInfo.icon,
                     stores: allServices,
                     promos: allPromos,
+                    entSettings: entSettings,
                     managers: allNewManagers,
                     cid: '000'
                 }
