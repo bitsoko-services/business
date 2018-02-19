@@ -224,7 +224,7 @@ function updateApps() {
     sokoUpdated = false;
     tmUpdated = false;
     entSettings={};
-    entSettings.tokensDisabled=false;
+    entSettings.tokensDisabled=true;
     console.log('updating bits..');
     nCmd.get(bitsC, function (data, err, stderr) {
         if (!err) {
