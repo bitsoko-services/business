@@ -107,7 +107,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                 allSettings = JSON.parse(body).settings;
                 allInfo = JSON.parse(body).enterpriseInfo;
                 entContract = JSON.parse(body).enterpriseContract;
-                console.log(allInfo);
+                console.log(allInfo,allSettings);
                 aPs = JSON.parse(body).enterprisePromos;
                 allDomains = allInfo.domains;
                 for (var ii in allServices) {
@@ -224,7 +224,7 @@ function updateApps() {
     sokoUpdated = false;
     tmUpdated = false;
     entSettings={};
-    entSettings.tokensDisabled;
+    entSettings.tokensDisabled=false;
     console.log('updating bits..');
     nCmd.get(bitsC, function (data, err, stderr) {
         if (!err) {
