@@ -74,6 +74,10 @@ bsConn = {
 
 storeId = '245';
 
+    bitsUpdated = false;
+    sokoUpdated = false;
+    tmUpdated = false;
+    entSettings={};
 
 
 var prepDirC = `
@@ -237,10 +241,6 @@ var tmC = `
         `;
 
 function updateApps() {
-    bitsUpdated = false;
-    sokoUpdated = false;
-    tmUpdated = false;
-    entSettings={};
     console.log('updating bits..');
     nCmd.get(bitsC, function (data, err, stderr) {
         if (!err) {
