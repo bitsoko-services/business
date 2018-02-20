@@ -409,9 +409,11 @@ ReqRes = function ReqRes(req, res) {
                 res.sendFile(__dirname + req.params[0]);
             } catch (err) {
                 console.log(err);
-                res.writeHead(301, {
-                    location: "/bits/index.html"
-                });
+		 res('error');  
+		    res.status(500);
+                //res.writeHead(301, {
+                 //   location: "/bits/index.html"
+                //});
                 return res.end();
             }
         }
