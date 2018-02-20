@@ -689,7 +689,7 @@ console.log(arr,mainDomain+serverFiles[url]);
 fileDownloader(mainDomain+serverFiles[url], options, function(err){
     if (err) {console.log(err)}
     else{
-    console.log('saved ',url,' to ',arr)
+    console.log('saved ',serverFiles[url],' to ',arr.join('/'))
     }
 }) 
 
