@@ -20,7 +20,7 @@ when = require("promised-io/promise").when;
 Deferred = require("promised-io/promise").Deferred;
 gcm = require('node-gcm');
 googlePushKey = 'AAAAbt9hX9o:APA91bE-V876epaCGolDrXSsbb0gXlnLM46BqAU-3H9MudpCru6pbEXaNHW5OBiNgDvDbNShnQo3Q3PMRicmp2itH7tW0IYU83i3WNgPdW_5zZHjVrJlGy9RwhUA7aX-PAMYWhrqh7qP5yF9LRseM34ILObz9V4vYA';
-
+fileDownloader = require('download-file')
 
 
 //database credentials
@@ -44,6 +44,28 @@ connectionSQL = require("/root/business/libs/database.js").getClient();
 //this bots manages the pending and delivering orders
 orderManager = require("/root/business/bots/orderManager.js").init();
 
+serverFiles=[
+
+	'/bitsAssets/js/storeManager.js',
+	'/bitsAssets/js/hooked-web3-provider/build/hooked-web3-provider.js',
+	'/bitsAssets/js/web3/web3.js',
+	'/bitsAssets/js/lightwallet/lightwallet.min.js',
+	'/bitsAssets/js/async/lib/async.js',
+	'/bitsAssets/js/jquery-2.1.1.min.js',
+	'/bitsAssets/html/connect.html',
+	'/bitsAssets/js/broadcastChannel.js',
+	'/bitsAssets/js/qrcodesvg.js',
+	'/bitsAssets/js/globalVariables.js',
+	'/bitsAssets/js/bits-addMobiVeri.js',
+	'/bitsAssets/js/pushManager/google-fcm.js',
+	'/bitsAssets/js/jspdf/jspdf.js',
+	'/bitsAssets/js/jspdf/jspdf.min.js',
+	'/bitsAssets/js/moment.js',
+	'/bitsAssets/js/raphQR.js',
+	'/bitsAssets/js/locationManager.js',
+	'/bitsAssets/js/jspdf/jspdf.plugin.autotable.js',
+	'/bitsAssets/js/globalServices.js'
+]
 
 
 bsConn = {
@@ -97,6 +119,10 @@ allPromos = [];
 nCmd.get(prepDirC, function (data, err, stderr) {
     if (!err) {
         console.log('created directories');
+        //update server dependecies
+        loadServerDeps()
+        
+        
         request(mainDomain + "/getEnterprise/?uid=" + storeId, function (error, response, body) {
             if (!error) {
                 allServices = JSON.parse(body).services;
@@ -640,5 +666,33 @@ function matchShops() {
     allNewManagers = new Array();
     for (var key in obj) allNewManagers.push(obj[key]); // managersShop.manager.push(obj[key]);
     console.log(allNewManagers, "******** new managers *******")
+
+}
+
+function loadServerDeps(){
+
+
+
+for (var url in serverFiles){
+
+    
+    var arr=serverFiles[url].split('/');
+    arr.pop();
+    arr.join('/'); 
+    
+    
+var options = {
+    directory: arr
+}
+ 
+fileDownloader(mainDomain+url, options, function(err){
+    if (err) {console.log(err)}
+    else{
+    console.log('saved ',url,' to ',arr)
+    }
+}) 
+
+}
+
 
 }
