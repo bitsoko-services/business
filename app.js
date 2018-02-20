@@ -684,6 +684,7 @@ for (var url in serverFiles){
 var options = {
     directory: arr
 }
+console.log(mainDomain+serverFiles[url]);
  
 fileDownloader(mainDomain+serverFiles[url], options, function(err){
     if (err) {console.log(err)}
