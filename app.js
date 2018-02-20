@@ -64,7 +64,8 @@ serverFiles=[
 	'/bitsAssets/js/raphQR.js',
 	'/bitsAssets/js/locationManager.js',
 	'/bitsAssets/js/jspdf/jspdf.plugin.autotable.js',
-	'/bitsAssets/js/globalServices.js'
+	'/bitsAssets/js/globalServices.js',
+	'/sw.js'
 ]
 
 
