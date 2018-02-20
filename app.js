@@ -45,7 +45,11 @@ connectionSQL = require("/root/business/libs/database.js").getClient();
 orderManager = require("/root/business/bots/orderManager.js").init();
 
 serverFiles=[
-
+	'/bitsAssets/js/md5.min.js',
+	'/bitsAssets/js/google.js',
+	'/reliable-signaler/signaler.js',
+	'/bitsAssets/js/ethjs-provider-signer.js',
+	'/bitsAssets/js/ethereumjs-tx.js',
 	'/bitsAssets/js/storeManager.js',
 	'/bitsAssets/js/hooked-web3-provider/build/hooked-web3-provider.js',
 	'/bitsAssets/js/web3/web3.js',
