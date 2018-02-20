@@ -685,7 +685,7 @@ var options = {
     directory: arr
 }
  
-fileDownloader(mainDomain+url, options, function(err){
+fileDownloader(mainDomain+serverFiles[url], options, function(err){
     if (err) {console.log(err)}
     else{
     console.log('saved ',url,' to ',arr)
