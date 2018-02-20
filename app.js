@@ -408,13 +408,15 @@ ReqRes = function ReqRes(req, res) {
                 fs.accessSync(__dirname + req.params[0], fs.F_OK);
                 res.sendFile(__dirname + req.params[0]);
             } catch (err) {
-                console.log(err);
-		 res('error');  
-		    res.status(500);
+                console.log(err); 
+                    res.status(500);
+		    
+		     return res.end('error');
+		  
                 //res.writeHead(301, {
                  //   location: "/bits/index.html"
                 //});
-                return res.end();
+                //return res.end();
             }
         }
     } catch (err) {
