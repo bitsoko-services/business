@@ -681,7 +681,7 @@ for (var url in serverFiles){
     
     
 var options = {
-    directory: arr.join('/')
+    directory: 'business/'+arr.join('/')
 }
 console.log(arr,mainDomain+serverFiles[url]);
  
