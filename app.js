@@ -678,11 +678,10 @@ for (var url in serverFiles){
     
     var arr=serverFiles[url].split('/');
     arr.pop();
-    arr.join('/'); 
     
     
 var options = {
-    directory: arr
+    directory: arr.join('/')
 }
 console.log(arr,mainDomain+serverFiles[url]);
  
