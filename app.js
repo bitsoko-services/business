@@ -375,6 +375,7 @@ ReqRes = function ReqRes(req, res) {
                     socialLinks: ['/bits/images/facebook.png', '/bits/images/twitter.png', '/bits/images/linkedin.png'],
                     phone: allInfo.phone,
                     email: allInfo.email,
+                    discount: allInfo.discount,
                     managerState: allInfo.managerState,
                     rate: allInfo.contractRate,
                     entContract: entContract,
