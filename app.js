@@ -44,7 +44,7 @@ connectionSQL = require("/root/business/libs/database.js").getClient();
 //this bots manages the pending and delivering orders
 orderManager = require("/root/business/bots/orderManager.js").init();
 
-serverFiles=[
+serverFiles = [
 	'/bitsAssets/js/md5.min.js',
 	'/bitsAssets/js/google.js',
 	'/reliable-signaler/signaler.js',
@@ -101,10 +101,10 @@ bsConn = {
 
 storeId = '245';
 
-    bitsUpdated = false;
-    sokoUpdated = false;
-    tmUpdated = false;
-    entSettings={};
+bitsUpdated = false;
+sokoUpdated = false;
+tmUpdated = false;
+entSettings = {};
 
 
 var prepDirC = `
@@ -126,8 +126,8 @@ nCmd.get(prepDirC, function (data, err, stderr) {
         console.log('created directories');
         //update server dependecies
         loadServerDeps()
-        
-        
+
+
         request(mainDomain + "/getEnterprise/?uid=" + storeId, function (error, response, body) {
             if (!error) {
                 allServices = JSON.parse(body).services;
@@ -142,24 +142,24 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                 allSettings = JSON.parse(body).settings;
                 allInfo = JSON.parse(body).enterpriseInfo;
                 entContract = JSON.parse(body).enterpriseContract;
-                console.log(allInfo,allSettings);
-                
-                if(allInfo.showManagers=='true'){
-                
-    entSettings.managersDisabled=false;
-                }else{
-                
-    entSettings.managersDisabled=true;
+                console.log(allInfo, allSettings);
+
+                if (allInfo.showManagers == 'true') {
+
+                    entSettings.managersDisabled = false;
+                } else {
+
+                    entSettings.managersDisabled = true;
                 }
-                
-                if(allInfo.showTokens=='true'){
-                
-    entSettings.tokensDisabled=false;
-                }else{
-                
-    entSettings.tokensDisabled=true;
+
+                if (allInfo.showTokens == 'true') {
+
+                    entSettings.tokensDisabled = false;
+                } else {
+
+                    entSettings.tokensDisabled = true;
                 }
-                
+
                 aPs = JSON.parse(body).enterprisePromos;
                 allDomains = allInfo.domains;
                 for (var ii in allServices) {
@@ -204,12 +204,12 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                 try {
                     //var aPs = allPromos;
                     for (var iiii in aPs) {
-                        
+
                         console.log(aPs[iiii]);
-                        
-                        if(aPs[iiii].promoStatus=="active"){
-                        
-                        allPromos.push(aPs[iiii]);
+
+                        if (aPs[iiii].promoStatus == "active") {
+
+                            allPromos.push(aPs[iiii]);
                         }
                         // Download promo picture and save with the original filename
                         var options = {
@@ -372,7 +372,7 @@ ReqRes = function ReqRes(req, res) {
                     name: allInfo.name,
                     cover: allInfo.cover,
                     tagline: allInfo.tagline,
-                    socialLinks: ['https://bitsoko.co.ke/bits/images/facebook.png', 'https://bitsoko.co.ke/bits/images/twitter.png', 'https://bitsoko.co.ke/bits/images/linkedin.png'],
+                    socialLinks: ['/bits/images/facebook.png', '/bits/images/twitter.png', '/bits/images/linkedin.png'],
                     phone: allInfo.phone,
                     email: allInfo.email,
                     managerState: allInfo.managerState,
@@ -412,13 +412,13 @@ ReqRes = function ReqRes(req, res) {
                 fs.accessSync(__dirname + req.params[0], fs.F_OK);
                 res.sendFile(__dirname + req.params[0]);
             } catch (err) {
-                console.log(err); 
-                    res.status(500);
-		    
-		     return res.end('error');
-		  
+                console.log(err);
+                res.status(500);
+
+                return res.end('error');
+
                 //res.writeHead(301, {
-                 //   location: "/bits/index.html"
+                //   location: "/bits/index.html"
                 //});
                 //return res.end();
             }
@@ -678,30 +678,31 @@ function matchShops() {
 
 }
 
-function loadServerDeps(){
+function loadServerDeps() {
 
 
 
-for (var url in serverFiles){
+    for (var url in serverFiles) {
 
-    
-    var arr=serverFiles[url].split('/');
-    arr.pop();
-    
-    
-var options = {
-    directory: 'business/'+arr.join('/')
-}
-console.log(arr,mainDomain+serverFiles[url]);
- 
-fileDownloader(mainDomain+serverFiles[url], options, function(err){
-    if (err) {console.log(err)}
-    else{
-    console.log('saved ',serverFiles[url],' to ',arr.join('/'))
+
+        var arr = serverFiles[url].split('/');
+        arr.pop();
+
+
+        var options = {
+            directory: 'business/' + arr.join('/')
+        }
+        console.log(arr, mainDomain + serverFiles[url]);
+
+        fileDownloader(mainDomain + serverFiles[url], options, function (err) {
+            if (err) {
+                console.log(err)
+            } else {
+                console.log('saved ', serverFiles[url], ' to ', arr.join('/'))
+            }
+        })
+
     }
-}) 
-
-}
 
 
 }
