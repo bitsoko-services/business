@@ -317,7 +317,7 @@ ReqRes = function ReqRes(req, res) {
                     name: allInfo.name,
                     cover: allInfo.cover,
                     tagline: allInfo.tagline,
-                    socialLinks: ['', '', ''],
+                    socialLinks: ['https://bitsoko.co.ke/bits/images/facebook.png', 'https://bitsoko.co.ke/bits/images/twitter.png', 'https://bitsoko.co.ke/bits/images/linkedin.png'],
                     phone: allInfo.phone,
                     email: allInfo.email,
                     managerState: allInfo.managerState,
