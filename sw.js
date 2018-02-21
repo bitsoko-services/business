@@ -131,7 +131,7 @@ var appFiles = [
 // flow and the old cache(s) will be purged as part of the activate event handler when the
 // updated service worker is activated.
 
-var buildNumber = 6257;
+var buildNumber = 6258;
 var CACHE_VERSION = moment().months()+buildNumber+bitsVersion+sokoVersion;
 
 var CURRENT_CACHES = {
