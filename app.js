@@ -159,7 +159,78 @@ nCmd.get(prepDirC, function (data, err, stderr) {
 
                     entSettings.tokensDisabled = true;
                 }
+		    
+		    //----------------------------------//
+		    
+		    
 
+		    //---------add the about Title------//
+		    try{
+		    
+                if (allInfo.entAboutTitle.length < 3) {
+
+                    entSettings.tokensDisabled = false;
+                } else {
+
+                    entSettings.tokensDisabled = true;
+                }
+
+		    }catch(err){
+		    console.log('!INFO unsble to get about title',err);
+		    }
+		    //-----------------------------------------//
+
+		    //---------add the about body------//
+		    try{
+		    
+                if (allInfo.entAboutBody.length < 3) {
+
+                    entSettings.tokensDisabled = false;
+                } else {
+
+                    entSettings.tokensDisabled = true;
+                }
+
+		    }catch(err){
+		    console.log('!INFO unsble to get about body',err);
+		    }
+		    //-----------------------------------------//
+
+		    //---------add the section images------//
+		    try{
+		    var imgItms=JSON.parse(allInfo.entImageList);
+                if (allInfo.showTokens == 'true') {
+
+                    entSettings.entImageListDisabled = false;
+                } else {
+
+                    entSettings.entImageListDisabled = true;
+                }
+
+		    }catch(err){
+		  console.log('!INFO unsble to get images section',err);  
+		    }
+		    //-----------------------------------------//
+
+		    //---------add the section icons------//
+		    try{
+		    
+		    var icnItms=JSON.parse(allInfo.entIconList);
+                if (icnItms.length > 1) {
+
+                    entSettings.entIconListDisabled = false;
+                } else {
+
+                    entSettings.entIconListDisabled = true;
+                }
+
+		    }catch(err){
+		    console.log('!INFO unsble to get icons section',err);
+		    }
+		    //-----------------------------------------//
+		    
+		    
+		    
                 aPs = JSON.parse(body).enterprisePromos;
                 allDomains = allInfo.domains;
                 for (var ii in allServices) {
