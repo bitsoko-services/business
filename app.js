@@ -169,14 +169,14 @@ nCmd.get(prepDirC, function (data, err, stderr) {
 		    
                 if (allInfo.entAboutTitle.length < 3) {
 
-                    entSettings.tokensDisabled = false;
+                    entSettings.entAboutTitle = allInfo.entAboutTitle;
                 } else {
 
-                    entSettings.tokensDisabled = true;
+                    entSettings.entAboutTitle = allInfo.entAboutTitle;
                 }
 
 		    }catch(err){
-		    console.log('!INFO unsble to get about title',err);
+		    console.log('!INFO unable to get about title',err);
 		    }
 		    //-----------------------------------------//
 
@@ -185,14 +185,14 @@ nCmd.get(prepDirC, function (data, err, stderr) {
 		    
                 if (allInfo.entAboutBody.length < 3) {
 
-                    entSettings.tokensDisabled = false;
+                    entSettings.entAboutBody = allInfo.entAboutBody;
                 } else {
 
-                    entSettings.tokensDisabled = true;
+                    entSettings.entAboutBody = allInfo.entAboutBody;
                 }
 
 		    }catch(err){
-		    console.log('!INFO unsble to get about body',err);
+		    console.log('!INFO unable to get about body',err);
 		    }
 		    //-----------------------------------------//
 
@@ -208,7 +208,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                 }
 
 		    }catch(err){
-		  console.log('!INFO unsble to get images section',err);  
+		  console.log('!INFO unable to get images section',err);  
 		    }
 		    //-----------------------------------------//
 
@@ -225,7 +225,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                 }
 
 		    }catch(err){
-		    console.log('!INFO unsble to get icons section',err);
+		    console.log('!INFO unable to get icons section',err);
 		    }
 		    //-----------------------------------------//
 		    
