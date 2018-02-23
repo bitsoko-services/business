@@ -199,16 +199,18 @@ nCmd.get(prepDirC, function (data, err, stderr) {
 		    //---------add the section images------//
 		    try{
 		    var imgItms=JSON.parse(allInfo.entImageList);
-                if (allInfo.showTokens == 'true') {
-
-                    entSettings.entImageListDisabled = true;
-                } else {
+                if (imgItms.length > 1) {
 
                     entSettings.entImageListDisabled = false;
+                } else {
+
+                    entSettings.entImageListDisabled = true;
                 }
 
 		    }catch(err){
-		  console.log('!INFO unable to get images section',err);  
+		  console.log('!INFO unable to get images section',err);
+			    
+                    entSettings.entImageListDisabled = true;
 		    }
 		    //-----------------------------------------//
 
@@ -226,6 +228,8 @@ nCmd.get(prepDirC, function (data, err, stderr) {
 
 		    }catch(err){
 		    console.log('!INFO unable to get icons section',err);
+			    
+                    entSettings.entIconListDisabled = true;
 		    }
 		    //-----------------------------------------//
 		    
