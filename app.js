@@ -199,6 +199,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
 		    //---------add the section images------//
 		    try{
 		    var imgItms=JSON.parse(allInfo.entImageList);
+			    console.log('!INFO section1 data ',allInfo.entImageList, imgItms.length)
                 if (imgItms.length > 1) {
 
                     entSettings.entImageListDisabled = false;
