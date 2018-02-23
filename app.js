@@ -199,7 +199,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
 		    //---------add the section images------//
 		    try{
 			    
-			    console.log('!INFO section1 data ',allInfo.entImageList, imgItms.length);
+			    console.log('!INFO section1 data ',allInfo.entImageList);
 			    
 		    var imgItms=JSON.parse(allInfo.entImageList);
                 if (imgItms.length > 1) {
