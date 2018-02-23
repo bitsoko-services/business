@@ -205,6 +205,8 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                 if (imgItms.length > 1) {
 
                     entSettings.entImageListDisabled = false;
+                    entSettings.entImageList = imgItms;
+			
                 } else {
 
                     entSettings.entImageListDisabled = true;
@@ -224,6 +226,8 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                 if (icnItms.length > 1) {
 
                     entSettings.entIconListDisabled = false;
+                    entSettings.entIconList = icnItms;
+			
                 } else {
 
                     entSettings.entIconListDisabled = true;
