@@ -201,10 +201,10 @@ nCmd.get(prepDirC, function (data, err, stderr) {
 		    var imgItms=JSON.parse(allInfo.entImageList);
                 if (allInfo.showTokens == 'true') {
 
-                    entSettings.entImageListDisabled = false;
+                    entSettings.entImageListDisabled = true;
                 } else {
 
-                    entSettings.entImageListDisabled = true;
+                    entSettings.entImageListDisabled = false;
                 }
 
 		    }catch(err){
