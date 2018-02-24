@@ -50,9 +50,15 @@ serverFiles = [
 	'/reliable-signaler/signaler.js',
 	'/bitsAssets/js/ethjs-provider-signer.js',
 	'/bitsAssets/js/ethereumjs-tx.js',
+	'/sw.js',
+	'/bitsAssets/js/webcomponents.js',
 	'/bitsAssets/js/storeManager.js',
 	'/bitsAssets/js/hooked-web3-provider/build/hooked-web3-provider.js',
+	'/bitsAssets/js/browserDetect.js',
 	'/bitsAssets/js/web3/web3.js',
+	'/bitsAssets/js/materialize/materialize.min.js',
+	'/bitsAssets/css/materialize/materialize.min.css',
+	'/socket.io/socket.io.js',
 	'/bitsAssets/js/lightwallet/lightwallet.min.js',
 	'/bitsAssets/js/async/lib/async.js',
 	'/bitsAssets/js/jquery-2.1.1.min.js',
@@ -69,8 +75,8 @@ serverFiles = [
 	'/bitsAssets/js/locationManager.js',
 	'/bitsAssets/js/jspdf/jspdf.plugin.autotable.js',
 	'/bitsAssets/js/globalServices.js',
-	'/sw.js'
-]
+
+];
 
 
 bsConn = {
@@ -99,7 +105,7 @@ bsConn = {
 // get the store id from the process command
 // storeId = process.argv[2];
 
-storeId = '93';
+storeId = '245';
 
 bitsUpdated = false;
 sokoUpdated = false;
