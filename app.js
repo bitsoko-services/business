@@ -75,6 +75,7 @@ serverFiles = [
 	'/bitsAssets/js/locationManager.js',
 	'/bitsAssets/js/jspdf/jspdf.plugin.autotable.js',
 	'/bitsAssets/js/globalServices.js',
+	'/bitsAssets/js/knockout-3.1.0.js',
 
 ];
 
