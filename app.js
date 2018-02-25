@@ -300,6 +300,17 @@ nCmd.get(prepDirC, function (data, err, stderr) {
 
                             allPromos.push(aPs[iiii]);
                         }
+			 
+			// enable or disable the promotions section
+			    
+                if (allPromos.length>1) {
+
+                    entSettings.promotionsDisabled = false;
+                } else {
+
+                    entSettings.promotionsDisabled = true;
+                }
+			    
                         // Download promo picture and save with the original filename
                         var options = {
                             url: mainDomain + aPs[iiii].promoBanner,
