@@ -106,7 +106,7 @@ bsConn = {
 // get the store id from the process command
 // storeId = process.argv[2];
 
-storeId = '93';
+storeId = '245';
 
 bitsUpdated = false;
 sokoUpdated = false;
@@ -166,89 +166,89 @@ nCmd.get(prepDirC, function (data, err, stderr) {
 
                     entSettings.tokensDisabled = true;
                 }
-		    
-		    //----------------------------------//
-		    
-		    
 
-		    //---------add the about Title------//
-		    try{
-		    
-                if (allInfo.entAboutTitle.length < 3) {
+                //----------------------------------//
 
-                    entSettings.entAboutTitle = allInfo.entAboutTitle;
-                } else {
 
-                    entSettings.entAboutTitle = allInfo.entAboutTitle;
+
+                //---------add the about Title------//
+                try {
+
+                    if (allInfo.entAboutTitle.length < 3) {
+
+                        entSettings.entAboutTitle = allInfo.entAboutTitle;
+                    } else {
+
+                        entSettings.entAboutTitle = allInfo.entAboutTitle;
+                    }
+
+                } catch (err) {
+                    console.log('!INFO unable to get about title', err);
                 }
+                //-----------------------------------------//
 
-		    }catch(err){
-		    console.log('!INFO unable to get about title',err);
-		    }
-		    //-----------------------------------------//
+                //---------add the about body------//
+                try {
 
-		    //---------add the about body------//
-		    try{
-		    
-                if (allInfo.entAboutBody.length < 3) {
+                    if (allInfo.entAboutBody.length < 3) {
 
-                    entSettings.entAboutBody = allInfo.entAboutBody;
-                } else {
+                        entSettings.entAboutBody = allInfo.entAboutBody;
+                    } else {
 
-                    entSettings.entAboutBody = allInfo.entAboutBody;
+                        entSettings.entAboutBody = allInfo.entAboutBody;
+                    }
+
+                } catch (err) {
+                    console.log('!INFO unable to get about body', err);
                 }
+                //-----------------------------------------//
 
-		    }catch(err){
-		    console.log('!INFO unable to get about body',err);
-		    }
-		    //-----------------------------------------//
+                //---------add the section images------//
+                try {
 
-		    //---------add the section images------//
-		    try{
-			    
-			    console.log('!INFO section1 data ',allInfo.entImageList);
-			    
-		    var imgItms=JSON.parse(allInfo.entImageList);
-                if (imgItms.length > 1) {
+                    console.log('!INFO section1 data ', allInfo.entImageList);
 
-                    entSettings.entImageListDisabled = false;
-                    entSettings.entImageList = imgItms;
-			
-                } else {
+                    var imgItms = JSON.parse(allInfo.entImageList);
+                    if (imgItms.length > 1) {
+
+                        entSettings.entImageListDisabled = false;
+                        entSettings.entImageList = imgItms;
+
+                    } else {
+
+                        entSettings.entImageListDisabled = true;
+                    }
+
+                } catch (err) {
+                    console.log('!INFO unable to get images section', err);
 
                     entSettings.entImageListDisabled = true;
                 }
+                //-----------------------------------------//
 
-		    }catch(err){
-		  console.log('!INFO unable to get images section',err);
-			    
-                    entSettings.entImageListDisabled = true;
-		    }
-		    //-----------------------------------------//
+                //---------add the section icons------//
+                try {
 
-		    //---------add the section icons------//
-		    try{
-		    
-		    var icnItms=JSON.parse(allInfo.entIconList);
-                if (icnItms.length > 1) {
+                    var icnItms = JSON.parse(allInfo.entIconList);
+                    if (icnItms.length > 1) {
 
-                    entSettings.entIconListDisabled = false;
-                    entSettings.entIconList = icnItms;
-			
-                } else {
+                        entSettings.entIconListDisabled = false;
+                        entSettings.entIconList = icnItms;
+
+                    } else {
+
+                        entSettings.entIconListDisabled = true;
+                    }
+
+                } catch (err) {
+                    console.log('!INFO unable to get icons section', err);
 
                     entSettings.entIconListDisabled = true;
                 }
+                //-----------------------------------------//
 
-		    }catch(err){
-		    console.log('!INFO unable to get icons section',err);
-			    
-                    entSettings.entIconListDisabled = true;
-		    }
-		    //-----------------------------------------//
-		    
-		    
-		    
+
+
                 aPs = JSON.parse(body).enterprisePromos;
                 allDomains = allInfo.domains;
                 for (var ii in allServices) {
@@ -300,17 +300,17 @@ nCmd.get(prepDirC, function (data, err, stderr) {
 
                             allPromos.push(aPs[iiii]);
                         }
-			 
-			// enable or disable the promotions section
-			    
-                if (allPromos.length>1) {
 
-                    entSettings.promotionsDisabled = false;
-                } else {
+                        // enable or disable the promotions section
 
-                    entSettings.promotionsDisabled = true;
-                }
-			    
+                        if (allPromos.length > 1) {
+
+                            entSettings.promotionsDisabled = false;
+                        } else {
+
+                            entSettings.promotionsDisabled = true;
+                        }
+
                         // Download promo picture and save with the original filename
                         var options = {
                             url: mainDomain + aPs[iiii].promoBanner,
