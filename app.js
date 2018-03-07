@@ -107,7 +107,7 @@ bsConn = {
 // get the store id from the process command
 // storeId = process.argv[2];
 
-storeId = '245';
+storeId = '93';
 
 bitsUpdated = false;
 sokoUpdated = false;
@@ -470,7 +470,7 @@ ReqRes = function ReqRes(req, res) {
                 //console.log(allManagers);
                 matchShops();
                 var data = {
-                    name: allInfo.name,
+                    name: allInfo.name.split(' ')[0],
                     cover: allInfo.cover,
                     tagline: allInfo.tagline,
                     socialLinks: ['/bits/images/facebook.png', '/bits/images/twitter.png', '/bits/images/linkedin.png'],
