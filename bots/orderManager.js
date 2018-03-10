@@ -99,6 +99,7 @@ console.log(stores);
                                         "app": "bits",
                                         "state": e.ret.state,
                                         "deliveredBy": e.ret.deliveredBy,
+					"deliveryPrice":e.ret.delPrice,
                                         "orderImg": e.ret.orderImg,
                                         "store": e.ret.toservice,
                                         "oid": e.ret.id,
