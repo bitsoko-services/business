@@ -21,7 +21,7 @@ Deferred = require("promised-io/promise").Deferred;
 gcm = require('node-gcm');
 googlePushKey = 'AAAAbt9hX9o:APA91bE-V876epaCGolDrXSsbb0gXlnLM46BqAU-3H9MudpCru6pbEXaNHW5OBiNgDvDbNShnQo3Q3PMRicmp2itH7tW0IYU83i3WNgPdW_5zZHjVrJlGy9RwhUA7aX-PAMYWhrqh7qP5yF9LRseM34ILObz9V4vYA';
 fileDownloader = require('download-file');
-stores=[];
+stores = [];
 
 //database credentials
 dbHost = '104.199.152.117';
@@ -107,7 +107,7 @@ bsConn = {
 // get the store id from the process command
 // storeId = process.argv[2];
 
-storeId = '93';
+storeId = '245';
 
 bitsUpdated = false;
 sokoUpdated = false;
