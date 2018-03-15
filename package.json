@@ -16,10 +16,6 @@
             "email": "gaseema@bitsoko.io"
     },
         {
-            "name": "samuel muiruri",
-            "email": "samuel@bitsoko.io"
-    },
-        {
             "name": "allan juma",
             "email": "allan@bitsoko.io"
     }
@@ -39,10 +35,13 @@
         "express": "~4.15.2",
         "node-cmd": "latest",
         "greenlock-cli": "latest",
+        "image-downloader": "latest",
         "greenlock-express": "latest",
+        "download-file": "latest",
+        "node-gcm": "latest",
+        "promised-io": "latest",
         "compression": "latest",
         "greenlock": "latest",
-        "greenlock-express": "latest",
         "socket.io": "latest",
         "pug": "latest",
         "mysql": "latest",
