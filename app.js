@@ -21,6 +21,7 @@ Deferred = require("promised-io/promise").Deferred;
 gcm = require('node-gcm');
 googlePushKey = 'AAAAbt9hX9o:APA91bE-V876epaCGolDrXSsbb0gXlnLM46BqAU-3H9MudpCru6pbEXaNHW5OBiNgDvDbNShnQo3Q3PMRicmp2itH7tW0IYU83i3WNgPdW_5zZHjVrJlGy9RwhUA7aX-PAMYWhrqh7qP5yF9LRseM34ILObz9V4vYA';
 fileDownloader = require('download-file');
+html2jade = require('html2jade');
 stores = [];
 Cid = '476194103258-98t0j7p1lrela49ispgj3jfokl2r3ils.apps.googleusercontent.com';
 
@@ -548,6 +549,9 @@ ReqRes = function ReqRes(req, res) {
 	    
 when(messageManager.merchantOwner(r.res.contractCreator), function(result){
 
+fs.readFile(__dirname + '/tm/index.html', function(error, source){
+  
+html2jade.convertHtml(source, {}, function (err, jd) {
 	var data = {
   name: 'Invest with '+result.res.name,
   desc: 'earn upto '+result.res.contractRate+'% profits every week by buying '+r.res.name+' token',
@@ -562,7 +566,8 @@ data.body = process.argv[2];
     //res.writeHead(200);
     return res.end(html);
 
-    
+ });
+	});
 	
 }, function(error){
    console.log(error);
