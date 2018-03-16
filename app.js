@@ -542,6 +542,12 @@ ReqRes = function ReqRes(req, res) {
 
 
         } else if (req.url.includes('/tm/')) {
+		
+            console.log('Token Market Request, ', req.params[0]);
+
+		if (req.url.includes('/tm/?')) {
+			
+		
 	
 		   //if(getBitsWinOpt(req.url,'cid')){
 		when(messageManager.contByAdr(getBitsWinOpt(req.url,'cid'),''),function(r){
@@ -576,16 +582,13 @@ data.body = process.argv[2];
 }, function(error){
    console.log(error);
 });  
-	/*
-		   }else{
-	
-	
-
-            console.log('Token Market Request, ', req.params[0]);
-            fs.accessSync(__dirname + req.params[0], fs.F_OK);
-            return res.sendFile(__dirname + req.params[0]);
-}		*/
+			
+			}else{
 		
+            fs.accessSync(__dirname + req.params[0], fs.F_OK);
+            return res.sendFile(__dirname + req.params[0]);	
+			}
+	
 		
 
         } else {
