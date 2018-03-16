@@ -153,7 +153,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                 allSettings = JSON.parse(body).settings;
                 allInfo = JSON.parse(body).enterpriseInfo;
                 entContract = JSON.parse(body).enterpriseContract;
-                console.log(allInfo, allSettings);
+                //console.log(allInfo, allSettings);
 
                 if (allInfo.showManagers == 'true') {
 
@@ -210,7 +210,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                 //---------add the section images------//
                 try {
 
-                    console.log('!INFO section1 data ', allInfo.entImageList);
+                    //console.log('!INFO section1 data ', allInfo.entImageList);
 
                     var imgItms = JSON.parse(allInfo.entImageList);
                     if (imgItms.length > 1) {
