@@ -34,8 +34,10 @@ dbName = 'bitsoko';
 //Globally available helper scripts
 entFunc = require("/root/business/libs/enterpriseFunctions.js");
 
-//Messaging support - sms and notofications
+//Messaging support - sms and notifications
 messageManager = require("/root/business/libs/messageManager.js");
+//Contract support - contract information
+contractManager = require("/root/business/libs/messageManager.js");
 //Database support
 connectionSQL = require("/root/business/libs/database.js").getClient();
 
@@ -107,7 +109,7 @@ bsConn = {
 // get the store id from the process command
 // storeId = process.argv[2];
 
-storeId = '245';
+storeId = '93';
 
 bitsUpdated = false;
 sokoUpdated = false;
@@ -540,10 +542,10 @@ ReqRes = function ReqRes(req, res) {
         } else if (req.url.includes('/tm/')) {
 	
 		   //if(getBitsWinOpt(req.url,'cid')){
-		when(bitsoko.contByAdr(getBitsWinOpt(req.url,'cid'),''),function(r){
+		when(messageManager.contByAdr(getBitsWinOpt(req.url,'cid'),''),function(r){
 	  
 	    
-when(bitsoko.merchantOwner(r.res.contractCreator), function(result){
+when(messageManager.merchantOwner(r.res.contractCreator), function(result){
 
 	var data = {
   name: 'Invest with '+result.res.name,
