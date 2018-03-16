@@ -113,6 +113,7 @@ bitsUpdated = false;
 sokoUpdated = false;
 tmUpdated = false;
 entSettings = {};
+serverRunning = false;
 
 
 var prepDirC = `
@@ -344,8 +345,14 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                         installCerts();
                     }
                 } catch (err) {
+			
                     console.log(err);
+			
+			//update apps with main branch every 6 hours
+			
+		setInterval(function(){ updateApps(); }, 1000*60*60*6);
                     updateApps();
+			
                 }
             } else {
                 console.log('ERR! critical error connecting to bitsoko');
@@ -372,6 +379,29 @@ var tmC = `
             git clone -b stableVersion1 https://github.com/bitsoko-services/token-market.git tm
         `;
 
+
+	   function getBitsWinOpt(str,aKey){    
+			try{    
+		   var ps=str.split("?")[1];
+ var pairs = ps.split("&");
+            }catch(e){
+return false;
+}  
+  		     
+            
+for(var i = 0, aKey=aKey; i < pairs.length; ++i) {
+var key=pairs[i].split("=")[0];
+	
+    var value=pairs[i].split("=")[1];
+ if (key==aKey){
+     
+     return value;
+ 
+ }  
+    
+}
+		     }
+
 function updateApps() {
     console.log('updating bits..');
     nCmd.get(bitsC, function (data, err, stderr) {
@@ -381,6 +411,7 @@ function updateApps() {
             bitsUpdated = true;
             if (bitsUpdated && sokoUpdated && tmUpdated) {
                 //OpenInsecure();
+		    if(!serverRunning){
                 try {
                     OpenSecure();
                 } catch (err) {
@@ -388,6 +419,7 @@ function updateApps() {
                     console.log('security certificates not found! initiating letsencrypt..', err);
                     installCerts();
                 }
+			    }
             }
         } else {
             console.log(err);
@@ -401,6 +433,7 @@ function updateApps() {
             sokoUpdated = true;
             if (bitsUpdated && sokoUpdated && tmUpdated) {
                 //OpenInsecure();
+                 if(!serverRunning){
                 try {
                     OpenSecure();
                 } catch (err) {
@@ -408,6 +441,7 @@ function updateApps() {
                     console.log('security certificates not found! initiating letsencrypt..', err);
                     installCerts();
                 }
+			    }
             }
         } else {
             console.log(err);
@@ -421,6 +455,7 @@ function updateApps() {
             tmUpdated = true;
             if (bitsUpdated && sokoUpdated && tmUpdated) {
                 //OpenInsecure();
+                 if(!serverRunning){
                 try {
                     OpenSecure();
                 } catch (err) {
@@ -428,6 +463,7 @@ function updateApps() {
                     console.log('security certificates not found! initiating letsencrypt..', err);
                     installCerts();
                 }
+			    }
             }
         } else {
             console.log(err);
@@ -502,11 +538,47 @@ ReqRes = function ReqRes(req, res) {
 
 
         } else if (req.url.includes('/tm/')) {
+	
+		   //if(getBitsWinOpt(req.url,'cid')){
+		when(bitsoko.contByAdr(getBitsWinOpt(req.url,'cid'),''),function(r){
+	  
+	    
+when(bitsoko.merchantOwner(r.res.contractCreator), function(result){
+
+	var data = {
+  name: 'Invest with '+result.res.name,
+  desc: 'earn upto '+result.res.contractRate+'% profits every week by buying '+r.res.name+' token',
+    img: result.res.icon,
+      cid: Cid
+}
+  
+data.body = process.argv[2];
+//jade.render
+    var template = jade.compile(jd);
+    var html = template(data);
+    //res.writeHead(200);
+    return res.end(html);
+
+    
+	
+}, function(error){
+   console.log(error);
+});
+			
+}, function(error){
+   console.log(error);
+});  
+	/*
+		   }else{
+	
+	
 
             console.log('Token Market Request, ', req.params[0]);
             fs.accessSync(__dirname + req.params[0], fs.F_OK);
             return res.sendFile(__dirname + req.params[0]);
-
+}		*/
+		
+		
 
         } else {
             try {
@@ -723,6 +795,8 @@ function OpenSecure() {
         if (err) throw err;
         console.log('Secure now online at https://localhost:' + PORT);
         OpenInsecure();
+	    
+            serverRunning = true;
     });
 }
 
