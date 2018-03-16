@@ -3,7 +3,7 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.5/install.sh | b
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 nvm install node
-npm install node express node-cmd greenlock-cli image-downloader greenlock-express download-file node-gcm promised-io compression greenlock socket.io pug mysql express-force-ssl
+npm install node express node-cmd greenlock-cli image-downloader greenlock-express download-file node-gcm promised-io compression greenlock socket.io pug mysql express-force-ssl html2jade newline-remove
 npm install package.json --save
 
  iptables -t nat -I PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8081
