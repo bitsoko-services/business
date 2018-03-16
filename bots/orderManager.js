@@ -119,7 +119,7 @@ console.log(stores);
                                 }
 
                             }, function (error) {
-                                deferred.reject(error);
+                               console.log(error);
                             });
                         }
 
