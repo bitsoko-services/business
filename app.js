@@ -566,7 +566,7 @@ html2jade.convertHtml(source, {}, function (err, jd) {
 }
   
 data.body = process.argv[2];
-//jade.render
+console.log(JSON.stringify(data));
     var template = jade.compile(jd);
     var html = template(data);
     //res.writeHead(200);
