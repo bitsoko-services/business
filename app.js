@@ -107,7 +107,7 @@ bsConn = {
 // get the store id from the process command
 // storeId = process.argv[2];
 
-storeId = '351';
+storeId = '102';
 
 bitsUpdated = false;
 sokoUpdated = false;
