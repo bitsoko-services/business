@@ -137,10 +137,7 @@ allPromos = [];
 nCmd.get(prepDirC, function (data, err, stderr) {
     if (!err) {
         console.log('created directories');
-        //update server dependecies
-        loadServerDeps()
-
-
+        
         request(mainDomain + "/getEnterprise/?uid=" + storeId, function (error, response, body) {
             if (!error) {
                 allServices = JSON.parse(body).services;
@@ -407,6 +404,10 @@ var key=pairs[i].split("=")[0];
 		     }
 
 function updateApps() {
+	//update server dependecies
+        loadServerDeps()
+
+
     console.log('updating bits..');
     nCmd.get(bitsC, function (data, err, stderr) {
         if (!err) {
