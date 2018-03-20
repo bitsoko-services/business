@@ -879,13 +879,13 @@ function loadServerDeps() {
         var options = {
             directory: 'business/' + arr.join('/')
         }
-        console.log(arr, mainDomain + serverFiles[url]);
+       // console.log(arr, mainDomain + serverFiles[url]);
 
         fileDownloader(mainDomain + serverFiles[url], options, function (err) {
             if (err) {
                 console.log(err)
             } else {
-                console.log('saved ', serverFiles[url], ' to ', arr.join('/'))
+               // console.log('saved ', serverFiles[url], ' to ', arr.join('/'))
             }
         })
 
