@@ -515,6 +515,7 @@ ReqRes = function ReqRes(req, res) {
                     cover: allInfo.cover,
                     tagline: allInfo.tagline,
                     socialLinks: ['/bits/images/facebook.png', '/bits/images/twitter.png', '/bits/images/linkedin.png'],
+                    reviews: [{revIcon:'/bits/images/facebook.png',revName:'john doe',revMsg:'good service'},{revIcon:'/bits/images/facebook.png',revName:'john doe',revMsg:'good service'}],
                     phone: allInfo.phone,
                     email: allInfo.email,
                     managerState: allInfo.managerState,
