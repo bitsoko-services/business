@@ -138,7 +138,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
     if (!err) {
         console.log('created directories');
         
-        request(mainDomain + "/getEnterprise/?servID="+entDevID, function (error, response, body) {
+        request(mainDomain + "/getEnterprise/?servEntID="+entDevID, function (error, response, body) {
             if (!error) {
                 allServices = JSON.parse(body).services;
 
