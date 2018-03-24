@@ -511,7 +511,7 @@ ReqRes = function ReqRes(req, res) {
                 //console.log(allManagers);
                 matchShops();
                 var data = {
-                    name: allInfo.name.split(' ')[0],
+                    name: allInfo.name,
                     cover: allInfo.cover,
                     tagline: allInfo.tagline,
                     socialLinks: ['/bits/images/facebook.png', '/bits/images/twitter.png', '/bits/images/linkedin.png'],
