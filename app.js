@@ -24,6 +24,7 @@ fileDownloader = require('download-file');
 html2jade = require('html2jade');
 stores = [];
 Cid = '476194103258-98t0j7p1lrela49ispgj3jfokl2r3ils.apps.googleusercontent.com';
+writeFile = require('write');
 
 //database credentials
 dbHost = '104.199.152.117';
@@ -153,6 +154,30 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                 allInfo = JSON.parse(body).enterpriseInfo;
                 entContract = JSON.parse(body).enterpriseContract;
                 //console.log(allInfo, allSettings);
+		    
+		    
+		    //create database settings
+		    
+writeFile('db/certs/dbClientKey.pem'+, allInfo.dbClientKey, function(err) {
+  if (err) console.log('!ERR unable to write database client key',err);
+		    
+writeFile('db/certs/dbClientCert.pem'+, allInfo.dbClientCert, function(err) {
+  if (err) console.log('!ERR unable to write database client certificate',err);
+		    
+writeFile('db/certs/dbServerCA.pem'+, allInfo.dbServerCA, function(err) {
+  if (err)  console.log('!ERR unable to write database server CA',err);
+	
+	console.log('Database access provisioned');
+	
+	
+});
+ 
+});
+	
+});
+ 
+ 
+		    
 
                 if (allInfo.showManagers == 'true') {
 
