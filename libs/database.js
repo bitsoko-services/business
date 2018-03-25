@@ -6,6 +6,7 @@
  
  */
 var dbF=__dirname.slice(0,-15)+'/db/certs/';
+console.log(__dirname.slice(0,-15));
 console.log(' DATABASE folder is '+dbF);
 
 certs = {
