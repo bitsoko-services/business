@@ -5,14 +5,15 @@
  * The client is replaced if it is disconnected.
  
  */
-console.log(__dirname.slice(0,-15)+'/certs/db/key.pem');
-/*
+var dbF=__dirname.slice(0,-15)+'/certs/db/';
+console.log(' DATABASE folder is '+dbF);
+
 certs = {
-    key: fs.readFileSync(__dirname.slice(0,-15)+'/certs/db/key.pem'),
-    cert: fs.readFileSync(__dirname.slice(0,-15)+'/certs/db/cert.pem'),
-    ca: fs.readFileSync(__dirname.slice(0,-15)+'/certs/db/ca.pem')
+    key: fs.readFileSync(dbF+'dbClientKey.pem'),
+    cert: fs.readFileSync(dbF+'dbClientCert.pem''),
+    ca: fs.readFileSync(dbF+'dbServerCA.pem')
 };
-*/
+
 opts={
   host: dbHost,
   database: dbName,
@@ -22,7 +23,7 @@ opts={
 };
 
 if(dbHost!='localhost'){
-    //opts.ssl=certs;
+    opts.ssl=certs;
 }
 
 
