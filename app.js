@@ -24,7 +24,6 @@ fileDownloader = require('download-file');
 html2jade = require('html2jade');
 
 //Global variables
-connectionSQL = '';
 stores = [];
 Cid = '476194103258-98t0j7p1lrela49ispgj3jfokl2r3ils.apps.googleusercontent.com';
 writeFile = require('write');
@@ -85,28 +84,6 @@ serverFiles = [
 
 ];
 
-
-bsConn = {
-    /*
-  maria: function (){
-      
-     var q= new Client({
-  host: dbHost,
-  user: dbUser, 
-  password: dbPass,
-  db: 'bitsoko'
-});
-      q.on("error", function (err) {
-    console.log('connection error:', err);
-    });
-      q.connect();
-      return q;
-      
-                    }(),
-    */
-    mysql: connectionSQL
-
-}
 
 //TO-DO
 // get the store id from the process command
@@ -171,6 +148,29 @@ writeFile('db/certs/dbServerCA.pem', allInfo.dbServerCA, function(err) {
 connectionSQL = require("/root/business/libs/database.js").getClient();
 
 
+
+bsConn = {
+    /*
+  maria: function (){
+      
+     var q= new Client({
+  host: dbHost,
+  user: dbUser, 
+  password: dbPass,
+  db: 'bitsoko'
+});
+      q.on("error", function (err) {
+    console.log('connection error:', err);
+    });
+      q.connect();
+      return q;
+      
+                    }(),
+    */
+    mysql: connectionSQL
+
+}
+	
 	console.log('Database access provisioned');
 	
 	
