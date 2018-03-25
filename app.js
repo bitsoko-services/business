@@ -155,13 +155,13 @@ nCmd.get(prepDirC, function (data, err, stderr) {
 		    
 		    //create database settings
 		    
-writeFile('db/certs/dbClientKey.pem'+, allInfo.dbClientKey, function(err) {
+writeFile('db/certs/dbClientKey.pem', allInfo.dbClientKey, function(err) {
   if (err) console.log('!ERR unable to write database client key',err);
 		    
-writeFile('db/certs/dbClientCert.pem'+, allInfo.dbClientCert, function(err) {
+writeFile('db/certs/dbClientCert.pem', allInfo.dbClientCert, function(err) {
   if (err) console.log('!ERR unable to write database client certificate',err);
 		    
-writeFile('db/certs/dbServerCA.pem'+, allInfo.dbServerCA, function(err) {
+writeFile('db/certs/dbServerCA.pem', allInfo.dbServerCA, function(err) {
   if (err)  console.log('!ERR unable to write database server CA',err);
 	
 	//Database support
