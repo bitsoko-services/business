@@ -41,9 +41,6 @@ entFunc = require("/root/business/libs/enterpriseFunctions.js");
 messageManager = require("/root/business/libs/messageManager.js");
 //Contract support - contract information
 contractManager = require("/root/business/libs/messageManager.js");
-//Database support
-connectionSQL = require("/root/business/libs/database.js").getClient();
-
 //Load bots
 
 //this bots manages the pending and delivering orders
@@ -167,6 +164,10 @@ writeFile('db/certs/dbClientCert.pem'+, allInfo.dbClientCert, function(err) {
 writeFile('db/certs/dbServerCA.pem'+, allInfo.dbServerCA, function(err) {
   if (err)  console.log('!ERR unable to write database server CA',err);
 	
+	//Database support
+connectionSQL = require("/root/business/libs/database.js").getClient();
+
+
 	console.log('Database access provisioned');
 	
 	
