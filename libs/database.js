@@ -5,7 +5,7 @@
  * The client is replaced if it is disconnected.
  
  */
-var dbF=__dirname.slice(0,-15)+'/db/certs/';
+var dbF=__dirname.slice(0,-5)+'/db/certs/';
 console.log(__dirname);
 console.log(' DATABASE folder is '+dbF);
 
