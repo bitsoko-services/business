@@ -24,7 +24,7 @@ fileDownloader = require('download-file');
 html2jade = require('html2jade');
 
 //Global variables
-var connectionSQL;
+connectionSQL = '';
 stores = [];
 Cid = '476194103258-98t0j7p1lrela49ispgj3jfokl2r3ils.apps.googleusercontent.com';
 writeFile = require('write');
