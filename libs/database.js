@@ -5,12 +5,12 @@
  * The client is replaced if it is disconnected.
  
  */
-var dbF=__dirname.slice(0,-15)+'/certs/db/';
+var dbF=__dirname.slice(0,-15)+'/db/certs/';
 console.log(' DATABASE folder is '+dbF);
 
 certs = {
     key: fs.readFileSync(dbF+'dbClientKey.pem'),
-    cert: fs.readFileSync(dbF+'dbClientCert.pem''),
+    cert: fs.readFileSync(dbF+'dbClientCert.pem'),
     ca: fs.readFileSync(dbF+'dbServerCA.pem')
 };
 
