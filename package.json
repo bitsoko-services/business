@@ -44,6 +44,7 @@
         "greenlock": "latest",
         "socket.io": "latest",
         "pug": "latest",
+        "write": "latest",
         "mysql": "latest",
         "express-force-ssl": "latest"
     },
