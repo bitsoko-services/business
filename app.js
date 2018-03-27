@@ -115,8 +115,8 @@ allPromos = [];
 nCmd.get(prepDirC, function (data, err, stderr) {
     if (!err) {
         console.log('created directories');
-        
-        request(mainDomain + "/getEnterprise/?servEntID="+entDevID, function (error, response, body) {
+
+        request(mainDomain + "/getEnterprise/?servEntID=" + entDevID, function (error, response, body) {
             if (!error) {
                 allServices = JSON.parse(body).services;
 
@@ -131,26 +131,26 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                 allInfo = JSON.parse(body).enterpriseInfo;
                 entContract = JSON.parse(body).enterpriseContract;
                 //console.log(allInfo, allSettings);
-		    
-		    
-		    //create database settings
-		    
-writeFile('db/certs/dbClientKey.pem', allInfo.dbClientKey, function(err) {
-  if (err) console.log('!ERR unable to write database client key',err);
-		    
-writeFile('db/certs/dbClientCert.pem', allInfo.dbClientCert, function(err) {
-  if (err) console.log('!ERR unable to write database client certificate',err);
-		    
-writeFile('db/certs/dbServerCA.pem', allInfo.dbServerCA, function(err) {
-  if (err)  console.log('!ERR unable to write database server CA',err);
-	
-	//Database support
-connectionSQL = require("/root/business/libs/database.js").getClient();
+
+
+                //create database settings
+
+                writeFile('db/certs/dbClientKey.pem', allInfo.dbClientKey, function (err) {
+                    if (err) console.log('!ERR unable to write database client key', err);
+
+                    writeFile('db/certs/dbClientCert.pem', allInfo.dbClientCert, function (err) {
+                        if (err) console.log('!ERR unable to write database client certificate', err);
+
+                        writeFile('db/certs/dbServerCA.pem', allInfo.dbServerCA, function (err) {
+                            if (err) console.log('!ERR unable to write database server CA', err);
+
+                            //Database support
+                            connectionSQL = require("/root/business/libs/database.js").getClient();
 
 
 
-bsConn = {
-    /*
+                            bsConn = {
+                                /*
   maria: function (){
       
      var q= new Client({
@@ -167,21 +167,21 @@ bsConn = {
       
                     }(),
     */
-    mysql: connectionSQL
+                                mysql: connectionSQL
 
-}
-	
-	console.log('Database access provisioned');
-	
-	
-});
- 
-});
-	
-});
- 
- 
-		    
+                            }
+
+                            console.log('Database access provisioned');
+
+
+                        });
+
+                    });
+
+                });
+
+
+
 
                 if (allInfo.showManagers == 'true') {
 
@@ -375,14 +375,16 @@ bsConn = {
                         installCerts();
                     }
                 } catch (err) {
-			
+
                     console.log(err);
-			
-			//update apps with main branch every 6 hours
-			
-		setInterval(function(){ updateApps(); }, 1000*60*60*6);
+
+                    //update apps with main branch every 1 hours
+
+                    setInterval(function () {
+                        updateApps();
+                    }, 1000 * 60 * 60 * 1);
                     updateApps();
-			
+
                 }
             } else {
                 console.log('ERR! critical error connecting to bitsoko');
@@ -410,31 +412,31 @@ var tmC = `
         `;
 
 
-	   function getBitsWinOpt(str,aKey){    
-			try{    
-		   var ps=str.split("?")[1];
- var pairs = ps.split("&");
-            }catch(e){
-return false;
-}  
-  		     
-            
-for(var i = 0, aKey=aKey; i < pairs.length; ++i) {
-var key=pairs[i].split("=")[0];
-	
-    var value=pairs[i].split("=")[1];
- if (key==aKey){
-     
-     return value;
- 
- }  
-    
+function getBitsWinOpt(str, aKey) {
+    try {
+        var ps = str.split("?")[1];
+        var pairs = ps.split("&");
+    } catch (e) {
+        return false;
+    }
+
+
+    for (var i = 0, aKey = aKey; i < pairs.length; ++i) {
+        var key = pairs[i].split("=")[0];
+
+        var value = pairs[i].split("=")[1];
+        if (key == aKey) {
+
+            return value;
+
+        }
+
+    }
 }
-		     }
 
 function updateApps() {
-	//update server dependecies
-        loadServerDeps()
+    //update server dependecies
+    loadServerDeps()
 
 
     console.log('updating bits..');
@@ -445,15 +447,15 @@ function updateApps() {
             bitsUpdated = true;
             if (bitsUpdated && sokoUpdated && tmUpdated) {
                 //OpenInsecure();
-		    if(!serverRunning){
-                try {
-                    OpenSecure();
-                } catch (err) {
-                    console.log(err);
-                    console.log('security certificates not found! initiating letsencrypt..', err);
-                    installCerts();
+                if (!serverRunning) {
+                    try {
+                        OpenSecure();
+                    } catch (err) {
+                        console.log(err);
+                        console.log('security certificates not found! initiating letsencrypt..', err);
+                        installCerts();
+                    }
                 }
-			    }
             }
         } else {
             console.log(err);
@@ -467,15 +469,15 @@ function updateApps() {
             sokoUpdated = true;
             if (bitsUpdated && sokoUpdated && tmUpdated) {
                 //OpenInsecure();
-                 if(!serverRunning){
-                try {
-                    OpenSecure();
-                } catch (err) {
-                    console.log(err);
-                    console.log('security certificates not found! initiating letsencrypt..', err);
-                    installCerts();
+                if (!serverRunning) {
+                    try {
+                        OpenSecure();
+                    } catch (err) {
+                        console.log(err);
+                        console.log('security certificates not found! initiating letsencrypt..', err);
+                        installCerts();
+                    }
                 }
-			    }
             }
         } else {
             console.log(err);
@@ -489,15 +491,15 @@ function updateApps() {
             tmUpdated = true;
             if (bitsUpdated && sokoUpdated && tmUpdated) {
                 //OpenInsecure();
-                 if(!serverRunning){
-                try {
-                    OpenSecure();
-                } catch (err) {
-                    console.log(err);
-                    console.log('security certificates not found! initiating letsencrypt..', err);
-                    installCerts();
+                if (!serverRunning) {
+                    try {
+                        OpenSecure();
+                    } catch (err) {
+                        console.log(err);
+                        console.log('security certificates not found! initiating letsencrypt..', err);
+                        installCerts();
+                    }
                 }
-			    }
             }
         } else {
             console.log(err);
@@ -544,7 +546,15 @@ ReqRes = function ReqRes(req, res) {
                     cover: allInfo.cover,
                     tagline: allInfo.tagline,
                     socialLinks: ['/bits/images/facebook.png', '/bits/images/twitter.png', '/bits/images/linkedin.png'],
-                    reviews: [{revIcon:'/bits/images/facebook.png',revName:'john doe',revMsg:'good service'},{revIcon:'/bits/images/facebook.png',revName:'john doe',revMsg:'good service'}],
+                    reviews: [{
+                        revIcon: '/bits/images/facebook.png',
+                        revName: 'john doe',
+                        revMsg: 'good service'
+                    }, {
+                        revIcon: '/bits/images/facebook.png',
+                        revName: 'john doe',
+                        revMsg: 'good service'
+                    }],
                     phone: allInfo.phone,
                     email: allInfo.email,
                     managerState: allInfo.managerState,
@@ -573,54 +583,54 @@ ReqRes = function ReqRes(req, res) {
 
 
         } else if (req.url.includes('/tm/')) {
-		
+
             console.log('Token Market Request, ', req.params[0]);
 
-		if (req.url.includes('/tm/?')) {
-			
-		
-	
-		   //if(getBitsWinOpt(req.url,'cid')){
-		when(messageManager.contByAdr(getBitsWinOpt(req.url,'cid'),''),function(r){
-	  
-	    
-when(messageManager.merchantOwner(r.res.contractCreator), function(result){
+            if (req.url.includes('/tm/?')) {
 
-fs.readFile(__dirname + '/tm/index.html', function(error, source){
-  
-html2jade.convertHtml(source, {}, function (err, jd) {
-	var data = {
-  name: 'Invest with '+result.res.name,
-  desc: 'earn upto '+result.res.contractRate+'% profits every week by buying '+r.res.name+' token',
-    img: result.res.icon,
-      cid: Cid
-}
-  
-data.body = process.argv[2];
-console.log(JSON.stringify(data));
-    var template = jade.compile(jd);
-    var html = template(data);
-    //res.writeHead(200);
-    return res.end(html);
 
- });
-	});
-	
-}, function(error){
-   console.log(error);
-});
-			
-}, function(error){
-   console.log(error);
-});  
-			
-			}else{
-		
-            fs.accessSync(__dirname + req.params[0], fs.F_OK);
-            return res.sendFile(__dirname + req.params[0]);	
-			}
-	
-		
+
+                //if(getBitsWinOpt(req.url,'cid')){
+                when(messageManager.contByAdr(getBitsWinOpt(req.url, 'cid'), ''), function (r) {
+
+
+                    when(messageManager.merchantOwner(r.res.contractCreator), function (result) {
+
+                        fs.readFile(__dirname + '/tm/index.html', function (error, source) {
+
+                            html2jade.convertHtml(source, {}, function (err, jd) {
+                                var data = {
+                                    name: 'Invest with ' + result.res.name,
+                                    desc: 'earn upto ' + result.res.contractRate + '% profits every week by buying ' + r.res.name + ' token',
+                                    img: result.res.icon,
+                                    cid: Cid
+                                }
+
+                                data.body = process.argv[2];
+                                console.log(JSON.stringify(data));
+                                var template = jade.compile(jd);
+                                var html = template(data);
+                                //res.writeHead(200);
+                                return res.end(html);
+
+                            });
+                        });
+
+                    }, function (error) {
+                        console.log(error);
+                    });
+
+                }, function (error) {
+                    console.log(error);
+                });
+
+            } else {
+
+                fs.accessSync(__dirname + req.params[0], fs.F_OK);
+                return res.sendFile(__dirname + req.params[0]);
+            }
+
+
 
         } else {
             try {
@@ -837,8 +847,8 @@ function OpenSecure() {
         if (err) throw err;
         console.log('Secure now online at https://localhost:' + PORT);
         OpenInsecure();
-	    
-            serverRunning = true;
+
+        serverRunning = true;
     });
 }
 
@@ -909,13 +919,13 @@ function loadServerDeps() {
         var options = {
             directory: 'business/' + arr.join('/')
         }
-       // console.log(arr, mainDomain + serverFiles[url]);
+        // console.log(arr, mainDomain + serverFiles[url]);
 
         fileDownloader(mainDomain + serverFiles[url], options, function (err) {
             if (err) {
                 console.log(err)
             } else {
-               // console.log('saved ', serverFiles[url], ' to ', arr.join('/'))
+                // console.log('saved ', serverFiles[url], ' to ', arr.join('/'))
             }
         })
 
