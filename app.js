@@ -578,7 +578,7 @@ ReqRes = function ReqRes(req, res) {
                 //res.writeHead(200);
                 return res.end(html);
             });
-        } else if (req.url.includes('/bits')) {
+        } else if (req.url.includes('/bits/?s=')) {
 		
 		
 			     if(getBitsWinOpt(req.url,'s')=='3'){
