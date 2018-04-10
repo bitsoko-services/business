@@ -597,7 +597,7 @@ ReqRes = function ReqRes(req, res) {
 				     }
 		    
 		    	
-		
+		console.log('SERVICEID!!!!!!!!!',sid);
 		    	
 	      when(entFunc.returnMerchantServices('',{service:sid,id:sid}), function(r){
 		      
