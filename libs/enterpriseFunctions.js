@@ -203,7 +203,7 @@ exports.merchantPromos = function(e,f) {
 
 
 			  	
-when(bitsoko.merchantPromos(priServ,pAry), function(ep){		  
+when(entFunc.merchantPromos(priServ,pAry), function(ep){		  
 
              	var epp=[];
 	
