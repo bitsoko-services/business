@@ -5,6 +5,9 @@ var LE = require('greenlock');
 var insPORT = 8081;
 var PORT = 8080;
 allDomains = [];
+
+primaryColor='#0f5f76';
+
 heartBeat = 20000;
 var bitsokoEmail = 'bitsokokenya@gmail.com';
 var mainDomain = 'https://bitsoko.io'
@@ -575,6 +578,78 @@ ReqRes = function ReqRes(req, res) {
                 //res.writeHead(200);
                 return res.end(html);
             });
+        } else if (req.url.includes('/bits')) {
+		
+		
+			     if(getBitsWinOpt(req.url,'s')=='3'){
+				     //this is a sokopos link
+				var sid=getBitsWinOpt(req.url,'a'); 
+				}else{
+					//this is a enterprise store link
+				var sid=getBitsWinOpt(req.url,'s'); 
+				}
+		    
+         //getting store information
+		   if(req.url.includes('/bitsBeta/')) {
+	var indxPth='/bitsBeta/index.html';			     
+				     }else{
+	var indxPth='/bits/index.html';			     
+				     }
+		    
+		    	
+		
+		    	
+	      when(entFunc.returnMerchantServices('',{service:sid,id:sid}), function(r){
+		      
+		      
+			
+			
+	    when(entFunc.bitsStoreDet(sid),function(rr){
+		fs.readFile(__dirname + indxPth, function(error, source){
+  
+html2jade.convertHtml(source, {}, function (err, jd) {
+	var thm = rr.theme;
+	if(thm== null || thm== 'null' || thm== ''){
+	thm = primaryColor;
+	}
+	//console.log('setting page theme '+thm);
+  var data = {
+  name: rr.name,
+  desc: rr.description,
+    img: rr.bannerPath.replace('.png','-128.png'),
+    theme: thm,
+    stMeta: JSON.stringify(r),
+      cid: Cid
+}
+data.body = process.argv[2];
+//jade.render
+    var template = jade.compile(jd);
+    var html = template(data);
+    //res.writeHead(200);
+    res.end(html);
+});
+});     
+		    
+		    
+	    },function(err){
+	    console.log('err! cannot show merchant share info! merchant '+sid+' not found!');
+	    })
+  	
+	console.log('INFO!!!! ',JSON.stringify(r.res));  
+	
+		
+    
+}, function(error){
+		console.log('ERR: service profile error',error);
+    
+}); 	
+	
+
+            //console.log('SOKO Request, ', req.params[0]);
+            //fs.accessSync(__dirname + req.params[0], fs.F_OK);
+            //return res.sendFile(__dirname + req.params[0]);
+
+
         } else if (req.url.includes('/soko')) {
 
             console.log('SOKO Request, ', req.params[0]);
