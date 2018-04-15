@@ -2,7 +2,7 @@ doctype html
 html(⚡='')
   head
     meta(charset='utf-8')
-    title Travel Template
+    title #{name}
     link(rel='canonical', href='https://www.ampstart.com/templates/travel/travel.amp')
     meta(name='viewport', content='width=device-width,minimum-scale=1,initial-scale=1')
     script(async='', src='https://cdn.ampproject.org/v0.js')
@@ -140,10 +140,10 @@ html(⚡='')
           .travel-hero-content-inner.relative.px1.md-px2.flex-auto.self-end
             header
               h1.travel-hero-heading.mb2.line-height-1
-                | Adventures
+                | Hospitality
                 br.md-hide.lg-hide
                 |  made easy
-              h2.travel-hero-subheading.line-height-2.bold.xs-hide.sm-hide Find and book activities, tours, and experiences.
+              h2.travel-hero-subheading.line-height-2.bold.xs-hide.sm-hide Find and book studios apartments guest houses and more.
             // Search Form
             .travel-hero-search
               label.travel-input-icon.travel-shadow.flex.col-12.relative.rounded
@@ -208,7 +208,7 @@ html(⚡='')
               fields_sort_edited: false,\
               })\
               ')
-                | Find Adventures & Tours
+                | Find a Space
               // / Search Form
               a.travel-hero-discover.block.center.mx-auto.mt1.md-hide.lg-hide(on='tap:travel-landing-content.scrollTo')
                 | Explore 
@@ -233,8 +233,8 @@ html(⚡='')
                 h2.travel-discover-heading.bold.line-height-2.xs-hide.sm-hide
                   | Discover
                   br.md-hide.lg-hide
-                  |  Adventures
-                .travel-discover-subheading.h2.xs-hide.sm-hide Get inspired and find your next big trip
+                  |  Spaces
+                .travel-discover-subheading.h2.xs-hide.sm-hide Get inspired and find your space
               .travel-discover-panel.travel-shadow-hover.px3.py2.ml1.mr3.myn3.xs-hide.sm-hide
                 .bold.h2.line-height-2.my1 From the blog
                 p.travel-discover-panel-subheading.h3.my1.line-height-2
@@ -248,7 +248,7 @@ html(⚡='')
             h3.bold.h1.line-height-2.mb2.md-hide.lg-hide(aria-hidden='true')
               | Browse
               br
-              | by activity
+              | by category
             h3.bold.h1.line-height-2.mb2.xs-hide.sm-hide.center Browse by activity
           .overflow-scroll
             .travel-overflow-container
@@ -389,10 +389,10 @@ html(⚡='')
           section.travel-popular.pb4.pt3.relative
             header.max-width-3.mx-auto.px1.md-px2
               h3.h1.bold.line-height-2.md-hide.lg-hide(aria-hidden='true')
-                | Top Adventures
+                | Top Spaces
                 br
                 | Near You
-              h3.h1.bold.line-height-2.xs-hide.sm-hide.center Top Adventures Near You
+              h3.h1.bold.line-height-2.xs-hide.sm-hide.center Top Spaces Near You
             .overflow-scroll
               .travel-overflow-container
                 .flex.px1.md-px2.mxn1
@@ -415,7 +415,7 @@ html(⚡='')
                                 .travel-like-heart.travel-like-heart-outline.absolute.mx-auto
                             // / Like Button
                     .h2.line-height-2.mb1
-                      span.travel-results-result-text Surf Day. Board and Wetsuits Included in Price!
+                      span.travel-results-result-text Drinks and meals Included in Price!
                       span.travel-results-result-subtext.h3 •
                       span.travel-results-result-subtext.h3 $ 
                       span.black.bold 100
