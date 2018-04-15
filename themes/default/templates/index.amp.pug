@@ -1,21 +1,9 @@
 doctype html
-//
-  -
-  Copyright 2017 The AMP Start Authors. All Rights Reserved.
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain magna copy of the License at
-  http://www.apache.org/licenses/LICENSE-2.0
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS-IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
 html(⚡='')
   head
     meta(charset='utf-8')
-    title Land + See
-    link(rel='canonical', href='https://www.ampstart.com/templates/land-see/land-see.amp')
+    title  #{name}
+    link(rel='canonical', href='')
     meta(name='viewport', content='width=device-width,minimum-scale=1,initial-scale=1')
     script(async='', src='https://cdn.ampproject.org/v0.js')
     style(amp-boilerplate='').
@@ -147,35 +135,12 @@ html(⚡='')
     header.ampstart-headerbar.fixed.flex.justify-start.items-center.top-0.left-0.right-0.pl2.pr4
       .ampstart-navbar-trigger.md-hide.lg-hide.pr2(role='button', aria-label='open sidebar', on='tap:header-sidebar.toggle', tabindex='0')
         | ☰
-      a.text-decoration-none.inline-block.mx-auto.ampstart-headerbar-home-link(href='land-see.amp.html')
-        .ampstart-headerbar-title.mx-auto Land + See
+      a.text-decoration-none.inline-block.mx-auto.ampstart-headerbar-home-link(href='index.html')
+        .ampstart-headerbar-title.mx-auto #{name}
       nav.ampstart-headerbar-nav.ampstart-nav.xs-hide.sm-hide
         ul.list-reset.center.m0.p0.flex.justify-center.nowrap
           li.ampstart-nav-item
-            a.text-decoration-none.block(href='stories.amp.html') Stories
-          li.ampstart-nav-item.ampstart-nav-dropdown.relative
-            // Start Dropdown
-            amp-accordion.ampstart-dropdown.absolute.top-0.left-0.right-0.bottom-0(layout='container', disable-session-states='')
-              section
-                header Stories
-                ul.ampstart-dropdown-items.list-reset.m0.p0
-                  li.ampstart-dropdown-item
-                    a.text-decoration-none(href='stories.amp.html') All
-                  li.ampstart-dropdown-item
-                    a.text-decoration-none(href='stories.amp.html?category=design#land-see-design') Design
-                  li.ampstart-dropdown-item
-                    a.text-decoration-none(href='stories.amp.html?category=fashion#land-see-fashion') Fashion
-                  li.ampstart-dropdown-item
-                    a.text-decoration-none(href='stories.amp.html?category=interiors#land-see-interiors') Interiors
-                  li.ampstart-dropdown-item
-                    a.text-decoration-none(href='stories.amp.html?category=arts-culture#land-see-arts-culture') Arts & Culture
-                  li.ampstart-dropdown-item
-                    a.text-decoration-none(href='stories.amp.html?category=popular#land-see-popular') Popular
-            // End Dropdown
-          li.ampstart-nav-item
-            a.text-decoration-none.block(href='#') Shop
-          li.ampstart-nav-item
-            a.text-decoration-none.block(href='#') About
+            a.text-decoration-none.block(href='stories.amp.html') Stores
           li.ampstart-nav-item
             a.text-decoration-none.block(href='#') Contact
       //
@@ -206,30 +171,7 @@ html(⚡='')
       nav.ampstart-sidebar-nav.ampstart-nav
         ul.list-reset.m0.p0.ampstart-label
           li.ampstart-nav-item.land-see-sidebar-nav-item.ampstart-title-sm.bold
-            a.ampstart-nav-link(href='stories.amp.html') Stories
-          li.ampstart-nav-item.ampstart-nav-dropdown.relative
-            // Start Dropdown-inline
-            amp-accordion.ampstart-dropdown(layout='container', disable-session-states='')
-              section(expanded='')
-                header Stories
-                ul.ampstart-dropdown-items.list-reset.m0.p0
-                  li.ampstart-dropdown-item
-                    a.text-decoration-none(href='stories.amp.html') All
-                  li.ampstart-dropdown-item
-                    a.text-decoration-none(href='stories.amp.html?category=design#land-see-design') Design
-                  li.ampstart-dropdown-item
-                    a.text-decoration-none(href='stories.amp.html?category=fashion#land-see-fashion') Fashion
-                  li.ampstart-dropdown-item
-                    a.text-decoration-none(href='stories.amp.html?category=interiors#land-see-interiors') Interiors
-                  li.ampstart-dropdown-item
-                    a.text-decoration-none(href='stories.amp.html?category=arts-culture#land-see-arts-culture') Arts & Culture
-                  li.ampstart-dropdown-item
-                    a.text-decoration-none(href='stories.amp.html?category=popular#land-see-popular') Popular
-            // End Dropdown-inline
-          li.ampstart-nav-item.land-see-sidebar-nav-item.ampstart-title-sm.bold
-            a.ampstart-nav-link(href='#') Shop
-          li.ampstart-nav-item.land-see-sidebar-nav-item.ampstart-title-sm.bold
-            a.ampstart-nav-link(href='#') About
+            a.ampstart-nav-link(href='stories.amp.html') Stores
           li.ampstart-nav-item.land-see-sidebar-nav-item.ampstart-title-sm.bold
             a.ampstart-nav-link(href='#') Contact
       ul.ampstart-social-follow.list-reset.flex.justify-around.items-center.flex-wrap.m0.mb4
