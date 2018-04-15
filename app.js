@@ -42,8 +42,12 @@ dbName = 'bitsoko';
 //Globally available helper scripts
 entFunc = require("/root/business/libs/enterpriseFunctions.js");
 
+//Server Cleaner - manages logs and reporting
+serverManager = require("/root/business/bots/serverManager.js");
+
 //Messaging support - sms and notifications
 messageManager = require("/root/business/libs/messageManager.js");
+
 //Contract support - contract information
 contractManager = require("/root/business/libs/messageManager.js");
 //Load bots
