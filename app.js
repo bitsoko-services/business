@@ -540,7 +540,7 @@ ReqRes = function ReqRes(req, res) {
         console.log(req.params[0]);
         if (req.params[0] == '/index.html' || req.params[0] == '/') {
             console.log('serving homepage')
-            fs.readFile(__dirname + '/themes/hospitality/templates/index.amp.pug', function (error, source) {
+            fs.readFile(__dirname + '/themes/default/templates/index.amp.pug', function (error, source) {
                 //console.log(allPromos);
                 //console.log(allManagers);
                 matchShops();
