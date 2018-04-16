@@ -220,11 +220,10 @@ html(⚡='')
     // End Navbar
     section.land-see-hero-container.mx-auto.mb3.relative.overflow-hidden
           unless entSettings.promotionsDisabled
-       .land-see-hero-left.absolute
-        amp-carousel#land-see-hero-left.land-see-hero-carousel.mx-auto(width='1290', height='680', layout='responsive', [slide]='selectedSlide', on='slideChange:AMP.setState({selectedSlide: event.index})', noloading='', controls='', loop='', type='slides')
+          .land-see-hero-left.absolute
+            amp-carousel#land-see-hero-left.land-see-hero-carousel.mx-auto(width='1290', height='680', layout='responsive', [slide]='selectedSlide', on='slideChange:AMP.setState({selectedSlide: event.index})', noloading='', controls='', loop='', type='slides')
                 for promo in promos
                     +listpromo(promo.promoBanner,promo.promoName,promo.promoDesc,promo.id,promo.promoOwner,promo.discount)
-    
       .land-see-hero-main.mx-auto
         amp-carousel#land-see-hero-main.land-see-hero-carousel.mx-auto(media='(min-width: 40.06rem)', width='1290', height='680', layout='responsive', [slide]='selectedSlide', on='slideChange:AMP.setState({selectedSlide: event.index})', noloading='', controls='', loop='', type='slides')
           .land-see-hero-content.mx-auto.relative
