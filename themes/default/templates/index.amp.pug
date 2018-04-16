@@ -433,11 +433,11 @@ html(⚡='')
           fieldset.border-none.p0.m0
             h2.land-see-subs-heading-text
               | Weekly inspiration from 
-              span.bold Land+See
+              span.bold #{name}
             // Start Input
             .ampstart-input.inline-block.relative.m0.p0.mb3
-              input#email.block.border-none.p0.m0(type='email', value='', name='email', placeholder='Enter email address to subscribe')
-              label.absolute.top-0.right-0.bottom-0.left-0(for='email', aria-hidden='true') Enter email address to subscribe
+              input#email.block.border-none.p0.m0(type='email', value='', name='email', placeholder='subscribe to promotions')
+              label.absolute.top-0.right-0.bottom-0.left-0(for='email', aria-hidden='true') subscribe to promotions
             // End Input
             // Start Input
             .ampstart-input.inline-block.relative.m0.p0.mb3
@@ -483,6 +483,6 @@ html(⚡='')
           li.px1
             a.text-decoration-none.ampstart-label(href='#') Contact
       small
-        | © Land + See, 2017 • 
+        | © #{name}, 2019 • 
         a.text-decoration-none(href='#') Terms & Conditions
     // End Footer
