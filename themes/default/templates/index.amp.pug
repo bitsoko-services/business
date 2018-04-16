@@ -227,7 +227,7 @@ html(⚡='')
             amp-carousel#land-see-hero-main.land-see-hero-carousel.mx-auto(media='(min-width: 40.06rem)', width='1290', height='680', layout='responsive', [slide]='selectedSlide', on='slideChange:AMP.setState({selectedSlide: event.index})', noloading='', controls='', loop='', type='slides')
                 for promo in promos
                     +listpromo(promo.promoBanner,promo.promoName,promo.promoDesc,promo.id,promo.promoOwner,promo.discount)
-        .land-see-hero-progress.mt2.center
+    .land-see-hero-progress.mt2.center
           button.px0(on='tap:AMP.setState({selectedSlide: 0})')
             amp-img.land-see-progress-indicator.land-see-selected-slide([class]="selectedSlide == 0 ? 'land-see-progress-indicator land-see-selected-slide' : 'land-see-progress-indicator'", alt='Go to slide 1', width='7', height='7', layout='fixed', src='../img/land-see/structure/carousel-progress-indicator.svg')
           button.px1(on='tap:AMP.setState({selectedSlide: 1})')
