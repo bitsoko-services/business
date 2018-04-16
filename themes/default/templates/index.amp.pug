@@ -224,7 +224,7 @@ html(⚡='')
             amp-carousel#land-see-hero-left.land-see-hero-carousel.mx-auto(width='1290', height='680', layout='responsive', [slide]='selectedSlide', on='slideChange:AMP.setState({selectedSlide: event.index})', noloading='', controls='', loop='', type='slides')
                 for promo in promos
                     +listpromo(promo.promoBanner,promo.promoName,promo.promoDesc,promo.id,promo.promoOwner,promo.discount)
-      .land-see-hero-main.mx-auto
+    .land-see-hero-main.mx-auto
         amp-carousel#land-see-hero-main.land-see-hero-carousel.mx-auto(media='(min-width: 40.06rem)', width='1290', height='680', layout='responsive', [slide]='selectedSlide', on='slideChange:AMP.setState({selectedSlide: event.index})', noloading='', controls='', loop='', type='slides')
           .land-see-hero-content.mx-auto.relative
             amp-img.cover.land-see-hero-image.land-see-cover-position-bottom(alt='Designer Kim Myeong', width='1290', height='680', layout='responsive', src='../img/land-see/content/shoe-designer.jpg')
