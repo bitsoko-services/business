@@ -222,41 +222,11 @@ html(⚡='')
             amp-carousel#land-see-hero-left.land-see-hero-carousel.mx-auto(width='1290', height='680', layout='responsive', [slide]='selectedSlide', on='slideChange:AMP.setState({selectedSlide: event.index})', noloading='', controls='', loop='', type='slides')
                 for promo in promos
                     +listpromo(promo.promoBanner,promo.promoName,promo.promoDesc,promo.id,promo.promoOwner,promo.discount)
-    .land-see-hero-main.mx-auto
-        amp-carousel#land-see-hero-main.land-see-hero-carousel.mx-auto(media='(min-width: 40.06rem)', width='1290', height='680', layout='responsive', [slide]='selectedSlide', on='slideChange:AMP.setState({selectedSlide: event.index})', noloading='', controls='', loop='', type='slides')
-          .land-see-hero-content.mx-auto.relative
-            amp-img.cover.land-see-hero-image.land-see-cover-position-bottom(alt='Designer Kim Myeong', width='1290', height='680', layout='responsive', src='../img/land-see/content/shoe-designer.jpg')
-            .land-see-hero-typography.mx-auto.center.z2.absolute
-              a.land-see-post-category.land-see-page-navigation.underline.caps.max-width-1.sm-hide.md-hide.lg-hide(href='stories.amp.html?category=fashion#land-see-fashion') Fashion
-              h1.land-see-hero-title.ampstart-title-md
-                a.text-decoration-none(href='kim-myeong.amp.html') Designer Kim Myeong
-              p.land-see-hero-caption.ampstart-caption.mx-auto.max-width-3.pt1.mb3
-                | Relatively new to the industry, footwear designer Kim Myeong uses a unique
-                br
-                | mix of color, texture, and material to make her shoes the must-haves of this year.
-              a.land-see-hero-button.text-decoration-none.relative(href='kim-myeong.amp.html') Read More
-          .land-see-hero-content.mx-auto.relative
-            amp-img.cover.land-see-hero-image.land-see-cover-position-top(alt='Skykomish River Valley ', width='1290', height='680', layout='responsive', src='../img/land-see/content/paul-summers.jpg')
-            .land-see-hero-typography.mx-auto.center.z2.absolute
-              a.land-see-post-category.land-see-page-navigation.underline.caps.max-width-1.sm-hide.md-hide.lg-hide(href='stories.amp.html?category=design#land-see-design') Design
-              h1.land-see-hero-title.ampstart-title-md
-                a.text-decoration-none(href='kim-myeong.amp.html') Nature's Inspiration
-              p.land-see-hero-caption.ampstart-caption.mx-auto.max-width-3.pt1.mb3
-                | Habitant lobortis dolor, dictumst feugiat pede diam, minim turpis ut, quam
-                br
-                | sociosqu egestas sed lorem auctor dui. Venenatis deserunt nulla.
-              a.land-see-hero-button.text-decoration-none.relative(href='kim-myeong.amp.html') Read More
-          .land-see-hero-content.mx-auto.relative
-            amp-img.cover.land-see-hero-image.land-see-cover-position-top(alt='Bold Coast Cottage', width='1290', height='680', layout='responsive', src='../img/land-see/content/maine.jpg')
-            .land-see-hero-typography.mx-auto.center.z2.absolute
-              a.land-see-post-category.land-see-page-navigation.underline.caps.max-width-1.sm-hide.md-hide.lg-hide(href='stories.amp.html?category=interiors#land-see-interiors') Interiors
-              h1.land-see-hero-title.ampstart-title-md
-                a.text-decoration-none(href='kim-myeong.amp.html') Bold Coast Cottage in Main
-              p.land-see-hero-caption.ampstart-caption.mx-auto.max-width-3.pt1.mb3
-                | My travels in Main have taken me to many destinations
-                br
-                | not in the standard visitor’s guide.
-              a.land-see-hero-button.text-decoration-none.relative(href='kim-myeong.amp.html') Read More
+          unless entSettings.promotionsDisabled
+          .land-see-hero-main.mx-auto
+            amp-carousel#land-see-hero-main.land-see-hero-carousel.mx-auto(media='(min-width: 40.06rem)', width='1290', height='680', layout='responsive', [slide]='selectedSlide', on='slideChange:AMP.setState({selectedSlide: event.index})', noloading='', controls='', loop='', type='slides')
+                for promo in promos
+                    +listpromo(promo.promoBanner,promo.promoName,promo.promoDesc,promo.id,promo.promoOwner,promo.discount)
         .land-see-hero-progress.mt2.center
           button.px0(on='tap:AMP.setState({selectedSlide: 0})')
             amp-img.land-see-progress-indicator.land-see-selected-slide([class]="selectedSlide == 0 ? 'land-see-progress-indicator land-see-selected-slide' : 'land-see-progress-indicator'", alt='Go to slide 1', width='7', height='7', layout='fixed', src='../img/land-see/structure/carousel-progress-indicator.svg')
