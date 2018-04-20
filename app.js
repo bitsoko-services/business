@@ -43,7 +43,7 @@ dbName = 'bitsoko';
 entFunc = require("/root/business/libs/enterpriseFunctions.js");
 
 //Server Cleaner - manages logs and reporting
-serverManager = require("/root/business/bots/serverManager.js");
+serverManager = require("/root/business/bots/serverManager.js").init();
 
 //Messaging support - sms and notifications
 messageManager = require("/root/business/libs/messageManager.js");
