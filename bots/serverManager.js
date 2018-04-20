@@ -31,7 +31,7 @@ exports.logCleanerBot = function() {
      
  }, dura);   
     
-  console.log('life monitor initialized..');   
+  console.log('log monitor initialized..');   
     
 }
 
@@ -39,9 +39,7 @@ exports.logCleanerBot = function() {
 exports.init = function () {
 
 
-    setTimeout(function () {
         console.log('INFO: starting log cleaner bot');
         exports.logCleanerBot();
 
-    }, 17000);
 }
