@@ -3,7 +3,7 @@ var exports = module.exports = {};
 
 
 exports.logCleanerBot = function() {
-    
+   nCmd = require('node-cmd'); 
     // This bot saves the server logs to db then deletes the server logs folder every one hour
     // TO-DO send logs to server
     
