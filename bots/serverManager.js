@@ -7,11 +7,8 @@ exports.logCleanerBot = function() {
     // This bot saves the server logs to db then deletes the server logs folder every one hour
     // TO-DO send logs to server
     
-    
-   var dura=heartBeat*(3*60) 
- setInterval(function(){ 
- 
- console.log('deleting logs');
+    function doLogging(){
+     console.log('deleting logs');
      
      var clearC = `
             cd
@@ -29,8 +26,14 @@ exports.logCleanerBot = function() {
         }
     });
      
-     
+    }
+    
+    
+   var dura=heartBeat*(3*60) 
+ setInterval(function(){ 
+ doLogging()
  }, dura);   
+    doLogging();
     
   console.log('log monitor initialized..');   
     
