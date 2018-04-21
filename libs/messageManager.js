@@ -122,7 +122,7 @@ regTokens.push(pushes[allDomains[dmn]]);
  }	
 	
 
-console.log('THESE TOKENS!', allDomains, pid.pushID, pushes, regTokens);		
+//console.log('THESE TOKENS!', allDomains, pid.pushID, pushes, regTokens);		
 sender.send(message, { registrationTokens: regTokens }, function (err, response) {
     if(err) {
 	   // console.error(err);
@@ -158,7 +158,7 @@ return deferred;
 
 exports.sendPush = function(pid,dataa,socket) {
 
-	console.log(pid,dataa,socket);
+	//console.log(pid,dataa,socket);
  
 	   var deferred = new Deferred();
 	  //console.log(pid);
