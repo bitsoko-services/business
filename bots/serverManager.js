@@ -14,6 +14,7 @@ exports.logCleanerBot = function() {
  console.log('deleting logs');
      
      var clearC = `
+            cd
             cd logs
             rm -rf business.log
         `;
