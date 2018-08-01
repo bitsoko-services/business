@@ -270,7 +270,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                 //---------add the section icons------//
                 try {
 
-                    var icnItms = JSON.parse(allInfo.entIconList);
+                    var icnItms = allInfo.entIconList;
                     console.log("===============icnItms")
                     console.log(icnItms)
                     if (icnItms.length > 1) {
