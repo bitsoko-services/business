@@ -248,6 +248,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                     //console.log('!INFO section1 data ', allInfo.entImageList);
 
                     var imgItms = allInfo.entImageList;
+                    console.log("===============imgItms")
                     console.log(imgItms)
                     if (imgItms.length > 1) {
 
@@ -270,6 +271,8 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                 try {
 
                     var icnItms = JSON.parse(allInfo.entIconList);
+                    console.log("===============icnItms")
+                    console.log(icnItms)
                     if (icnItms.length > 1) {
 
                         entSettings.entIconListDisabled = false;
