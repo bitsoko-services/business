@@ -247,9 +247,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
 
                     //console.log('!INFO section1 data ', allInfo.entImageList);
 
-                    var imgItms = allInfo.entImageList;
-                    console.log("===============imgItms")
-                    console.log(imgItms)
+                    var imgItms = JSON.parse(allInfo.entImageList);
                     if (imgItms.length > 1) {
 
                         entSettings.entImageListDisabled = false;
@@ -270,9 +268,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                 //---------add the section icons------//
                 try {
 
-                    var icnItms = allInfo.entIconList;
-                    console.log("===============icnItms")
-                    console.log(icnItms)
+                    var icnItms = JSON.parse(allInfo.entIconList);
                     if (icnItms.length > 1) {
 
                         entSettings.entIconListDisabled = false;
@@ -548,7 +544,7 @@ ReqRes = function ReqRes(req, res) {
         console.log(req.params[0]);
         if (req.params[0] == '/index.html' || req.params[0] == '/') {
             console.log('serving homepage')
-            fs.readFile(__dirname + '/themes/default/templates/index.amp.pug', function (error, source) {
+            fs.readFile(__dirname + '/themes/old/templates/index.amp.pug', function (error, source) {
 		    //TO-DO switch to new default
             //fs.readFile(__dirname + '/themes/default/templates/index.amp.pug', function (error, source) {
                 //console.log(allPromos);
