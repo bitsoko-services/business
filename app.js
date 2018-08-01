@@ -247,7 +247,8 @@ nCmd.get(prepDirC, function (data, err, stderr) {
 
                     //console.log('!INFO section1 data ', allInfo.entImageList);
 
-                    var imgItms = JSON.parse(allInfo.entImageList);
+                    var imgItms = allInfo.entImageList;
+                    console.log(imgItms)
                     if (imgItms.length > 1) {
 
                         entSettings.entImageListDisabled = false;
@@ -544,7 +545,7 @@ ReqRes = function ReqRes(req, res) {
         console.log(req.params[0]);
         if (req.params[0] == '/index.html' || req.params[0] == '/') {
             console.log('serving homepage')
-            fs.readFile(__dirname + '/themes/old/templates/index.amp.pug', function (error, source) {
+            fs.readFile(__dirname + '/themes/default/templates/index.amp.pug', function (error, source) {
 		    //TO-DO switch to new default
             //fs.readFile(__dirname + '/themes/default/templates/index.amp.pug', function (error, source) {
                 //console.log(allPromos);
