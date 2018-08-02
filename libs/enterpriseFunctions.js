@@ -117,7 +117,7 @@ data.body = process.argv[2];
 		
 		
 		
-			   console.log('!info saving new store page to '+'/bitsoko/tmp/html/bits/?s='+sid);			     
+			   console.log('!info saving new store page to '+'/business/tmp/html/bits/?s='+sid);			     
 		writeFile('business/tmp/html/bits/?s='+sid+'.html', html, function (err) {
                     if (err) console.log('!ERR unable to write database client key', err);
 
