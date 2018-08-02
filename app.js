@@ -587,6 +587,33 @@ ReqRes = function ReqRes(req, res) {
         } else if (req.url.includes('/bits/?s=')) {
 		
 		
+try {
+		    
+         //getting store index page information
+var sendFl= __dirname + '/tmp/html/bits/?s='+getBitsWinOpt(req.url,'s')+'.html';
+fs.accessSync(sendFl, fs.F_OK);	     
+   res.sendFile(sendFl);
+	
+	
+   
+} catch (e) {
+	
+	// cannot find store page. creating it so we can save to cache and reload faster next time
+	 when(entFunc.createStorePage(req), function(r){
+		
+	//console.log('!info: store page created',r);
+		res.flush();
+    res.end(r); 
+		 	    
+	    },function(err){
+	    console.log('err! Unable to create store page',err);
+	    })
+  	
+	
+}
+
+	/*	
+		
 			     if(getBitsWinOpt(req.url,'s')=='3'){
 				     //this is a sokopos link
 				var sid=getBitsWinOpt(req.url,'a'); 
@@ -650,7 +677,7 @@ data.body = process.argv[2];
     
 }); 	
 	
-
+*/
             //console.log('SOKO Request, ', req.params[0]);
             //fs.accessSync(__dirname + req.params[0], fs.F_OK);
             //return res.sendFile(__dirname + req.params[0]);
