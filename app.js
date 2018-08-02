@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var jade = require('pug');
+jade = require('pug');
 var LE = require('greenlock');
 var insPORT = 8081;
 var PORT = 8080;
