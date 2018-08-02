@@ -68,7 +68,7 @@ exports.createStorePage = function(req) {
 	    when(entFunc.bitsStoreDet(sid),function(rr){
 		    
 	//console.log('creating store page from '+'bitsoko' + indxPth);
-		fs.readFile('bitsoko' + indxPth, function(error, source){
+		fs.readFile('business' + indxPth, function(error, source){
 			
 			if(error)console.log(error);
   
