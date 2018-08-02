@@ -591,6 +591,7 @@ try {
 		    
          //getting store index page information
 var sendFl= __dirname + '/tmp/html/bits/?s='+getBitsWinOpt(req.url,'s')+'.html';
+	console.log(sendFl);
 fs.accessSync(sendFl, fs.F_OK);	     
    res.sendFile(sendFl);
 	
