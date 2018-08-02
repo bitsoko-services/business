@@ -114,6 +114,10 @@ var prepDirC = `
             mkdir products
             mkdir services
             mkdir promotions
+            mkdir html
+            cd html
+            mkdir bits
+            mkdir soko
         `;
 //variables
 allManagers = [];
