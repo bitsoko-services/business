@@ -602,11 +602,9 @@ fs.accessSync(sendFl, fs.F_OK);
 	
    
 } catch (e) {
-	console.log(e);
 	// cannot find store page. creating it so we can save to cache and reload faster next time
 	 when(entFunc.createStorePage(req), function(r){
 		
-	console.log('!info: store page created',r);
 		res.flush();
     res.end(r); 
 		 	    
