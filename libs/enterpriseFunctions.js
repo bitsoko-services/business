@@ -98,19 +98,19 @@ data.body = process.argv[2];
 		
 	
 	// lets inline the stylesheets to improve performance
-		fs.readFile('bitsoko/bitsAssets/css/materialize/materialize.min.css', function(error, source){
+		fs.readFile('business/bitsAssets/css/materialize/materialize.min.css', function(error, source){
 			
 			if(error)console.log(error);
 		html = html.replace('<link href="/bitsAssets/css/materialize/materialize.min.css" rel="stylesheet" type="text/css">','<style>'+source+'</style>')
 	
 		// lets inline the stylesheets to improve performance
-		fs.readFile('bitsoko/bitsAssets/html/connect.html', function(error, source){
+		fs.readFile('business/bitsAssets/html/connect.html', function(error, source){
 			
 			if(error)console.log(error);
 		html = html.replace('<link href="/bitsAssets/html/connect.html" rel="import">',source)
 		
 		// lets inline the stylesheets to improve performance
-		fs.readFile('bitsoko/bits/css/style.css', function(error, source){
+		fs.readFile('business/bits/css/style.css', function(error, source){
 			
 			if(error)console.log(error);
 		html = html.replace('<link href="css/style.css" media="screen,projection" rel="stylesheet" type="text/css">','<style>'+source+'</style>')
@@ -118,7 +118,7 @@ data.body = process.argv[2];
 		
 		
 			   console.log('!info saving new store page to '+'/bitsoko/tmp/html/bits/?s='+sid);			     
-		writeFile('bitsoko/tmp/html/bits/?s='+sid+'.html', html, function (err) {
+		writeFile('business/tmp/html/bits/?s='+sid+'.html', html, function (err) {
                     if (err) console.log('!ERR unable to write database client key', err);
 
 	deferred.resolve(html);
