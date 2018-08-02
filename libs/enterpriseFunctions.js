@@ -44,7 +44,7 @@ exports.createStorePage = function(req) {
 	
 		      
 	//console.log('creating store page 1 ',sid,indxPth);	    	
-	      when(bits.do.returnMerchantServices('',{service:sid,id:sid}), function(r){
+	      when(entFunc.returnMerchantServices('',{service:sid,id:sid}), function(r){
 		      
 		      
 	//console.log('creating store page 2 ',sid,indxPth);
@@ -65,7 +65,7 @@ exports.createStorePage = function(req) {
 		      }
 			
 			
-	    when(bitsoko.bitsStoreDet(sid),function(rr){
+	    when(entFunc.bitsStoreDet(sid),function(rr){
 		    
 	//console.log('creating store page from '+'bitsoko' + indxPth);
 		fs.readFile('bitsoko' + indxPth, function(error, source){
