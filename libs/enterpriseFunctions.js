@@ -1,5 +1,165 @@
 var exports = module.exports = {};
 
+
+// We need this to build our post string
+
+function getBitsWinOpt(str,aKey){    
+			try{    
+		   var ps=str.split("?")[1];
+ var pairs = ps.split("&");
+            }catch(e){
+return false;
+}  
+  		     
+            
+for(var i = 0, aKey=aKey; i < pairs.length; ++i) {
+var key=pairs[i].split("=")[0];
+	
+    var value=pairs[i].split("=")[1];
+ if (key==aKey){
+     
+     return value;
+ 
+ }  
+    
+}
+		     }
+
+exports.createStorePage = function(req) {
+   
+  var deferred = new Deferred(); 
+	
+	
+		      
+		  var indxPth='/bits/index.html';	
+	 //redirecting to sokopos store profile page
+		  
+			     if(getBitsWinOpt(req.url,'s')=='3'){
+				     //this is a sokopos link
+				var sid=getBitsWinOpt(req.url,'a'); 
+				}else{
+					//this is a enterprise store link
+				var sid=getBitsWinOpt(req.url,'s'); 
+				}
+	
+		      
+	//console.log('creating store page 1 ',sid,indxPth);	    	
+	      when(bits.do.returnMerchantServices('',{service:sid,id:sid}), function(r){
+		      
+		      
+	//console.log('creating store page 2 ',sid,indxPth);
+		      
+		     var thePrds = r.res.list;
+			 r.res.list=[];
+		      var ii=0;
+		      
+		      for(var ix in thePrds){
+			    
+		      if(thePrds[ix].productCategory==null || thePrds[ix].productCategory=='null'){
+			        ++ii;
+		      r.res.list.push(thePrds[ix])
+			      if(ii>6){
+			      break;
+			      }
+		      }
+		      }
+			
+			
+	    when(bitsoko.bitsStoreDet(sid),function(rr){
+		    
+	//console.log('creating store page from '+'bitsoko' + indxPth);
+		fs.readFile('bitsoko' + indxPth, function(error, source){
+			
+			if(error)console.log(error);
+  
+html2jade.convertHtml(source, {}, function (err, jd) {
+	var thm = rr.theme;
+	if(thm== null || thm== 'null' || thm== ''){
+	thm = primaryColor;
+	}
+	//console.log('setting page theme '+thm);
+  var data = {
+  name: rr.name,
+  desc: rr.description,
+    img: rr.bannerPath.replace('.png','-128.webp'),
+    theme: thm,
+    stMeta: JSON.stringify(r),
+      cid: Cid
+}
+data.body = process.argv[2];
+//jade.render
+    var template = jade.compile(jd);
+    var html = template(data);
+    //res.writeHead(200);
+	
+	html = html.replace(/https:\/\/bitsoko.io\/bitsAssets/g, "/bitsAssets")
+	html = html.replace(/https:\/\/bitsoko.co.ke\/bitsAssets/g, "/bitsAssets")
+	
+		
+	
+	// lets inline the stylesheets to improve performance
+		fs.readFile('bitsoko/bitsAssets/css/materialize/materialize.min.css', function(error, source){
+			
+			if(error)console.log(error);
+		html = html.replace('<link href="/bitsAssets/css/materialize/materialize.min.css" rel="stylesheet" type="text/css">','<style>'+source+'</style>')
+	
+		// lets inline the stylesheets to improve performance
+		fs.readFile('bitsoko/bitsAssets/html/connect.html', function(error, source){
+			
+			if(error)console.log(error);
+		html = html.replace('<link href="/bitsAssets/html/connect.html" rel="import">',source)
+		
+		// lets inline the stylesheets to improve performance
+		fs.readFile('bitsoko/bits/css/style.css', function(error, source){
+			
+			if(error)console.log(error);
+		html = html.replace('<link href="css/style.css" media="screen,projection" rel="stylesheet" type="text/css">','<style>'+source+'</style>')
+		
+		
+		
+			   console.log('!info saving new store page to '+'/bitsoko/tmp/html/bits/?s='+sid);			     
+		writeFile('bitsoko/tmp/html/bits/?s='+sid+'.html', html, function (err) {
+                    if (err) console.log('!ERR unable to write database client key', err);
+
+	deferred.resolve(html);
+		});
+			
+  
+	})
+		     
+		
+		
+			
+  
+	})
+		     
+		
+			
+  
+	})
+		     
+	
+	
+});
+});     
+		    
+		    
+	    },function(err){
+	    console.log('err! cannot show merchant share info! merchant '+sid+' not found!');
+	    })
+  	
+	
+}, function(error){
+		console.log('ERR: service profile error',error);
+    
+}); 	
+
+	
+	
+     return deferred;
+	
+}
+
 exports.returnMerchantServices = function(bb,dataa) {
       
   var deferred = new Deferred();
