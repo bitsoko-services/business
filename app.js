@@ -318,7 +318,7 @@ function squashByName(arr) {
                 
                 allProdCat=squashByName(allProdCat);
                 
-                conaole.log(allProdCat);
+                console.log(allProdCat);
                 
                 
                 
