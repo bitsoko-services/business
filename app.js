@@ -570,6 +570,7 @@ ReqRes = function ReqRes(req, res) {
                         revName: 'john doe',
                         revMsg: 'good service'
                     }],
+                    productCat:[{"name":"Drinks","added":1531894363726},{"name":"Breakfast","added":1531896095243},{"name":"Lunch","added":1531896154070},{"name":"Desserts","added":1531900885447},{"name":"Bitings","added":1531900925718},{"name":"Sides","added":1531900932491},{"name":"Pizzas","added":1532331051518}],
                     phone: allInfo.phone,
                     email: allInfo.email,
                     managerState: allInfo.managerState,

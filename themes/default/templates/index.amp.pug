@@ -55,6 +55,18 @@ html(⚡='')
                 br
                 | mix of color, texture, and material to make her shoes the must-haves of this year.
               a.land-see-hero-button.text-decoration-none.relative(href='kim-myeong.amp.html') Read More
+    mixin listProdCat(productCat)
+          .land-see-hero-content.mx-auto.relative
+            amp-img.cover.land-see-hero-image.land-see-cover-position-bottom(alt='Designer Kim Myeong', width='1290', height='680', layout='responsive', src='../img/land-see/content/shoe-designer.jpg')
+            .land-see-hero-typography.mx-auto.center.z2.absolute
+              a.land-see-post-category.land-see-page-navigation.underline.caps.max-width-1.sm-hide.md-hide.lg-hide(href='stories.amp.html?category=fashion#land-see-fashion') Fashion
+              h1.land-see-hero-title.ampstart-title-md
+                a.text-decoration-none(href='kim-myeong.amp.html') Designer Kim Myeong
+              p.land-see-hero-caption.ampstart-caption.mx-auto.max-width-3.pt1.mb3
+                | Relatively new to the industry, footwear designer Kim Myeong uses a unique
+                br
+                | mix of color, texture, and material to make her shoes the must-haves of this year.
+              a.land-see-hero-button.text-decoration-none.relative(href='kim-myeong.amp.html') Read More
     amp-animation#popularSlideIn(layout='nodisplay')
       script(type='application/json').
         {
@@ -332,24 +344,25 @@ html(⚡='')
             path(fill='#3D6458', d='M43.535 34.74H0L21.767 0z')
     section.land-see-story-categories.center.items-center
       amp-accordion(layout='container', disable-session-states='')
-        section.land-see-stories.land-see-arts-culture(expanded='')
-          h3.max-width-4.mx-auto Arts & Culture
-          .max-width-4.mx-auto
-            amp-list(src='./api/arts-culture-accordion.json', height='430', layout='fixed-height')
-              template(type='amp-mustache')
-                amp-position-observer(on='enter:accordionSlideIn.start', layout='nodisplay')
-                ul.list-reset.m0.p0.center.flex.justify-center
-                  | {{#land-see-category}}
-                  li.mx1(class='{{post-classes}}')
-                    a.text-decoration-none(href='{{post-url}}')
-                      | {{#image}}
-                      amp-img.land-see-post-image(class='{{classes}}', alt='{{alt-text}}', media='{{media-query}}', width='{{width}}', height='{{height}}', layout='{{layout}}', src='{{src}}')
-                      |                   {{/image}}
-                    a.land-see-post-category.land-see-page-navigation.inline-block.pt1.underline.caps(href='{{post-category-url}}') {{post-category}}
-                    h4.land-see-post-title.ampstart-title-sm.pt1
-                      a.text-decoration-none(href='{{post-url}}') {{post-title}}
-                    p.ampstart-caption.pt1.pb3 {{post-copy}}
-                  |               {{/land-see-category}}
+        for category in productCat
+            section.land-see-stories.land-see-arts-culture(expanded='')
+              h3.max-width-4.mx-auto #{category.name}
+              .max-width-4.mx-auto
+                amp-list(src='./api/arts-culture-accordion.json', height='430', layout='fixed-height')
+                  template(type='amp-mustache')
+                    amp-position-observer(on='enter:accordionSlideIn.start', layout='nodisplay')
+                    ul.list-reset.m0.p0.center.flex.justify-center
+                      | {{#land-see-category}}
+                      li.mx1(class='{{post-classes}}')
+                        a.text-decoration-none(href='{{post-url}}')
+                          | {{#image}}
+                          amp-img.land-see-post-image(class='{{classes}}', alt='{{alt-text}}', media='{{media-query}}', width='{{width}}', height='{{height}}', layout='{{layout}}', src='{{src}}')
+                          |                   {{/image}}
+                        a.land-see-post-category.land-see-page-navigation.inline-block.pt1.underline.caps(href='{{post-category-url}}') {{post-category}}
+                        h4.land-see-post-title.ampstart-title-sm.pt1
+                          a.text-decoration-none(href='{{post-url}}') {{post-title}}
+                        p.ampstart-caption.pt1.pb3 {{post-copy}}
+                      |               {{/land-see-category}}
         section.land-see-stories.land-see-design
           h3.max-width-4.mx-auto Design
           .max-width-4.mx-auto
