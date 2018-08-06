@@ -306,14 +306,14 @@ html(⚡='')
       .clearfix.pt2
         amp-position-observer(on='enter:recentSlideIn.start', layout='nodisplay')
         ul.list-reset.m0.p0.center.justify-center.fit
-          li.px1.mt1.block.align-top.land-see-pre-animate.land-see-post-item.land-see-post-item-wide.land-see-post-featured.col.land-see-recent
-            a.text-decoration-none(href='kim-myeong.amp.html')
-              amp-img.land-see-post-image.cover(alt='Studio Serif, interior.', media='', width='409', height='305', layout='responsive', src='../img/land-see/content/studio-310px.jpg')
-            a.land-see-post-category.land-see-page-navigation.inline-block.pt1.underline.caps(href='stories.amp.html?category=design#land-see-design') Design
-            h4.land-see-post-title.ampstart-title-sm.pt1
-              a.text-decoration-none(href='kim-myeong.amp.html') Office Tour: Studio Serif
-            p.ampstart-caption.pt1.pb3
-              | In the heart of the southeast, Studio Serif stands out among its competitors for its complex mixture of hand-drawn and computer-generated art coming together in beautifully, cohesive designs.
+            for sec1 in entSettings.entImageList
+                  li.px1.mt1.block.align-top.land-see-pre-animate.land-see-post-item.land-see-post-item-wide.land-see-post-featured.col.land-see-recent
+                    a.text-decoration-none(href='kim-myeong.amp.html')
+                      amp-img.land-see-post-image.cover(alt='Studio Serif, interior.', media='', width='409', height='305', layout='responsive', src=sec1.icon)
+                    h4.land-see-post-title.ampstart-title-sm.pt1
+                      a.text-decoration-none(href='kim-myeong.amp.html') | #{sec1.title}
+                    p.ampstart-caption.pt1.pb3
+                      | #{sec1.body}
           li.px1.mt1.block.align-top.land-see-pre-animate.land-see-post-item.land-see-post-item-wide.land-see-post-featured.col.land-see-recent
             a.text-decoration-none(href='kim-myeong.amp.html')
               amp-img.land-see-post-image.cover(alt='Build a killer outfit.', media='', width='409', height='370', layout='responsive', src='../img/land-see/content/retail-shop-370px.jpg')
