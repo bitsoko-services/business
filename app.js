@@ -123,6 +123,7 @@ var prepDirC = `
 allManagers = [];
 allNewManagers = [];
 allPromos = [];
+allProdCat=[];
 nCmd.get(prepDirC, function (data, err, stderr) {
     if (!err) {
         console.log('created directories');
@@ -291,7 +292,36 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                 //-----------------------------------------//
 
 
+                for (var ii in allServices) {
+                    
+                    var eaCat=allServices[ii].productCategories;
+                    
+                    for (var ix in eaCat) {
+                    
+                        eaCat[ix]['servList']=[];
+                        allProdCat.push(eaCat);
+                }
+                }
 
+                
+function squashByName(arr) {
+    var tmp = [];
+    var tmpID = [];
+    for (var i = 0; i < arr.length; i++) {
+        if (tmpID.indexOf(arr[i].name) == -1) {
+            tmp.push(arr[i]);
+            tmpID.push(arr[i].name);
+        }
+    }
+    return tmp;
+}
+                
+                allProdCat=squashByName(allProdCat);
+                
+                conaole.log(allProdCat);
+                
+                
+                
                 aPs = JSON.parse(body).enterprisePromos;
                 allDomains = allInfo.domains;
                 for (var ii in allServices) {
@@ -303,13 +333,12 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                     //console.log(allServices[ii].promotions,"======== Promotions ====");
                     var aMans = allServices[ii].managers
                     //console.log(aMans)
-                    
-                        var parsedCats=allServices[ii].productCategories;
-                    for (var iiii in parsedCats) {
+                    var cats=JSON.parse(allServices[ii].productCategories);
+                    for(var pc in cats){
                         
-                        allServices[ii][parsedCats[iiii].name]='block';
-                        
-                        
+                        if(allProdCat[pc].name==cats[pc].name){
+                           allProdCat[pc]['servList'].push(allServices[ii]);
+                           }
                     }
                     
                     for (var iii in aMans) {
@@ -342,6 +371,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                 //console.log(allServices);
 
 
+                conaole.log(allProdCat);
 
 
                 try {
@@ -579,28 +609,7 @@ ReqRes = function ReqRes(req, res) {
                         revName: 'john doe',
                         revMsg: 'good service'
                     }],
-                    productCat: [{
-                        "name": "Drinks",
-                        "added": 1531894363726
-                    }, {
-                        "name": "Breakfast",
-                        "added": 1531896095243
-                    }, {
-                        "name": "Lunch",
-                        "added": 1531896154070
-                    }, {
-                        "name": "Desserts",
-                        "added": 1531900885447
-                    }, {
-                        "name": "Bitings",
-                        "added": 1531900925718
-                    }, {
-                        "name": "Sides",
-                        "added": 1531900932491
-                    }, {
-                        "name": "Pizzas",
-                        "added": 1532331051518
-                    }],
+                    productCat: progCatProc,
                     phone: allInfo.phone,
                     email: allInfo.email,
                     managerState: allInfo.managerState,

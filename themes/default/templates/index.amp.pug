@@ -348,7 +348,7 @@ html(⚡='')
             section.land-see-stories.land-see-fashion
               h3.max-width-4.mx-auto #{category.name}
               .max-width-4.mx-auto
-                for shopCat in allServices
+                for shopCat in category.shops
                     h3.max-width-4.mx-auto(style='display:#{shopCat[category]}') #{shopCat.name}
         section.land-see-stories.land-see-design
           h3.max-width-4.mx-auto Design
