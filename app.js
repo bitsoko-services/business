@@ -333,7 +333,7 @@ function squashByName(arr) {
                     //console.log(allServices[ii].promotions,"======== Promotions ====");
                     var aMans = allServices[ii].managers
                     console.log(allServices[ii].productCategory)
-                    var cats=allServices[ii].productCategory;
+                    var cats=JSON.parse(allServices[ii].productCategory);
                     for(var pcc in allProdCat){
                         for(var pc in cats){
                         
