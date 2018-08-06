@@ -303,6 +303,15 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                     //console.log(allServices[ii].promotions,"======== Promotions ====");
                     var aMans = allServices[ii].managers
                     //console.log(aMans)
+                    
+                        var parsedCats=allServices[ii].productCategories;
+                    for (var iiii in parsedCats) {
+                        
+                        allServices[ii][parsedCats[iiii].name]='block';
+                        
+                        
+                    }
+                    
                     for (var iii in aMans) {
                         aMans[iii].sID = allServices[ii].id;
                         allManagers.push(aMans[iii]);

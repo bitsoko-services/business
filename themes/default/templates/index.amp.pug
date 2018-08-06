@@ -349,7 +349,7 @@ html(⚡='')
               h3.max-width-4.mx-auto #{category.name}
               .max-width-4.mx-auto
                 for shopCat in allServices
-                        | #{shopCat.name}
+                    h3.max-width-4.mx-auto(style='display:#{shopCat[category]}') #{shopCat.name}
         section.land-see-stories.land-see-design
           h3.max-width-4.mx-auto Design
           .max-width-4.mx-auto
