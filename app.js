@@ -612,7 +612,7 @@ ReqRes = function ReqRes(req, res) {
                         revName: 'john doe',
                         revMsg: 'good service'
                     }],
-                    productCat: progCatProc,
+                    productCat: allProdCat,
                     phone: allInfo.phone,
                     email: allInfo.email,
                     managerState: allInfo.managerState,
