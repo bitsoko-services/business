@@ -371,7 +371,7 @@ function squashByName(arr) {
                 //console.log(allServices);
 
 
-                conaole.log(allProdCat);
+                console.log(allProdCat);
 
 
                 try {
