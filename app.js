@@ -592,7 +592,7 @@ ReqRes = function ReqRes(req, res) {
                         "name": "Pizzas",
                         "added": 1532331051518
                     }],
-                    shopCat: allInfo.productCategory,
+                    shopCat: JSON.parse(allInfo.productCategory),
                     phone: allInfo.phone,
                     email: allInfo.email,
                     managerState: allInfo.managerState,
