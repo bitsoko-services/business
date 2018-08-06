@@ -299,7 +299,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                     for (var ix in eaCat) {
                     
                         eaCat[ix]['servList']=[];
-                        allProdCat.push(eaCat);
+                        allProdCat.push(eaCat[ix]);
                 }
                 }
 
