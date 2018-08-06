@@ -294,7 +294,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
 
                 for (var ii in allServices) {
                     
-                    var eaCat=allServices[ii].productCategories;
+                    var eaCat=allServices[ii].productCategory;
                     
                     for (var ix in eaCat) {
                     
@@ -332,8 +332,8 @@ function squashByName(arr) {
                     console.log(allServices[ii]);
                     //console.log(allServices[ii].promotions,"======== Promotions ====");
                     var aMans = allServices[ii].managers
-                    console.log(allServices[ii].productCategories)
-                    var cats=allServices[ii].productCategories;
+                    console.log(allServices[ii].productCategory)
+                    var cats=allServices[ii].productCategory;
                     for(var pc in cats){
                         
                         if(allProdCat[pc].name==cats[pc].name){
