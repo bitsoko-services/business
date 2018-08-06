@@ -298,6 +298,8 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                     allServices[ii].banner = allServices[ii].bannerPath;
                     allServices[ii].desc = allServices[ii].description
                     allServices[ii].title = allServices[ii].name;
+                    console.log("================================");
+                    console.log(allServices[ii]);
                     //console.log(allServices[ii].promotions,"======== Promotions ====");
                     var aMans = allServices[ii].managers
                     //console.log(aMans)
