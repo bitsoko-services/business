@@ -6,7 +6,7 @@ var insPORT = 8081;
 var PORT = 8080;
 allDomains = [];
 
-primaryColor='#0f5f76';
+primaryColor = '#0f5f76';
 
 heartBeat = 20000;
 var bitsokoEmail = 'bitsokokenya@gmail.com';
@@ -551,8 +551,8 @@ ReqRes = function ReqRes(req, res) {
         if (req.params[0] == '/index.html' || req.params[0] == '/') {
             console.log('serving homepage')
             fs.readFile(__dirname + '/themes/default/templates/index.amp.pug', function (error, source) {
-		    //TO-DO switch to new default
-            //fs.readFile(__dirname + '/themes/default/templates/index.amp.pug', function (error, source) {
+                //TO-DO switch to new default
+                //fs.readFile(__dirname + '/themes/default/templates/index.amp.pug', function (error, source) {
                 //console.log(allPromos);
                 //console.log(allManagers);
                 matchShops();
@@ -570,7 +570,29 @@ ReqRes = function ReqRes(req, res) {
                         revName: 'john doe',
                         revMsg: 'good service'
                     }],
-                    productCat:[{"name":"Drinks","added":1531894363726},{"name":"Breakfast","added":1531896095243},{"name":"Lunch","added":1531896154070},{"name":"Desserts","added":1531900885447},{"name":"Bitings","added":1531900925718},{"name":"Sides","added":1531900932491},{"name":"Pizzas","added":1532331051518}],
+                    productCat: [{
+                        "name": "Drinks",
+                        "added": 1531894363726
+                    }, {
+                        "name": "Breakfast",
+                        "added": 1531896095243
+                    }, {
+                        "name": "Lunch",
+                        "added": 1531896154070
+                    }, {
+                        "name": "Desserts",
+                        "added": 1531900885447
+                    }, {
+                        "name": "Bitings",
+                        "added": 1531900925718
+                    }, {
+                        "name": "Sides",
+                        "added": 1531900932491
+                    }, {
+                        "name": "Pizzas",
+                        "added": 1532331051518
+                    }],
+                    shopCat: allInfo,
                     phone: allInfo.phone,
                     email: allInfo.email,
                     managerState: allInfo.managerState,
@@ -592,33 +614,33 @@ ReqRes = function ReqRes(req, res) {
                 return res.end(html);
             });
         } else if (req.url.includes('/bits/?s=')) {
-		
-		
-try {
-		    
-         //getting store index page information
-var sendFl= __dirname + '/bitsAssets/tmp/html/bits/?s='+getBitsWinOpt(req.url,'s')+'.html';
-	console.log(sendFl);
-fs.accessSync(sendFl, fs.F_OK);	     
-   res.sendFile(sendFl);
-	
-	
-   
-} catch (e) {
-	// cannot find store page. creating it so we can save to cache and reload faster next time
-	 when(entFunc.createStorePage(req), function(r){
-		
-		res.flush();
-    res.end(r); 
-		 	    
-	    },function(err){
-	    console.log('err! Unable to create store page',err);
-	    })
-  	
-	
-}
 
-	/*	
+
+            try {
+
+                //getting store index page information
+                var sendFl = __dirname + '/bitsAssets/tmp/html/bits/?s=' + getBitsWinOpt(req.url, 's') + '.html';
+                console.log(sendFl);
+                fs.accessSync(sendFl, fs.F_OK);
+                res.sendFile(sendFl);
+
+
+
+            } catch (e) {
+                // cannot find store page. creating it so we can save to cache and reload faster next time
+                when(entFunc.createStorePage(req), function (r) {
+
+                    res.flush();
+                    res.end(r);
+
+                }, function (err) {
+                    console.log('err! Unable to create store page', err);
+                })
+
+
+            }
+
+            /*	
 		
 			     if(getBitsWinOpt(req.url,'s')=='3'){
 				     //this is a sokopos link

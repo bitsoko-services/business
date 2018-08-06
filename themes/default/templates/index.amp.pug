@@ -345,24 +345,12 @@ html(⚡='')
     section.land-see-story-categories.center.items-center
       amp-accordion(layout='container', disable-session-states='')
         for category in productCat
-            section.land-see-stories.land-see-arts-culture(expanded='')
+            section.land-see-stories.land-see-fashion
               h3.max-width-4.mx-auto #{category.name}
               .max-width-4.mx-auto
-                amp-list(src='./api/arts-culture-accordion.json', height='430', layout='fixed-height')
-                  template(type='amp-mustache')
-                    amp-position-observer(on='enter:accordionSlideIn.start', layout='nodisplay')
-                    ul.list-reset.m0.p0.center.flex.justify-center
-                      | {{#land-see-category}}
-                      li.mx1(class='{{post-classes}}')
-                        a.text-decoration-none(href='{{post-url}}')
-                          | {{#image}}
-                          amp-img.land-see-post-image(class='{{classes}}', alt='{{alt-text}}', media='{{media-query}}', width='{{width}}', height='{{height}}', layout='{{layout}}', src='{{src}}')
-                          |                   {{/image}}
-                        a.land-see-post-category.land-see-page-navigation.inline-block.pt1.underline.caps(href='{{post-category-url}}') {{post-category}}
-                        h4.land-see-post-title.ampstart-title-sm.pt1
-                          a.text-decoration-none(href='{{post-url}}') {{post-title}}
-                        p.ampstart-caption.pt1.pb3 {{post-copy}}
-                      |               {{/land-see-category}}
+                for shopCat in shopCat.productCategory
+                    unless category.name
+                        | #{category.name}
         section.land-see-stories.land-see-design
           h3.max-width-4.mx-auto Design
           .max-width-4.mx-auto
