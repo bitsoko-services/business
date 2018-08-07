@@ -313,17 +313,16 @@ html(⚡='')
             section.land-see-stories.land-see-fashion
               h3.max-width-4.mx-auto #{category.name}
               .max-width-4.mx-auto
-                for shopCat in category.servList
-                    amp-list(src='./api/fashion-accordion.json', height='460', layout='fixed-height')
-                      template(type='amp-mustache')
-                        ul.list-reset.m0.p0.center.flex.justify-center
-                          li.mx1(class='{{post-classes}}')
-                            a.text-decoration-none(href='')
-                              amp-img.land-see-post-image(class='{{classes}}', alt='{{alt-text}}', media='{{media-query}}', width='{{width}}', height='{{height}}', layout='{{layout}}', src=shopCat.banner)
-                            a.land-see-post-category.land-see-page-navigation.inline-block.pt1.underline.caps(href='')
-                            h4.land-see-post-title.ampstart-title-sm.pt1
-                              a.text-decoration-none(href='') #{shopCat.name}
-                            p.ampstart-caption.pt1.pb3 #{shopCat.description}
+                ul
+                    for shopCat in category.servList
+                        li.mx1.land-see-pre-animate.land-see-post-item.land-see-arts-culture-anim
+                          a.text-decoration-none(href='https://www.ampstart.com/templates/land-see/kim-myeong.amp.html' target='_top')
+                            amp-img.land-see-post-image.cover.i-amphtml-element.i-amphtml-layout-responsive.i-amphtml-layout-size-defined.i-amphtml-layout(alt='Good eats.' media='' width='196' height='249' layout='responsive' src=shopCat.banner)
+                              i-amphtml-sizer(style='display: block; padding-top: 127.041%;')
+                              img.i-amphtml-fill-content.i-amphtml-replaced-content(decoding='async' alt='Good eats.' src=shopCat.banner)
+                          h4.land-see-post-title.ampstart-title-sm.pt1
+                            a.text-decoration-none(href='https://www.ampstart.com/templates/land-see/kim-myeong.amp.html' target='_top') #{shopCat.name}
+                          p.ampstart-caption.pt1.pb3 #{shopCat.description}
         section.land-see-stories.land-see-fashion
           h3.max-width-4.mx-auto Fashion
           .max-width-4.mx-auto
