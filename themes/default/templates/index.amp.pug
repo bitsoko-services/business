@@ -309,11 +309,11 @@ html(⚡='')
             for sec1 in entSettings
                   li.px1.mt1.block.align-top.land-see-pre-animate.land-see-post-item.land-see-post-item-wide.land-see-post-featured.col.land-see-recent
                     a.text-decoration-none(href='kim-myeong.amp.html')
-                      amp-img.land-see-post-image.cover(alt='Studio Serif, interior.', media='', width='409', height='305', layout='responsive', src=sec1.entImageList.icon)
+                      amp-img.land-see-post-image.cover(alt='Studio Serif, interior.', media='', width='409', height='305', layout='responsive', src=)
                     h4.land-see-post-title.ampstart-title-sm.pt1
-                      a.text-decoration-none(href='kim-myeong.amp.html') | #{sec1.entImageList.title}
+                      a.text-decoration-none(href='kim-myeong.amp.html') | #{sec1}
                     p.ampstart-caption.pt1.pb3
-                      | #{sec1.entImageList.body}
+                      | #{sec1}
         .absolute.z4.xs-hide.sm-hide.land-see-recent-accent-image
           amp-position-observer(on='scroll:recentAccentAnimation.seekTo(percent=event.percent)', layout='nodisplay')
           svg(xmlns='http://www.w3.org/2000/svg', width='44', height='35', viewbox='0 0 44 35', overflow='visible')
