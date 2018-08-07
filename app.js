@@ -293,9 +293,12 @@ nCmd.get(prepDirC, function (data, err, stderr) {
 
 
                 for (var ii in allServices) {
-                    
+                    try{
                     var eaCat=JSON.parse(allServices[ii].productCategory);
-                    
+                    }catch(e){
+		    continue;
+		    }
+			
                     for (var ix in eaCat) {
                     
                         eaCat[ix]['servList']=[];
