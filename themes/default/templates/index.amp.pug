@@ -313,20 +313,23 @@ html(⚡='')
             section.land-see-stories.land-see-fashion
               h3.max-width-4.mx-auto #{category.name}
               .max-width-4.mx-auto
-                amp-list(src='./api/design-accordion.json', height='495', layout='fixed-height')
-                  template(type='amp-mustache')
-                    ul.list-reset.m0.p0.center.flex.justify-center
-                      | {{#land-see-category}}
-                      for shopCat in category.servList
-                          li.mx1(class='{{post-classes}}')
-                            a.text-decoration-none(href='{{post-url}}')
-                              | {{#image}}
-                              amp-img.land-see-post-image(class='{{classes}}', alt='{{alt-text}}', media='{{media-query}}', width='{{width}}', height='{{height}}', layout='{{layout}}', src=shopCat.banner)
-                              |                   {{/image}}
-                            a.land-see-post-category.land-see-page-navigation.inline-block.pt1.underline.caps(href='{{post-category-url}}') {{post-category}}
-                            h4.land-see-post-title.ampstart-title-sm.pt1
-                              a.text-decoration-none(href='{{post-url}}') #{shopCat.name}
-                            p.ampstart-caption.pt1.pb3 #{shopCat.description}
+                for shopCat in category.servList
+                    h3.max-width-4.mx-auto(style='display:#{shopCat[category]}') #{shopCat.name}
+                    .max-width-4.mx-auto
+                        amp-list(src='./api/fashion-accordion.json', height='460', layout='fixed-height')
+                          template(type='amp-mustache')
+                            ul.list-reset.m0.p0.center.flex.justify-center
+                              | {{#land-see-category}}
+                              li.mx1(class='{{post-classes}}')
+                                a.text-decoration-none(href='{{post-url}}')
+                                  | {{#image}}
+                                  amp-img.land-see-post-image(class='{{classes}}', alt='{{alt-text}}', media='{{media-query}}', width='{{width}}', height='{{height}}', layout='{{layout}}', src='{{src}}')
+                                  |                   {{/image}}
+                                a.land-see-post-category.land-see-page-navigation.inline-block.pt1.underline.caps(href='{{post-category-url}}') {{post-category}}
+                                h4.land-see-post-title.ampstart-title-sm.pt1
+                                  a.text-decoration-none(href='{{post-url}}') #{shopCat.name}
+                                p.ampstart-caption.pt1.pb3 #{shopCat.description}
+                              |{{/land-see-category}}
         section.land-see-stories.land-see-fashion
           h3.max-width-4.mx-auto Fashion
           .max-width-4.mx-auto
