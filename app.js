@@ -624,7 +624,8 @@ ReqRes = function ReqRes(req, res) {
                     promos: allPromos,
                     entSettings: entSettings,
                     managers: allNewManagers,
-                    cid: '000'
+                    cid: '000',
+                    entBanner:"https://photogallerylinks.com/pics/1564.jpg"
                 }
                 data.body = process.argv[2];
                 //jade.render
