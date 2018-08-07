@@ -72,7 +72,7 @@ serverFiles = [
 	'/socket.io/socket.io.js',
 	'/bitsAssets/js/lightwallet/lightwallet.min.js',
 	'/bitsAssets/js/async/lib/async.js',
-	'/bitsAssets/js/jquery-2.1.1.min.js',
+	'/bitsAssets/js/jquery/jquery-3.3.1.min.js',
 	'/bitsAssets/html/connect.html',
 	'/bitsAssets/js/broadcastChannel.js',
 	'/bitsAssets/js/qrcodesvg.js',
