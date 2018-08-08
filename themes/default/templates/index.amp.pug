@@ -289,9 +289,8 @@ html(⚡='')
                     a.text-decoration-none(href='#')
                       amp-img.land-see-post-image.cover(alt='dasf', media='dd', width='409', height='370', layout='responsive', src=imgLst.icon)
                     h4.land-see-post-title.ampstart-title-sm.pt1
-                      a.text-decoration-none(href='kim-myeong.amp.html') #{imgLst}
-                    p.ampstart-caption.pt1.pb3
-                      | Whether it’s a short weekend getaway or an extended holiday, choosing carefully from your accessories can help lighten your load while expanding your repertory.
+                      a.text-decoration-none(href='kim-myeong.amp.html') #{imgLst.title}
+                    p.ampstart-caption.pt1.pb3 #{imgLst.body}
          
         .absolute.z4.xs-hide.sm-hide.land-see-recent-accent-image
           amp-position-observer(on='scroll:recentAccentAnimation.seekTo(percent=event.percent)', layout='nodisplay')
