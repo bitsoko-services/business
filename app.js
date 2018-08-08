@@ -250,7 +250,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                 //---------add the section images------//
                 try {
 
-                    //console.log('!INFO section1 data ', allInfo.entImageList);
+                    console.log('!INFO section1 data ', allInfo.entImageList);
 
                     var imgItms = JSON.parse(allInfo.entImageList);
                     if (imgItms.length > 1) {
@@ -272,7 +272,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
 
                 //---------add the section icons------//
                 try {
-
+ console.log('!INFO section1 data ', allInfo.entIconList);
                     var icnItms = JSON.parse(allInfo.entIconList);
                     if (icnItms.length > 1) {
 
