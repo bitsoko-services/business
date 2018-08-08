@@ -252,7 +252,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
 
 //                    console.log('!INFO section1 data ', allInfo.entImageList);
 
-                    var imgItms = allInfo.entImageList;
+                    var imgItms = JSON.parse(allInfo.entImageList);
                     if (imgItms.length > 1) {
 
                         entSettings.entImageListDisabled = false;
@@ -604,9 +604,6 @@ ReqRes = function ReqRes(req, res) {
             fs.readFile(__dirname + '/themes/default/templates/index.amp.pug', function (error, source) {
                 //TO-DO switch to new default
                 //fs.readFile(__dirname + '/themes/default/templates/index.amp.pug', function (error, source) {
-                console.log("///////////////////////////////////////");
-                console.log(entSettings.entIconList);
-                console.log(entSettings);
                 matchShops();
                 var data = {
                     name: allInfo.name,
