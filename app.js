@@ -607,8 +607,6 @@ ReqRes = function ReqRes(req, res) {
                 //console.log(allPromos);
                 //console.log(allManagers);
                 matchShops();
-                console.log("================entSettings================")
-                console.log(entSettings)
                 var data = {
                     name: allInfo.name,
                     cover: allInfo.cover,
