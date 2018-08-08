@@ -273,7 +273,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                 //---------add the section icons------//
                 try {
 // console.log('!INFO section1 data ', allInfo.entIconList);
-                    var icnItms = allInfo.entIconList;
+                    var icnItms = JSON.parse(allInfo.entIconList);
                     if (icnItms.length > 1) {
 
                         entSettings.entIconListDisabled = false;
