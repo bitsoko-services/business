@@ -228,105 +228,29 @@ html(⚡='')
               path.ampstart-icon.ampstart-icon-email(d='M10.5 6.4C9.1 6.4 8 7.5 8 8.9v21.3c0 1.3 1.1 2.5 2.5 2.5h34.9c1.4 0 2.5-1.2 2.5-2.5V8.9c0-1.4-1.1-2.5-2.5-2.5H10.5zm2.1 2.5h30.7L27.9 22.3 12.6 8.9zm-2.1 1.4l16.6 14.6c.5.4 1.2.4 1.7 0l16.6-14.6v19.9H10.5V10.3z')
     // End Sidebar
     // End Navbar
-    //section.land-see-hero-container.mx-auto.mb3.relative.overflow-hidden
+    section.land-see-hero-container.mx-auto.mb3.relative.overflow-hidden
           unless entSettings.promotionsDisabled
-              .land-see-hero-left.absolute
-                amp-carousel#land-see-hero-left.land-see-hero-carousel.mx-auto(width='1290', height='680', layout='responsive', [slide]='selectedSlide', on='slideChange:AMP.setState({selectedSlide: event.index})', noloading='', controls='', loop='', type='slides')
-                    for promo in promos
-                        +listpromo(promo.promoBanner,promo.promoName,promo.promoDesc,promo.id,promo.promoOwner,promo.discount)
-              .land-see-hero-main.mx-auto
-                amp-carousel#land-see-hero-main.land-see-hero-carousel.mx-auto(media='(min-width: 40.06rem)', width='1290', height='680', layout='responsive', [slide]='selectedSlide', on='slideChange:AMP.setState({selectedSlide: event.index})', noloading='', controls='', loop='', type='slides')
-                    for promo in promos
-                        +listpromo(promo.promoBanner,promo.promoName,promo.promoDesc,promo.id,promo.promoOwner,promo.discount)
-    //.land-see-hero-progress.mt2.center
+          .land-see-hero-left.absolute
+            amp-carousel#land-see-hero-left.land-see-hero-carousel.mx-auto(width='1290', height='680', layout='responsive', [slide]='selectedSlide', on='slideChange:AMP.setState({selectedSlide: event.index})', noloading='', controls='', loop='', type='slides')
+                for promo in promos
+                    +listpromo(promo.promoBanner,promo.promoName,promo.promoDesc,promo.id,promo.promoOwner,promo.discount)
+          unless entSettings.promotionsDisabled
+          .land-see-hero-main.mx-auto
+            amp-carousel#land-see-hero-main.land-see-hero-carousel.mx-auto(media='(min-width: 40.06rem)', width='1290', height='680', layout='responsive', [slide]='selectedSlide', on='slideChange:AMP.setState({selectedSlide: event.index})', noloading='', controls='', loop='', type='slides')
+                for promo in promos
+                    +listpromo(promo.promoBanner,promo.promoName,promo.promoDesc,promo.id,promo.promoOwner,promo.discount)
+    .land-see-hero-progress.mt2.center
           button.px0(on='tap:AMP.setState({selectedSlide: 0})')
             amp-img.land-see-progress-indicator.land-see-selected-slide([class]="selectedSlide == 0 ? 'land-see-progress-indicator land-see-selected-slide' : 'land-see-progress-indicator'", alt='Go to slide 1', width='7', height='7', layout='fixed', src='../img/land-see/structure/carousel-progress-indicator.svg')
           button.px1(on='tap:AMP.setState({selectedSlide: 1})')
             amp-img.land-see-progress-indicator([class]="selectedSlide == 1 ? 'land-see-progress-indicator land-see-selected-slide' : 'land-see-progress-indicator'", alt='Go to slide 2', width='7', height='7', layout='fixed', src='../img/land-see/structure/carousel-progress-indicator.svg')
           button.px0(on='tap:AMP.setState({selectedSlide: 2})')
             amp-img.land-see-progress-indicator([class]="selectedSlide == 2 ? 'land-see-progress-indicator land-see-selected-slide' : 'land-see-progress-indicator'", alt='Go to slide 3', width='7', height='7', layout='fixed', src='../img/land-see/structure/carousel-progress-indicator.svg')
-    //.land-see-hero-right.absolute
+    .land-see-hero-right.absolute
         amp-carousel#land-see-hero-right.land-see-hero-carousel.mx-auto(width='1290', height='680', layout='responsive', [slide]='selectedSlide', on='slideChange:AMP.setState({selectedSlide: event.index})', noloading='', controls='', loop='', type='slides')
               for promo in promos
                   +listpromoB(promo.promoBanner,promo.promoName,promo.promoDesc,promo.id,promo.promoOwner,promo.discount)
-    
-    
-    
-    
-    
-    
                   
-                  
-    section.land-see-hero-container.mx-auto.mb3.relative.overflow-hidden
-      .land-see-hero-left.absolute
-        amp-carousel#land-see-hero-left.land-see-hero-carousel.mx-auto(width='1290' height='680' layout='responsive' [slide]='selectedSlide' on='slideChange:AMP.setState({selectedSlide: event.index})' noloading='' controls='' loop='' type='slides')
-              .land-see-hero-content.mx-auto.relative
-                amp-img.cover.land-see-hero-image.land-see-cover-position-top(alt='' width='1290' height='680' layout='responsive' src='https://bitsoko.co.ke/bitsAssets/tmp/services/s8vAzQMvCJfPsI8SBrrvFrcRPAUrkzk8TPIO2SpaYoAcIgH9iyKefMCd6r6u.webp')
-                .land-see-hero-typography.mx-auto.center.z2.absolute
-                  h1.land-see-hero-title.ampstart-title-md
-                    a.text-decoration-none(href='') Promo One
-                  p.land-see-hero-caption.ampstart-caption.mx-auto.max-width-3.pt1.mb3 Promo One
-                  //a.land-see-hero-button.text-decoration-none.relative(href='kim-myeong.amp.html') Read More
-              .land-see-hero-content.mx-auto.relative
-                amp-img.cover.land-see-hero-image.land-see-cover-position-top(alt='' width='1290' height='680' layout='responsive' src='https://bitsoko.co.ke/bitsAssets/tmp/services/s8vAzQMvCJfPsI8SBrrvFrcRPAUrkzk8TPIO2SpaYoAcIgH9iyKefMCd6r6u.webp')
-                .land-see-hero-typography.mx-auto.center.z2.absolute
-                  h1.land-see-hero-title.ampstart-title-md
-                    a.text-decoration-none(href='') Promo One
-                  p.land-see-hero-caption.ampstart-caption.mx-auto.max-width-3.pt1.mb3 Promo One
-                  //a.land-see-hero-button.text-decoration-none.relative(href='kim-myeong.amp.html') Read More
-      .land-see-hero-main.mx-auto
-        amp-carousel#land-see-hero-main.land-see-hero-carousel.mx-auto(media='(min-width: 40.06rem)' width='1290' height='680' layout='responsive' [slide]='selectedSlide' on='slideChange:AMP.setState({selectedSlide: event.index})' noloading='' controls='' loop='' type='slides')
-            .land-see-hero-content.mx-auto.relative
-                amp-img.cover.land-see-hero-image.land-see-cover-position-bottom(alt='' width='1290' height='680' layout='responsive' src='https://bitsoko.co.ke/bitsAssets/tmp/services/s8vAzQMvCJfPsI8SBrrvFrcRPAUrkzk8TPIO2SpaYoAcIgH9iyKefMCd6r6u.webp')
-                .land-see-hero-typography.mx-auto.center.z2.absolute
-                  h1.land-see-hero-title.ampstart-title-md
-                    a.text-decoration-none(href='') promo two
-                  p.land-see-hero-caption.ampstart-caption.mx-auto.max-width-3.pt1.mb3 promo two
-                  //a.land-see-hero-button.text-decoration-none.relative(href='kim-myeong.amp.html') Read More
-            .land-see-hero-content.mx-auto.relative
-                amp-img.cover.land-see-hero-image.land-see-cover-position-bottom(alt='' width='1290' height='680' layout='responsive' src='https://bitsoko.co.ke/bitsAssets/tmp/services/s8vAzQMvCJfPsI8SBrrvFrcRPAUrkzk8TPIO2SpaYoAcIgH9iyKefMCd6r6u.webp')
-                .land-see-hero-typography.mx-auto.center.z2.absolute
-                  h1.land-see-hero-title.ampstart-title-md
-                    a.text-decoration-none(href='') promo two
-                  p.land-see-hero-caption.ampstart-caption.mx-auto.max-width-3.pt1.mb3 promo two
-                  //a.land-see-hero-button.text-decoration-none.relative(href='kim-myeong.amp.html') Read More
-      .land-see-hero-main.mx-auto
-        amp-carousel#land-see-hero-main-small.land-see-hero-carousel.mx-auto(media='(max-width: 40rem)' width='auto' height='570' layout='fixed-height' [slide]='selectedSlide' on='slideChange:AMP.setState({selectedSlide: event.index})' noloading='' controls='' loop='' type='slides')
-              .land-see-hero-content.mx-auto.relative
-                amp-img.cover.land-see-hero-image.land-see-cover-position-top(alt='Designer Kim Myeong' width='auto' height='278' layout='fixed-height' src='https://bitsoko.co.ke/bitsAssets/tmp/services/s8vAzQMvCJfPsI8SBrrvFrcRPAUrkzk8TPIO2SpaYoAcIgH9iyKefMCd6r6u.webp')
-                .land-see-hero-typography.mx-auto.center.z2
-                  h1.land-see-hero-title.ampstart-title-md
-                    a.text-decoration-none(href='') promo one
-                  p.land-see-hero-caption.ampstart-caption.mx-auto.max-width-3.pt1.mb3 promo two
-                  //a.land-see-hero-button.text-decoration-none.relative(href='kim-myeong.amp.html') Read More
-              .land-see-hero-content.mx-auto.relative
-                amp-img.cover.land-see-hero-image.land-see-cover-position-top(alt='Designer Kim Myeong' width='auto' height='278' layout='fixed-height' src='https://bitsoko.co.ke/bitsAssets/tmp/services/s8vAzQMvCJfPsI8SBrrvFrcRPAUrkzk8TPIO2SpaYoAcIgH9iyKefMCd6r6u.webp')
-                .land-see-hero-typography.mx-auto.center.z2
-                  h1.land-see-hero-title.ampstart-title-md
-                    a.text-decoration-none(href='') promo one
-                  p.land-see-hero-caption.ampstart-caption.mx-auto.max-width-3.pt1.mb3 promo two
-                  //a.land-see-hero-button.text-decoration-none.relative(href='kim-myeong.amp.html') Read More
-        .land-see-hero-progress.mt2.center
-          button.px0(on='tap:AMP.setState({selectedSlide: 0})')
-            amp-img.land-see-progress-indicator.land-see-selected-slide([class]="selectedSlide == 0 ? 'land-see-progress-indicator land-see-selected-slide' : 'land-see-progress-indicator'" alt='Go to slide 1' width='7' height='7' layout='fixed' src='../img/land-see/structure/carousel-progress-indicator.svg')
-          button.px1(on='tap:AMP.setState({selectedSlide: 1})')
-            amp-img.land-see-progress-indicator([class]="selectedSlide == 1 ? 'land-see-progress-indicator land-see-selected-slide' : 'land-see-progress-indicator'" alt='Go to slide 2' width='7' height='7' layout='fixed' src='../img/land-see/structure/carousel-progress-indicator.svg')
-          button.px0(on='tap:AMP.setState({selectedSlide: 2})')
-            amp-img.land-see-progress-indicator([class]="selectedSlide == 2 ? 'land-see-progress-indicator land-see-selected-slide' : 'land-see-progress-indicator'" alt='Go to slide 3' width='7' height='7' layout='fixed' src='../img/land-see/structure/carousel-progress-indicator.svg')
-      .land-see-hero-right.absolute
-        amp-carousel#land-see-hero-right.land-see-hero-carousel.mx-auto(width='1290' height='680' layout='responsive' [slide]='selectedSlide' on='slideChange:AMP.setState({selectedSlide: event.index})' noloading='' controls='' loop='' type='slides')
-              .land-see-hero-content.mx-auto.relative
-                amp-img.cover.land-see-hero-image.land-see-cover-position-top(alt='Skykomish River Valley ' width='1290' height='680' layout='responsive' src='https://bitsoko.co.ke/bitsAssets/tmp/services/s8vAzQMvCJfPsI8SBrrvFrcRPAUrkzk8TPIO2SpaYoAcIgH9iyKefMCd6r6u.webp')
-                .land-see-hero-typography.mx-auto.center.z2.absolute
-                  h1.land-see-hero-title.ampstart-title-md
-                    a.text-decoration-none(href='') sfdafa
-                  p.land-see-hero-caption.ampstart-caption.mx-auto.max-width-3.pt1.mb3 dsafdf
-                  //a.land-see-hero-button.text-decoration-none.relative(href='kim-myeong.amp.html') Read More
-
-    
-    
-    
-    
     section.land-see-popular-content.mx-auto
       h4.land-see-section-header.ml1 Popular
       .clearfix.pt2
