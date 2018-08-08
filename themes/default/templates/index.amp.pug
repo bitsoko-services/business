@@ -285,7 +285,7 @@ html(⚡='')
         amp-position-observer(on='enter:recentSlideIn.start', layout='nodisplay')
         ul.list-reset.m0.p0.center.justify-center.fit
             for imgLst in entSettings
-                p imgLst
+                p #{imgLst}
          
         .absolute.z4.xs-hide.sm-hide.land-see-recent-accent-image
           amp-position-observer(on='scroll:recentAccentAnimation.seekTo(percent=event.percent)', layout='nodisplay')
