@@ -253,7 +253,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
 //                    console.log('!INFO section1 data ', allInfo.entImageList);
 
                     entImageList = JSON.parse(allInfo.entImageList);
-                    if (imgItms.length > 1) {
+                    if (entImageList.length > 1) {
 
                         entImageListAvail = false;
                         entImageList = imgItms;
