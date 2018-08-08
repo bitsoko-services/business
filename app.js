@@ -252,21 +252,21 @@ nCmd.get(prepDirC, function (data, err, stderr) {
 
 //                    console.log('!INFO section1 data ', allInfo.entImageList);
 
-                    var imgItms = JSON.parse(allInfo.entImageList);
+                    entImageList = JSON.parse(allInfo.entImageList);
                     if (imgItms.length > 1) {
 
-                        entSettings.entImageListDisabled = false;
-                        entSettings.entImageList = imgItms;
+                        entImageListAvail = false;
+                        entImageList = imgItms;
 
                     } else {
 
-                        entSettings.entImageListDisabled = true;
+                        entImageListAvail = true;
                     }
 
                 } catch (err) {
                     console.log('!INFO unable to get images section', err);
 
-                    entSettings.entImageListDisabled = true;
+                    entImageListAvail = true;
                 }
                 //-----------------------------------------//
 
@@ -321,8 +321,6 @@ function squashByName(arr) {
                 
                 allProdCat=squashByName(allProdCat);
                 
-                console.log(allProdCat);
-                
                 
                 
                 aPs = JSON.parse(body).enterprisePromos;
@@ -331,11 +329,8 @@ function squashByName(arr) {
                     allServices[ii].banner = allServices[ii].bannerPath;
                     allServices[ii].desc = allServices[ii].description
                     allServices[ii].title = allServices[ii].name;
-                    console.log("================================");
-                    console.log(allServices[ii]);
                     //console.log(allServices[ii].promotions,"======== Promotions ====");
                     var aMans = allServices[ii].managers
-                    console.log(allServices[ii].productCategory);
 			try{
 			
                     var cats=JSON.parse(allServices[ii].productCategory);
@@ -383,14 +378,12 @@ function squashByName(arr) {
                 //console.log(allServices);
 
 
-                console.log(allProdCat);
 
 
                 try {
                     //var aPs = allPromos;
                     for (var iiii in aPs) {
 
-                        console.log(aPs[iiii]);
 
                         if (aPs[iiii].promoStatus == "active") {
 
@@ -639,7 +632,8 @@ ReqRes = function ReqRes(req, res) {
                     cid: '000',
                     entBanner:"https://photogallerylinks.com/pics/1564.jpg",
                     entIconLst:[  { icon: 'https://lh6.googleusercontent.com/-u_vqwC6YAv0/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7psnnp0lLLYYuF6NVo0fncsVRNJMg/s96-c/photo.jpg',name: 'Bit Coin' },{ icon: 'https://lh6.googleusercontent.com/-u_vqwC6YAv0/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7psnnp0lLLYYuF6NVo0fncsVRNJMg/s96-c/photo.jpg',name: 'Bit Coin' },{ icon: 'https://lh6.googleusercontent.com/-u_vqwC6YAv0/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7psnnp0lLLYYuF6NVo0fncsVRNJMg/s96-c/photo.jpg',name: 'Bit Coin' } ],
-                    entImgLst:[  { icon: 'https://lh6.googleusercontent.com/-u_vqwC6YAv0/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7psnnp0lLLYYuF6NVo0fncsVRNJMg/s96-c/photo.jpg',name: 'Bit Coin' },{ icon: 'https://lh6.googleusercontent.com/-u_vqwC6YAv0/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7psnnp0lLLYYuF6NVo0fncsVRNJMg/s96-c/photo.jpg',name: 'Bit Coin' },{ icon: 'https://lh6.googleusercontent.com/-u_vqwC6YAv0/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7psnnp0lLLYYuF6NVo0fncsVRNJMg/s96-c/photo.jpg',name: 'Bit Coin' } ]
+                    entImgLst:entImageList
+                
                 }
                 data.body = process.argv[2];
                 //jade.render
