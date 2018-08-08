@@ -229,27 +229,27 @@ html(⚡='')
     // End Sidebar
     // End Navbar
     section.land-see-hero-container.mx-auto.mb3.relative.overflow-hidden
-          unless entSettings.promotionsDisabled
+        unless entSettings.promotionsDisabled
           .land-see-hero-left.absolute
             amp-carousel#land-see-hero-left.land-see-hero-carousel.mx-auto(width='1290', height='680', layout='responsive', [slide]='selectedSlide', on='slideChange:AMP.setState({selectedSlide: event.index})', noloading='', controls='', loop='', type='slides')
                 for promo in promos
                     +listpromo(promo.promoBanner,promo.promoName,promo.promoDesc,promo.id,promo.promoOwner,promo.discount)
-          unless entSettings.promotionsDisabled
+        unless entSettings.promotionsDisabled
           .land-see-hero-main.mx-auto
             amp-carousel#land-see-hero-main.land-see-hero-carousel.mx-auto(media='(min-width: 40.06rem)', width='1290', height='680', layout='responsive', [slide]='selectedSlide', on='slideChange:AMP.setState({selectedSlide: event.index})', noloading='', controls='', loop='', type='slides')
                 for promo in promos
                     +listpromo(promo.promoBanner,promo.promoName,promo.promoDesc,promo.id,promo.promoOwner,promo.discount)
-    .land-see-hero-progress.mt2.center
-          button.px0(on='tap:AMP.setState({selectedSlide: 0})')
-            amp-img.land-see-progress-indicator.land-see-selected-slide([class]="selectedSlide == 0 ? 'land-see-progress-indicator land-see-selected-slide' : 'land-see-progress-indicator'", alt='Go to slide 1', width='7', height='7', layout='fixed', src='../img/land-see/structure/carousel-progress-indicator.svg')
-          button.px1(on='tap:AMP.setState({selectedSlide: 1})')
-            amp-img.land-see-progress-indicator([class]="selectedSlide == 1 ? 'land-see-progress-indicator land-see-selected-slide' : 'land-see-progress-indicator'", alt='Go to slide 2', width='7', height='7', layout='fixed', src='../img/land-see/structure/carousel-progress-indicator.svg')
-          button.px0(on='tap:AMP.setState({selectedSlide: 2})')
-            amp-img.land-see-progress-indicator([class]="selectedSlide == 2 ? 'land-see-progress-indicator land-see-selected-slide' : 'land-see-progress-indicator'", alt='Go to slide 3', width='7', height='7', layout='fixed', src='../img/land-see/structure/carousel-progress-indicator.svg')
-    .land-see-hero-right.absolute
-        amp-carousel#land-see-hero-right.land-see-hero-carousel.mx-auto(width='1290', height='680', layout='responsive', [slide]='selectedSlide', on='slideChange:AMP.setState({selectedSlide: event.index})', noloading='', controls='', loop='', type='slides')
-              for promo in promos
-                  +listpromoB(promo.promoBanner,promo.promoName,promo.promoDesc,promo.id,promo.promoOwner,promo.discount)
+          .land-see-hero-progress.mt2.center
+                button.px0(on='tap:AMP.setState({selectedSlide: 0})')
+                  amp-img.land-see-progress-indicator.land-see-selected-slide([class]="selectedSlide == 0 ? 'land-see-progress-indicator land-see-selected-slide' : 'land-see-progress-indicator'", alt='Go to slide 1', width='7', height='7', layout='fixed', src='../img/land-see/structure/carousel-progress-indicator.svg')
+                button.px1(on='tap:AMP.setState({selectedSlide: 1})')
+                  amp-img.land-see-progress-indicator([class]="selectedSlide == 1 ? 'land-see-progress-indicator land-see-selected-slide' : 'land-see-progress-indicator'", alt='Go to slide 2', width='7', height='7', layout='fixed', src='../img/land-see/structure/carousel-progress-indicator.svg')
+                button.px0(on='tap:AMP.setState({selectedSlide: 2})')
+                  amp-img.land-see-progress-indicator([class]="selectedSlide == 2 ? 'land-see-progress-indicator land-see-selected-slide' : 'land-see-progress-indicator'", alt='Go to slide 3', width='7', height='7', layout='fixed', src='../img/land-see/structure/carousel-progress-indicator.svg')
+          .land-see-hero-right.absolute
+              amp-carousel#land-see-hero-right.land-see-hero-carousel.mx-auto(width='1290', height='680', layout='responsive', [slide]='selectedSlide', on='slideChange:AMP.setState({selectedSlide: event.index})', noloading='', controls='', loop='', type='slides')
+                      for promo in promos
+                          +listpromoB(promo.promoBanner,promo.promoName,promo.promoDesc,promo.id,promo.promoOwner,promo.discount)
     section.land-see-popular-content.mx-auto
       h4.land-see-section-header.ml1 Popular
       .clearfix.pt2
