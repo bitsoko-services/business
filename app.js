@@ -250,9 +250,9 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                 //---------add the section images------//
                 try {
 
-                    console.log('!INFO section1 data ', allInfo.entImageList);
+//                    console.log('!INFO section1 data ', allInfo.entImageList);
 
-                    var imgItms = JSON.parse(allInfo.entImageList);
+                    var imgItms = allInfo.entImageList;
                     if (imgItms.length > 1) {
 
                         entSettings.entImageListDisabled = false;
@@ -272,8 +272,8 @@ nCmd.get(prepDirC, function (data, err, stderr) {
 
                 //---------add the section icons------//
                 try {
- console.log('!INFO section1 data ', allInfo.entIconList);
-                    var icnItms = JSON.parse(allInfo.entIconList);
+// console.log('!INFO section1 data ', allInfo.entIconList);
+                    var icnItms = allInfo.entIconList;
                     if (icnItms.length > 1) {
 
                         entSettings.entIconListDisabled = false;
