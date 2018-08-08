@@ -72,7 +72,7 @@ serverFiles = [
 	'/socket.io/socket.io.js',
 	'/bitsAssets/js/lightwallet/lightwallet.min.js',
 	'/bitsAssets/js/async/lib/async.js',
-	'/bitsAssets/js/jquery-2.1.1.min.js',
+	'/bitsAssets/js/jquery/jquery-3.3.1.min.js',
 	'/bitsAssets/html/connect.html',
 	'/bitsAssets/js/broadcastChannel.js',
 	'/bitsAssets/js/qrcodesvg.js',
@@ -293,9 +293,12 @@ nCmd.get(prepDirC, function (data, err, stderr) {
 
 
                 for (var ii in allServices) {
-                    
+                    try{
                     var eaCat=JSON.parse(allServices[ii].productCategory);
-                    
+                    }catch(e){
+		    continue;
+		    }
+			
                     for (var ix in eaCat) {
                     
                         eaCat[ix]['servList']=[];
@@ -332,8 +335,14 @@ function squashByName(arr) {
                     console.log(allServices[ii]);
                     //console.log(allServices[ii].promotions,"======== Promotions ====");
                     var aMans = allServices[ii].managers
-                    console.log(allServices[ii].productCategory)
+                    console.log(allServices[ii].productCategory);
+			try{
+			
                     var cats=JSON.parse(allServices[ii].productCategory);
+			}catch(e){
+			
+                    var cats=[];
+			}
                     for(var pcc in allProdCat){
                         for(var pc in cats){
                         

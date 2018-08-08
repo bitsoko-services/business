@@ -305,10 +305,10 @@ html(⚡='')
                 ul.list-reset.m0.p0.center.justify-center.fit
                     for shopCat in category.servList
                      li.px1.mt1.block.align-top.land-see-pre-animate.land-see-post-item.land-see-post-item-wide.col.col-6.land-see-recent
-                         a.text-decoration-none(href='/bitsBeta/?s='+shopCat.id)
+                         a.text-decoration-none(href='/bits/?s='+shopCat.id)
                            amp-img.land-see-post-image.cover(alt='', media='', width='409', height='370', layout='responsive', src=shopCat.banner)
                          h4.land-see-post-title.ampstart-title-sm.pt1
-                           a.text-decoration-none(href='/bitsBeta/?s='+shopCat.id) #{shopCat.name} 
+                           a.text-decoration-none(href='/bits/?s='+shopCat.id) #{shopCat.name} 
                          p.ampstart-caption.pt1.pb3
                            | #{shopCat.description}
         section.land-see-stories.land-see-fashion
