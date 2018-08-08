@@ -606,6 +606,7 @@ ReqRes = function ReqRes(req, res) {
                 //fs.readFile(__dirname + '/themes/default/templates/index.amp.pug', function (error, source) {
                 console.log("///////////////////////////////////////");
                 console.log(entSettings.entIconList);
+                console.log(entSettings);
                 matchShops();
                 var data = {
                     name: allInfo.name,
