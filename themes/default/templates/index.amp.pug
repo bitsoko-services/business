@@ -12,6 +12,8 @@ html(⚡='')
       style(amp-boilerplate='').
         body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}
     script(custom-element='amp-carousel', src='https://cdn.ampproject.org/v0/amp-carousel-0.1.js', async='')
+    script(async custom-element="amp-fit-text" src="https://cdn.ampproject.org/v0/amp-fit-text-0.1.js")
+    script(async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js")
     script(custom-element='amp-sidebar', src='https://cdn.ampproject.org/v0/amp-sidebar-0.1.js', async='')
     script(custom-element='amp-accordion', src='https://cdn.ampproject.org/v0/amp-accordion-0.1.js', async='')
     script(custom-element='amp-instagram', src='https://cdn.ampproject.org/v0/amp-instagram-0.1.js', async='')
@@ -23,6 +25,7 @@ html(⚡='')
     script(custom-element='amp-animation', src='https://cdn.ampproject.org/v0/amp-animation-0.1.js', async='')
     script(custom-element='amp-position-observer', src='https://cdn.ampproject.org/v0/amp-position-observer-0.1.js', async='')
     script(custom-element='amp-bind', src='https://cdn.ampproject.org/v0/amp-bind-0.1.js', async='')
+    script(async custom-element="amp-lightbox-gallery" src="https://cdn.ampproject.org/v0/amp-lightbox-gallery-0.1.js")
     script(custom-element='amp-youtube', src='https://cdn.ampproject.org/v0/amp-youtube-0.1.js', async='')
     script(custom-element='amp-fx-flying-carpet', src='https://cdn.ampproject.org/v0/amp-fx-flying-carpet-0.1.js', async='')
     script(custom-template='amp-mustache', src='https://cdn.ampproject.org/v0/amp-mustache-0.1.js', async='')
@@ -229,6 +232,26 @@ html(⚡='')
     // End Sidebar
     // End Navbar
     section.heroSection
+        .desktopView
+        .mobileView
+            amp-carousel.carousel1(layout='responsive' height='450' width='500' type='slides')
+              .slide
+                amp-img(src='https://photogallerylinks.com/pics/1564.jpg' layout='responsive' width='500' height='300' alt='Border Collie')
+                amp-fit-text(layout='responsive' width='500' height='150')
+                  | The Border Collie is a working and herding dog breed developed in the Anglo-Scottish border region for herding livestock, especially sheep. It was specifically bred for intelligence and obedience. Considered highly intelligent, and typically extremely
+                  | energetic, acrobatic, smart and athletic, they frequently compete with great success in dog sports, in addition to their success in sheepdog trials. They are often cited as the most intelligent of all domestic dogs. Border Collies also remain
+                  | employed throughout the world in their traditional work of herding livestock.
+              .slide
+                amp-img(src='https://photogallerylinks.com/pics/1564.jpg' layout='responsive' width='500' height='340' alt='Shetland Sheepdog')
+                amp-fit-text(layout='responsive' width='500' height='110')
+                  | The Shetland Sheepdog, often known as the Sheltie, is a breed of herding dog. Less favored nicknames are the Toy Collie and the Miniature Collie. They are small dogs, and come in a variety of colors, such as sable, tri-color, and blue merle. They
+                  | are very intelligent, vocal, excitable, energetic dogs who are always willing to please and work hard.
+              .slide
+                amp-img(src='https://photogallerylinks.com/pics/1564.jpg' layout='responsive' width='500' height='350' alt='Hovawart')
+                amp-fit-text(layout='responsive' width='500' height='100')
+                  | The Hovawart is a medium to large size German dog breed. The name of the breed means &quot;an estate guard dog&quot;, which is the original use for the breed. The breed originated in the Black Forest region and was first described in text and paintings in medieval
+                  | times.
+
         amp-carousel(height='300' layout='fixed-height' type='carousel')
               amp-img(src='https://photogallerylinks.com/pics/1564.jpg' width='400' height='300' alt='a sample image')
               amp-img(src='https://photogallerylinks.com/pics/1564.jpg' width='400' height='300' alt='another sample image')

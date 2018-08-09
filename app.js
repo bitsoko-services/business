@@ -597,10 +597,6 @@ ReqRes = function ReqRes(req, res) {
             fs.readFile(__dirname + '/themes/default/templates/index.amp.pug', function (error, source) {
                 //TO-DO switch to new default
                 //fs.readFile(__dirname + '/themes/default/templates/index.amp.pug', function (error, source) {
-                console.log("/////////////////////////////////////////")
-                console.log(entImageList)
-                console.log(entImageList[0])
-                console.log(entImageList[0].title)
                 matchShops();
                 var data = {
                     name: allInfo.name,
