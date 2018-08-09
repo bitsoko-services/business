@@ -139,9 +139,9 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                     stores.push(servi.id);
                 }
 
-                allSettings = JSON.parse(body).settings;
-                allInfo = JSON.parse(body).enterpriseInfo;
-                entContract = JSON.parse(body).enterpriseContract;
+                allSettings = body.settings;
+                allInfo = body.enterpriseInfo;
+                entContract = body.enterpriseContract;
                 //console.log(allInfo, allSettings);
 
 
