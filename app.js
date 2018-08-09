@@ -130,7 +130,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
 
         request(mainDomain + "/getEnterprise/?servEntID=" + entDevID, function (error, response, body) {
             if (!error) {
-                allServices = JSON.parse(body).services;
+                allServices = body.services;
 
                 stores = new Array();
                 for (var servi in allServices) {
