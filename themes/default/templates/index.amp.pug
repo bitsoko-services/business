@@ -59,6 +59,16 @@ html(⚡='')
             margin-left: auto;
             margin-right: auto;
         }
+        .desktopView button{
+            background: none;
+            border: solid white 1px;
+            padding: 10px;
+            border-radius: 3px;
+            color:white;
+        }
+        .desktopView h4{
+            font-size: 2em !important;
+        }
         .desktopView .caption{
             position: absolute;
             bottom: 0;
@@ -74,12 +84,13 @@ html(⚡='')
         }
         .mobileView .textInfo{
             margin: 15px 5%;
-            text-align:left:
+            text-align: left !important;
+            margin-top: 0;
         }
         .mobileView amp-carousel{
             height: 55vh;
         }
-        .heroSection button{
+        .mobileView button{
             background: none;
             border: solid black 1px;
             padding: 10px;
@@ -335,6 +346,18 @@ html(⚡='')
               amp-img(src='https://photogallerylinks.com/pics/1564.jpg' width='400' height='300' alt='another sample image')
               amp-img(src='https://photogallerylinks.com/pics/1564.jpg' width='400' height='300' alt='and another sample image')
     section.land-see-popular-content.mx-auto
+      h4.land-see-section-header.ml1 Shops
+      .clearfix.pt2
+        amp-position-observer(on='enter:recentSlideIn.start', layout='nodisplay')
+        ul.list-reset.m0.p0.center.justify-center.fit
+            for store in stores
+                li.px1.mt1.block.align-top.land-see-pre-animate.land-see-post-item.land-see-post-item-wide.col.col-6.land-see-recent
+                    a.text-decoration-none(href='#')
+                      amp-img.land-see-post-image.cover(alt='', media='', width='409', height='370', layout='responsive', src='https://bitsoko.co.ke/bitsAssets/tmp/services/s8vAzQMvCJfPsI8SBrrvFrcRPAUrkzk8TPIO2SpaYoAcIgH9iyKefMCd6r6u.webp')
+                    h4.land-see-post-title.ampstart-title-sm.pt1
+                      a.text-decoration-none(href='kim-myeong.amp.html') #{store.name}
+                    p.ampstart-caption.pt1.pb3 #{store.description}
+    section.land-see-popular-content.mx-auto
       h4.land-see-section-header.ml1 Popular
       .clearfix.pt2
         amp-position-observer(on='enter:recentSlideIn.start', layout='nodisplay')
@@ -342,11 +365,10 @@ html(⚡='')
             for imgLst in entImgLst
                 li.px1.mt1.block.align-top.land-see-pre-animate.land-see-post-item.land-see-post-item-wide.col.col-6.land-see-recent
                     a.text-decoration-none(href='#')
-                      amp-img.land-see-post-image.cover(alt='', media='', width='409', height='370', layout='responsive', src='https://bitsoko.co.ke/bitsAssets/tmp/services/s8vAzQMvCJfPsI8SBrrvFrcRPAUrkzk8TPIO2SpaYoAcIgH9iyKefMCd6r6u.webp')
+                      amp-img.land-see-post-image.cover(alt='', media='', width='409', height='370', layout='responsive', src=)
                     h4.land-see-post-title.ampstart-title-sm.pt1
                       a.text-decoration-none(href='kim-myeong.amp.html') #{imgLst.title}
-                    p.ampstart-caption.pt1.pb3
-                      | Whether it’s a short weekend getaway or an extended holiday, choosing carefully from your accessories can help lighten your load while expanding your repertory.
+                    p.ampstart-caption.pt1.pb3 #{imgLst.body}
     section.land-see-background-animation-container.relative.mx-auto.my4
       a.land-see-cta-link.mx-auto(href='#')
         amp-anim.mt3.mb3(alt='Summer Sale!', media='(min-width: 611px)', width='813', height='342', layout='responsive', src='../img/land-see/content/summer-sale-lg.gif')
