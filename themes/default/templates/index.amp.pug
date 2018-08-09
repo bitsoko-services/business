@@ -353,7 +353,7 @@ html(⚡='')
             for store in stores
                 li.px1.mt1.block.align-top.land-see-pre-animate.land-see-post-item.land-see-post-item-wide.col.col-6.land-see-recent
                     a.text-decoration-none(href='#')
-                      amp-img.land-see-post-image.cover(alt='', media='', width='409', height='370', layout='responsive', src='https://bitsoko.co.ke/bitsAssets/tmp/services/s8vAzQMvCJfPsI8SBrrvFrcRPAUrkzk8TPIO2SpaYoAcIgH9iyKefMCd6r6u.webp')
+                      amp-img.land-see-post-image.cover(alt='', media='', width='409', height='370', layout='responsive', src=store.banner)
                     h4.land-see-post-title.ampstart-title-sm.pt1
                       a.text-decoration-none(href='kim-myeong.amp.html') #{store.name}
                     p.ampstart-caption.pt1.pb3 #{store.description}
@@ -365,7 +365,7 @@ html(⚡='')
             for imgLst in entImgLst
                 li.px1.mt1.block.align-top.land-see-pre-animate.land-see-post-item.land-see-post-item-wide.col.col-6.land-see-recent
                     a.text-decoration-none(href='#')
-                      amp-img.land-see-post-image.cover(alt='', media='', width='409', height='370', layout='responsive', src=)
+                      amp-img.land-see-post-image.cover(alt='', media='', width='409', height='370', layout='responsive', src=imgLst.icon)
                     h4.land-see-post-title.ampstart-title-sm.pt1
                       a.text-decoration-none(href='kim-myeong.amp.html') #{imgLst.title}
                     p.ampstart-caption.pt1.pb3 #{imgLst.body}
