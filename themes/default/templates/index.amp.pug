@@ -229,11 +229,15 @@ html(⚡='')
     // End Sidebar
     // End Navbar
     section.heroSection
-        unless entSettings.promotionsDisabled
-            .col-12.fill.dsdw
-              amp-carousel.sb(height='347', layout='fixed-height', type='slides', controls loop autoplay delay='3000', data-next-button-aria-label='Go to next slide', data-previous-button-aria-label='Go to revious slide')
-                for promo in promos
-                    +listpromo(promo.promoBanner,promo.promoName,promo.promoDesc,promo.id,promo.promoOwner,promo.discount)
+        amp-carousel(height='300' layout='fixed-height' type='carousel')
+              amp-img(src='https://photogallerylinks.com/pics/1564.jpg' width='400' height='300' alt='a sample image')
+              amp-img(src='https://photogallerylinks.com/pics/1564.jpg' width='400' height='300' alt='another sample image')
+              amp-img(src='https://photogallerylinks.com/pics/1564.jpg' width='400' height='300' alt='and another sample image')
+        //unless entSettings.promotionsDisabled
+            amp-carousel(height='300' layout='fixed-height' type='carousel')
+              amp-img(src='https://photogallerylinks.com/pics/1564.jpg' width='400' height='300' alt='a sample image')
+              amp-img(src='https://photogallerylinks.com/pics/1564.jpg' width='400' height='300' alt='another sample image')
+              amp-img(src='https://photogallerylinks.com/pics/1564.jpg' width='400' height='300' alt='and another sample image')
     section.land-see-popular-content.mx-auto
       h4.land-see-section-header.ml1 Popular
       .clearfix.pt2
