@@ -374,17 +374,16 @@ html(⚡='')
             path(fill='#fcdcd4', d='M491.354 0h-280.98v.004H0l210.374 335.771v.005l35.301 56.34.001-.001.004.006 35.3-56.34v-.015z')
         amp-position-observer(on='scroll:backgroundAnimation.seekTo(percent=event.percent)', layout='nodisplay')
     section.land-see-popular-content.mx-auto
-      h4.land-see-section-header.ml1 Shops
+      h4.land-see-section-header.ml1 SERVICE
       .clearfix.pt2
         amp-position-observer(on='enter:recentSlideIn.start', layout='nodisplay')
         ul.list-reset.m0.p0.center.justify-center.fit
-            for store in stores
+            for imgLst in entIconLst
                 li.px1.mt1.block.align-top.land-see-pre-animate.land-see-post-item.land-see-post-item-wide.col.col-6.land-see-recent
                     a.text-decoration-none(href='#')
-                      amp-img.land-see-post-image.cover(alt='', media='', width='409', height='370', layout='responsive', src=store.banner)
+                      amp-img.land-see-post-image.cover(alt='', media='', width='409', height='370', layout='responsive', src=imgLst.icon)
                     h4.land-see-post-title.ampstart-title-sm.pt1
-                      a.text-decoration-none(href='kim-myeong.amp.html') #{store.name}
-                    p.ampstart-caption.pt1.pb3 #{store.description}
+                      a.text-decoration-none(href='') #{imgLst.name}
     section.land-see-story-categories.center.items-center
       amp-accordion(layout='container', disable-session-states='')
         for category in productCat
