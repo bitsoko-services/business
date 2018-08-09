@@ -130,7 +130,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
 
         request(mainDomain + "/getEnterprise/?servEntID=" + entDevID, function (error, response, body) {
             if (!error) {
-                allServices = body.services;
+                allServices = JSON.parse(body).services;
 
                 stores = new Array();
                 for (var servi in allServices) {
@@ -139,9 +139,9 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                     stores.push(servi.id);
                 }
 
-                allSettings = body.settings;
-                allInfo = body.enterpriseInfo;
-                entContract = body.enterpriseContract;
+                allSettings = JSON.parse(body).settings;
+                allInfo = JSON.parse(body).enterpriseInfo;
+                entContract = JSON.parse(body).enterpriseContract;
                 //console.log(allInfo, allSettings);
 
 
