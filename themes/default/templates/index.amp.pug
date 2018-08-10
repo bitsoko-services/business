@@ -30,6 +30,7 @@ html(⚡='')
     script(custom-element='amp-fx-flying-carpet', src='https://cdn.ampproject.org/v0/amp-fx-flying-carpet-0.1.js', async='')
     script(custom-template='amp-mustache', src='https://cdn.ampproject.org/v0/amp-mustache-0.1.js', async='')
     link(href='https://fonts.googleapis.com/css?family=Inconsolata|Montserrat:400,500,600,700|Crimson+Text:400,600', rel='stylesheet')
+    script(async custom-element="amp-web-push" src="https://cdn.ampproject.org/v0/amp-web-push-0.1.js")
     for store in stores		 
      link(rel='prefetch', href="/bits/?s="+store.id)
     style(type="text/css").
@@ -346,7 +347,7 @@ html(⚡='')
               amp-img(src='https://photogallerylinks.com/pics/1564.jpg' width='400' height='300' alt='another sample image')
               amp-img(src='https://photogallerylinks.com/pics/1564.jpg' width='400' height='300' alt='and another sample image')
     for promo in promos
-        p #{promo}
+        p #{promo.promoName}
     section.land-see-popular-content.mx-auto
       h4.land-see-section-header.ml1 About
       .clearfix.pt2
@@ -415,15 +416,13 @@ html(⚡='')
             h2.land-see-subs-heading-text
               | Weekly inspiration from 
               span.bold #{name}
-            // Start Input
-            .ampstart-input.inline-block.relative.m0.p0.mb3
-              input#email.block.border-none.p0.m0(type='email', value='', name='email', placeholder='subscribe to promotions')
-              label.absolute.top-0.right-0.bottom-0.left-0(for='email', aria-hidden='true') subscribe to promotions
-            // End Input
-            // Start Input
-            .ampstart-input.inline-block.relative.m0.p0.mb3
-              input#submit.block.border-none.p0.m0(type='submit', value='', name='submit', placeholder='')
-              label.absolute.top-0.right-0.bottom-0.left-0(for='submit', aria-hidden='true')
+            // A subscription widget
+            amp-web-push-widget(visibility='unsubscribed' layout='fixed' width='250' height='80')
+              button(on='tap:amp-web-push.subscribe') Subscribe
+            // An unsubscription widget
+            amp-web-push-widget(visibility='subscribed' layout='fixed' width='250' height='80')
+              button(on='tap:amp-web-push.unsubscribe') Unsubscribe
+
             // End Input
       amp-position-observer(on='scroll:subscribeBGParallax.seekTo(percent=event.percent)', layout='nodisplay')
       amp-img.land-see-subscribe-bg.cover(alt='A view of the sea, see?', layout='fixed-height', height='679', src='../img/land-see/content/khatam-tadayon-107740.jpg')
