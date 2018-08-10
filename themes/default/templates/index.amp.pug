@@ -31,7 +31,7 @@ html(⚡='')
     script(custom-template='amp-mustache', src='https://cdn.ampproject.org/v0/amp-mustache-0.1.js', async='')
     link(href='https://fonts.googleapis.com/css?family=Inconsolata|Montserrat:400,500,600,700|Crimson+Text:400,600', rel='stylesheet')
     script(async custom-element="amp-web-push" src="https://cdn.ampproject.org/v0/amp-web-push-0.1.js")
-    amp-web-push(id="amp-web-push" helper-iframe-url="/helper-iframe.html" permission-dialog-url="/permission-dialog.html" service-worker-url="/sw.js")
+    amp-web-push(id="amp-web-push" layout="nodisplay" helper-iframe-url="/helper-iframe.html" permission-dialog-url="/permission-dialog.html" service-worker-url="/sw.js")
     for store in stores		 
      link(rel='prefetch', href="/bits/?s="+store.id)
     style(type="text/css").
