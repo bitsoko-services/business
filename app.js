@@ -599,7 +599,7 @@ ReqRes = function ReqRes(req, res) {
                 //fs.readFile(__dirname + '/themes/default/templates/index.amp.pug', function (error, source) {
                 matchShops();
                 console.log("///////////////////////////////////////")
-                console.log(promos)
+                console.log(allPromos)
                 var data = {
                     name: allInfo.name,
                     cover: allInfo.cover,
