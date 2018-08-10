@@ -388,10 +388,10 @@ html(⚡='')
               | Weekly inspiration from 
               span.bold #{name}
             // A subscription widget
-            amp-web-push-widget(visibility='visible' layout='fixed' width='250' height='40')
+            amp-web-push-widget(visibility='unsubscribed' layout='fixed' width='250' height='40')
               button(style="background: none; border: solid black 1px; border-radius: 3px; padding: 5px 15px;" on='tap:amp-web-push.subscribe') Subscribe
             // An unsubscription widget
-            amp-web-push-widget(visibility='visible' layout='fixed' width='250' height='40')
+            amp-web-push-widget(visibility='subscribed' layout='fixed' width='250' height='40')
               button(style="background: none; border: solid black 1px; border-radius: 3px; padding: 5px 15px;" on='tap:amp-web-push.unsubscribe') Unsubscribe
 
             // End Input
