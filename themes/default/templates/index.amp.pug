@@ -282,7 +282,7 @@ html(⚡='')
         }
         }]
         }
-      .ampstart-headerbar-fixed.center.m0.p0.flex.justify-center.nowrap
+      //.ampstart-headerbar-fixed.center.m0.p0.flex.justify-center.nowrap
         .mr2
         a.text-decoration-none.mr2.ampstart-headerbar-fixed-link(href='#')
           .ampstart-headerbar-icon-wrapper.relative
@@ -294,7 +294,7 @@ html(⚡='')
       .flex.justify-start.items-center.ampstart-sidebar-header
         .ampstart-navbar-trigger.items-start(role='button', aria-label='close sidebar', on='tap:header-sidebar.toggle', tabindex='0') ✕
       nav.ampstart-sidebar-nav.ampstart-nav
-        ul.list-reset.m0.p0.ampstart-label
+        //ul.list-reset.m0.p0.ampstart-label
           li.ampstart-nav-item.land-see-sidebar-nav-item.ampstart-title-sm.bold
             a.ampstart-nav-link(href='stories.amp.html') Stores
           li.ampstart-nav-item.land-see-sidebar-nav-item.ampstart-title-sm.bold
@@ -331,10 +331,10 @@ html(⚡='')
         .desktopView
             amp-carousel.carousel2(layout='responsive' height='400' width='500' type='slides' autoplay delay="3000")
                 for promo in promos
-                  div(style="position:absolute; top:0px; left:0px;")
+                  .slide
+                    div(style="position:absolute; top:0px; left:0px;")
                       .burst-12
                         span 20%
-                  .slide
                     amp-img(src=promo.promoBanner layout='fill' alt='Border Collie')
                     .caption
                         h4 #{promo.promoName}
