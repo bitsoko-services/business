@@ -382,8 +382,6 @@ function squashByName(arr) {
 
                 try {
                     //var aPs = allPromos;
-                    console.log("=========================aPs=======================")
-                    console.log(aPs)
                     for (var iiii in aPs) {
                         
 
@@ -600,8 +598,6 @@ ReqRes = function ReqRes(req, res) {
                 //TO-DO switch to new default
                 //fs.readFile(__dirname + '/themes/default/templates/index.amp.pug', function (error, source) {
                 matchShops();
-                console.log("///////////////////////////////////////")
-                console.log(allPromos)
                 var data = {
                     name: allInfo.name,
                     cover: allInfo.cover,
