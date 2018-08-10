@@ -379,17 +379,17 @@ html(⚡='')
         amp-img(placeholder='', alt='Instagram, follow us!', media='(max-width: 360px)', width='328', height='210', layout='responsive', src='../img/land-see/content/instagram-cta-sm.png')
     .land-see-subscribe.center.items-center.max-width-4.mx-auto.m0.mb3.z1
       .land-see-subscribe-form.z2
-        form.p0.m0.px3.mb4(method='GET', action='land-see.amp.html', target='_top')
+        form.p0.m0.px3.mb4(method='GET', action='helper-iframe.html', target='_top')
           fieldset.border-none.p0.m0
             h2.land-see-subs-heading-text
               | Weekly inspiration from 
               span.bold #{name}
             // A subscription widget
-            amp-web-push-widget(visibility='unsubscribed' layout='fixed' width='250' height='80')
-              button(on='tap:amp-web-push.subscribe') Subscribe
+            amp-web-push-widget(visibility='visible' layout='fixed' width='250' height='40')
+              button(style="background: none; border: solid black 1px; border-radius: 3px; padding: 5px 15px;" on='tap:amp-web-push.subscribe') Subscribe
             // An unsubscription widget
-            amp-web-push-widget(visibility='subscribed' layout='fixed' width='250' height='80')
-              button(on='tap:amp-web-push.unsubscribe') Unsubscribe
+            amp-web-push-widget(visibility='visible' layout='fixed' width='250' height='40')
+              button(style="background: none; border: solid black 1px; border-radius: 3px; padding: 5px 15px;" on='tap:amp-web-push.unsubscribe') Unsubscribe
 
             // End Input
       amp-position-observer(on='scroll:subscribeBGParallax.seekTo(percent=event.percent)', layout='nodisplay')
