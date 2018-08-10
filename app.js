@@ -382,6 +382,7 @@ function squashByName(arr) {
 
                 try {
                     //var aPs = allPromos;
+                    console.log("=========================aPs=======================")
                     console.log(aPs)
                     for (var iiii in aPs) {
                         
