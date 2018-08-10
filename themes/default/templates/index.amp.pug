@@ -38,6 +38,34 @@ html(⚡='')
         amp-web-push-widget.amp-invisible {
             visibility: visible !important;
         }
+        .burst-12 {
+            background: gold;
+            width: 80px;
+            height: 80px;
+            position: relative;
+            text-align: center;
+        }
+        .burst-12:before, #burst-12:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 80px;
+            width: 80px;
+            background: gold;
+        }
+        .burst-12:before {
+            -webkit-transform: rotate(30deg);
+               -moz-transform: rotate(30deg);
+                -ms-transform: rotate(30deg);
+                 -o-transform: rotate(30deg);
+        }
+        .burst-12:after {
+            -webkit-transform: rotate(60deg);
+               -moz-transform: rotate(60deg);
+                -ms-transform: rotate(60deg);
+                 -o-transform: rotate(60deg);
+        }
         @media only screen and (max-width: 720px) {
             .mobileView {
                 display:block !important;
@@ -303,6 +331,8 @@ html(⚡='')
         .desktopView
             amp-carousel.carousel2(layout='responsive' height='400' width='500' type='slides' autoplay delay="3000")
                 for promo in promos
+                  .burst-12(style="position:absolute; top:0px; left:0px;")
+                    span 20%
                   .slide
                     amp-img(src=promo.promoBanner layout='fill' alt='Border Collie')
                     .caption
@@ -313,6 +343,8 @@ html(⚡='')
         .mobileView
             amp-carousel.carousel1(layout='responsive' height='450' width='500' type='slides' autoplay delay="3000")
                 for promo in promos
+                  .burst-12(style="position:absolute; top:0px; left:0px;")
+                    span 20%
                   .slide
                     amp-img(src=promo.promoBanner layout='responsive' width='500' height='300' alt='Border Collie')
                     h4 #{promo.promoName}
