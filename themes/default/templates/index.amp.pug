@@ -329,7 +329,7 @@ html(⚡='')
     // End Navbar
     section.heroSection
         .desktopView
-            amp-carousel.carousel2(layout='responsive' height='400' width='500' type='slides')
+            amp-carousel.carousel2(layout='responsive' height='400' width='500' type='slides'  autoplay delay="3000")
                 for promo in promos
                   .slide
                     div(style="position:absolute; top:0px; left:0px;")
@@ -350,8 +350,13 @@ html(⚡='')
             amp-carousel.carousel1(layout='responsive' height='450' width='500' type='slides' autoplay delay="3000")
                 for promo in promos
                   div(style="position:absolute; top:0px; left:0px;")
-                      .burst-12(style="position:absolute; top:0px; left:0px;")
-                        span 20%
+                      .burst-12
+                        span(style="position: absolute; color: black; font-weight: bold; font-size: 1em; top: 10px; left: 15px;")
+                            span(style="font-size:2em;line-height:0px;") #{promo.discount} %
+                            br
+                            | MONEY
+                            br
+                            | BACK
                   .slide
                     amp-img(src=promo.promoBanner layout='responsive' width='500' height='300' alt='Border Collie')
                     h4 #{promo.promoName}
