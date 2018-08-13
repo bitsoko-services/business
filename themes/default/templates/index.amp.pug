@@ -347,7 +347,7 @@ html(⚡='')
                         a(href="/bits/?s="+ promo.id) open
 
         .mobileView
-            amp-carousel.carousel2(layout='responsive' height='400' width='500' type='slides'  autoplay delay="3000")
+            amp-carousel.carousel2(layout='responsive' height='450' width='500' type='slides')
                 for promo in promos
                   .slide
                     div(style="position:absolute; top:30px; left:30px;z-index:1;")
@@ -358,7 +358,7 @@ html(⚡='')
                             | MONEY
                             br
                             | BACK
-                    amp-img(src=promo.promoBanner layout='fill' alt='Border Collie')
+                    amp-img(src=promo.promoBanner layout='responsive' width='500' height='300' alt='Border Collie')
                     .caption
                         h4 #{promo.promoName}
                         p #{promo.promoDesc}
