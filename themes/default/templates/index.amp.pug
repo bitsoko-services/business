@@ -329,12 +329,12 @@ html(⚡='')
     // End Navbar
     section.heroSection
         .desktopView
-            amp-carousel.carousel2(layout='responsive' height='400' width='500' type='slides')
+            amp-carousel.carousel2(layout='responsive' height='400' width='500' type='slides'  autoplay delay="3000")
                 for promo in promos
                   .slide
-                    div(style="position:absolute; top:0px; left:0px;")
+                    div(style="position:absolute; top:30px; left:30px;z-index:1;")
                       .burst-12
-                        span(style="position: absolute; color: black; font-weight: bold; font-size: 1em; top: 10px; left: 15px;")
+                        span(style="position: absolute; color: black; font-weight: bold; font-size: 1em; top: 10px; left: 15px;z-index: 1;")
                             span(style="font-size:2em;line-height:0px;") #{promo.discount} %
                             br
                             | MONEY
