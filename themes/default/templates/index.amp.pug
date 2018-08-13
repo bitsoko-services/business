@@ -45,7 +45,7 @@ html(⚡='')
             position: relative;
             text-align: center;
         }
-        .burst-12:before, #burst-12:after {
+        .burst-12:before, .burst-12:after {
             content: "";
             position: absolute;
             top: 0;
@@ -334,7 +334,12 @@ html(⚡='')
                   .slide
                     div(style="position:absolute; top:0px; left:0px;")
                       .burst-12
-                        span 20%
+                        span(style="position: absolute; color: black; font-weight: bold; font-size: 1em; top: 10px; left: 15px;")
+                            span(style="font-size:2em;line-height:0px;") #{promo.discount} %
+                            br
+                            | MONEY
+                            br
+                            | BACK
                     amp-img(src=promo.promoBanner layout='fill' alt='Border Collie')
                     .caption
                         h4 #{promo.promoName}
