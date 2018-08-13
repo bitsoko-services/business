@@ -335,7 +335,7 @@ html(⚡='')
                     div(style="position:absolute; top:30px; left:30px;z-index:1;")
                       .burst-12
                         span(style="position: absolute; color: black; font-weight: bold; font-size: 1em; top: 10px; left: 15px;z-index: 1;")
-                            span(style="font-size:2em;line-height:0px;") #{promo.discount} %
+                            span(style="font-size:2em;line-height:0px;") #{promo.discount}%
                             br
                             | MONEY
                             br
@@ -344,15 +344,15 @@ html(⚡='')
                     .caption
                         h4 #{promo.promoName}
                         p #{promo.promoDesc}
-                        button open
+                        a(href="/bits/?s="+ promo.id) open
 
         .mobileView
             amp-carousel.carousel1(layout='responsive' height='450' width='500' type='slides' autoplay delay="3000")
                 for promo in promos
-                  div(style="position:absolute; top:0px; left:0px;")
+                  div(style="position:absolute; top:30px; left:30px;z-index:1;")
                       .burst-12
-                        span(style="position: absolute; color: black; font-weight: bold; font-size: 1em; top: 10px; left: 15px;")
-                            span(style="font-size:2em;line-height:0px;") #{promo.discount} %
+                        span(style="position: absolute; color: black; font-weight: bold; font-size: 1em; top: 10px; left: 15px;z-index: 1;")
+                            span(style="font-size:2em;line-height:0px;") #{promo.discount}%
                             br
                             | MONEY
                             br
@@ -362,7 +362,7 @@ html(⚡='')
                     h4 #{promo.promoName}
                     amp-fit-text.textInfo(layout='responsive' width='500' height='150')
                       | #{promo.promoDesc}
-                    button open
+                    a(href="/bits/?s="+ promo.id) open
     section.land-see-popular-content.mx-auto
       h4.land-see-section-header.ml1 About
       .clearfix.pt2
