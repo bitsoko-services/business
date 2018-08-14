@@ -75,11 +75,11 @@ var pugFile=__dirname + '/themes/default/templates/index.amp.pug';
                 var template = jade.compile(source);
                 var html = template(data);
                 //res.writeHead(200);
-		    writeFile('business/index.html', html, function (err) {
-                    if (err) console.log('!ERR unable to create enterprise page', err);
+		  //  writeFile('business/index.html', html, function (err) {
+                  //  if (err) console.log('!ERR unable to create enterprise page', err);
 
 	deferred.resolve(html);
-		});
+		//});
 		    
               
             });	
