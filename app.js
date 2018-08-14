@@ -140,9 +140,9 @@ nCmd.get(prepDirC, function (data, err, stderr) {
               
                 stores = new Array();
                 for (var servi in allServices) {
-console.log('==============================================================>>>>>>'+allInfo.uid,servi.owner)
+console.log('==============================================================>>>>>>'+allInfo.uid,allServices[servi].owner,allServices[servi].id)
 
-                    stores.push(servi.id);
+                    stores.push(allServices[servi].id);
                 }
 
                 //create database settings
