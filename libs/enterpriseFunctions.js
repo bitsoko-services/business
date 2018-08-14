@@ -32,10 +32,10 @@ var key=pairs[i].split("=")[0];
 exports.createEnterprisePage = function(req) {
       
   var deferred = new Deferred();
+var pugFile=__dirname + '/themes/default/templates/index.amp.pug';
 
-
-		
-            fs.readFile(__dirname + '/themes/default/templates/index.amp.pug', function (error, source) {
+		console.log('creating from =========================>>>'+pugFile);
+            fs.readFile(pugFile, function (error, source) {
                 //TO-DO switch to new default
                 //fs.readFile(__dirname + '/themes/default/templates/index.amp.pug', function (error, source) {
                 var data = {
