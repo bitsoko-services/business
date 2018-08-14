@@ -32,7 +32,7 @@ var key=pairs[i].split("=")[0];
 exports.createEnterprisePage = function(req) {
       
   var deferred = new Deferred();
-var pugFile=__dirname + '/themes/default/templates/index.amp.pug';
+var pugFile=__dirname.slice(0,-5) + '/themes/default/templates/index.amp.pug';
 
 		console.log('creating from =========================>>>'+pugFile);
             fs.readFile(pugFile, function (error, source) {
