@@ -25,6 +25,71 @@ var key=pairs[i].split("=")[0];
 }
 		     }
 
+	
+	
+
+
+exports.createEnterprisePage = function(req) {
+      
+  var deferred = new Deferred();
+
+
+		
+            fs.readFile(__dirname + '/themes/default/templates/index.amp.pug', function (error, source) {
+                //TO-DO switch to new default
+                //fs.readFile(__dirname + '/themes/default/templates/index.amp.pug', function (error, source) {
+                matchShops();
+                var data = {
+                    name: allInfo.name,
+                    cover: allInfo.cover,
+                    tagline: allInfo.tagline,
+                    socialLinks: ['/bits/images/facebook.png', '/bits/images/twitter.png', '/bits/images/linkedin.png'],
+                    reviews: [{
+                        revIcon: '/bits/images/facebook.png',
+                        revName: 'john doe',
+                        revMsg: 'good service'
+                    }, {
+                        revIcon: '/bits/images/facebook.png',
+                        revName: 'john doe',
+                        revMsg: 'good service'
+                    }],
+                    productCat: allProdCat,
+                    phone: allInfo.phone,
+                    email: allInfo.email,
+                    managerState: allInfo.managerState,
+                    rate: allInfo.contractRate,
+                    entContract: entContract,
+                    desc: 'desc',
+                    img: allInfo.icon,
+                    stores: allServices,
+                    promos: allPromos,
+                    entSettings: entSettings,
+                    managers: allNewManagers,
+                    cid: '000',
+                    entBanner:"https://photogallerylinks.com/pics/1564.jpg",
+                    entIconLst:[  { icon: 'https://lh6.googleusercontent.com/-u_vqwC6YAv0/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7psnnp0lLLYYuF6NVo0fncsVRNJMg/s96-c/photo.jpg',name: 'Bit Coin' },{ icon: 'https://lh6.googleusercontent.com/-u_vqwC6YAv0/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7psnnp0lLLYYuF6NVo0fncsVRNJMg/s96-c/photo.jpg',name: 'Bit Coin' },{ icon: 'https://lh6.googleusercontent.com/-u_vqwC6YAv0/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7psnnp0lLLYYuF6NVo0fncsVRNJMg/s96-c/photo.jpg',name: 'Bit Coin' } ],
+                    entImgLst:entImageList
+                
+                }
+                data.body = process.argv[2];
+                //jade.render
+                var template = jade.compile(source);
+                var html = template(data);
+                //res.writeHead(200);
+		    writeFile('business/index.html', html, function (err) {
+                    if (err) console.log('!ERR unable to create enterprise page', err);
+
+	deferred.resolve(html);
+		});
+		    
+              
+            });	
+	
+     return deferred;
+	
+}
+
+
 exports.createStorePage = function(req) {
    
   var deferred = new Deferred(); 
