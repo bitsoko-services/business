@@ -416,7 +416,8 @@ function squashByName(arr) {
                     console.log(err)
                 }
 
-
+matchShops();
+                //============================================   server setup complete, start serving content   ========//
 
 
 
