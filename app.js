@@ -417,6 +417,18 @@ function squashByName(arr) {
                 }
 
 matchShops();
+		    for(var pcc in allProdCat){
+                         if(allProdCat[pcc]['servList'].length==0){
+                           // remove allProdCat[pcc]
+				 
+			
+var index = allProdCat.indexOf(allProdCat[pcc]);
+if (index > -1) {
+  allProdCat.splice(index, 1);
+}
+                           }
+                   
+                    }
                 //============================================   server setup complete, start serving content   ========//
 
 
