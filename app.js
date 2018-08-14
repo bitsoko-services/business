@@ -131,19 +131,19 @@ nCmd.get(prepDirC, function (data, err, stderr) {
         request(mainDomain + "/getEnterprise/?servEntID=" + entDevID, function (error, response, body) {
             if (!error) {
                 allServices = JSON.parse(body).services;
+  allSettings = JSON.parse(body).settings;
+                allInfo = JSON.parse(body).enterpriseInfo;
+                entContract = JSON.parse(body).enterpriseContract;
+              //  console.log(allInfo, allSettings);
 
+
+              
                 stores = new Array();
                 for (var servi in allServices) {
 console.log('==============================================================>>>>>>'+allInfo.uid,servi.owner)
 
                     stores.push(servi.id);
                 }
-
-                allSettings = JSON.parse(body).settings;
-                allInfo = JSON.parse(body).enterpriseInfo;
-                entContract = JSON.parse(body).enterpriseContract;
-              //  console.log(allInfo, allSettings);
-
 
                 //create database settings
 
