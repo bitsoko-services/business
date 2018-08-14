@@ -134,7 +134,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
 
                 stores = new Array();
                 for (var servi in allServices) {
-
+console.log('==============================================================>>>>>>'+allInfo.uid,servi.owner)
 
                     stores.push(servi.id);
                 }
