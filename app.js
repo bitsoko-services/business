@@ -142,7 +142,7 @@ console.log('==============================================================>>>>>
                 allSettings = JSON.parse(body).settings;
                 allInfo = JSON.parse(body).enterpriseInfo;
                 entContract = JSON.parse(body).enterpriseContract;
-                console.log(allInfo, allSettings);
+              //  console.log(allInfo, allSettings);
 
 
                 //create database settings
