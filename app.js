@@ -594,49 +594,31 @@ ReqRes = function ReqRes(req, res) {
         console.log(req.params[0]);
         if (req.params[0] == '/index.html' || req.params[0] == '/') {
             console.log('serving homepage')
-            fs.readFile(__dirname + '/themes/default/templates/index.amp.pug', function (error, source) {
-                //TO-DO switch to new default
-                //fs.readFile(__dirname + '/themes/default/templates/index.amp.pug', function (error, source) {
-                matchShops();
-                var data = {
-                    name: allInfo.name,
-                    cover: allInfo.cover,
-                    tagline: allInfo.tagline,
-                    socialLinks: ['/bits/images/facebook.png', '/bits/images/twitter.png', '/bits/images/linkedin.png'],
-                    reviews: [{
-                        revIcon: '/bits/images/facebook.png',
-                        revName: 'john doe',
-                        revMsg: 'good service'
-                    }, {
-                        revIcon: '/bits/images/facebook.png',
-                        revName: 'john doe',
-                        revMsg: 'good service'
-                    }],
-                    productCat: allProdCat,
-                    phone: allInfo.phone,
-                    email: allInfo.email,
-                    managerState: allInfo.managerState,
-                    rate: allInfo.contractRate,
-                    entContract: entContract,
-                    desc: 'desc',
-                    img: allInfo.icon,
-                    stores: allServices,
-                    promos: allPromos,
-                    entSettings: entSettings,
-                    managers: allNewManagers,
-                    cid: '000',
-                    entBanner:"https://photogallerylinks.com/pics/1564.jpg",
-                    entIconLst:[  { icon: 'https://lh6.googleusercontent.com/-u_vqwC6YAv0/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7psnnp0lLLYYuF6NVo0fncsVRNJMg/s96-c/photo.jpg',name: 'Bit Coin' },{ icon: 'https://lh6.googleusercontent.com/-u_vqwC6YAv0/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7psnnp0lLLYYuF6NVo0fncsVRNJMg/s96-c/photo.jpg',name: 'Bit Coin' },{ icon: 'https://lh6.googleusercontent.com/-u_vqwC6YAv0/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7psnnp0lLLYYuF6NVo0fncsVRNJMg/s96-c/photo.jpg',name: 'Bit Coin' } ],
-                    entImgLst:entImageList
+		
+            try {
+
+                //getting store index page information
+                var sendFl = __dirname + '/index.html';
                 
-                }
-                data.body = process.argv[2];
-                //jade.render
-                var template = jade.compile(source);
-                var html = template(data);
-                //res.writeHead(200);
-                return res.end(html);
-            });
+                fs.accessSync(sendFl, fs.F_OK);
+		     console.log('info! serving cache enterprise page');
+                res.sendFile(sendFl);
+
+
+
+            } catch (e) {
+                // cannot find store page. creating it so we can save to cache and reload faster next time
+		    console.log('info! cant find '+sendFl+' creating new enterprise page');
+                when(entFunc.createEnterprisePage(req), function (r) {
+		  return res.end(r);
+
+                }, function (err) {
+                    console.log('err! Unable to create store page', err);
+                })
+
+
+            }
+
         } else if (req.url.includes('/bits/?s=')) {
 
 
