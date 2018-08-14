@@ -7,7 +7,7 @@ exports.orderBot = function () {
     setInterval(function () {
 console.log(stores);
         for (var store in stores) {
-            bsConn.mysql.query('SELECT * FROM orders WHERE state=? OR state=? AND toservice=?', ['pending', 'delivering', store],
+            bsConn.mysql.query('SELECT * FROM orders WHERE state=? OR state=? AND toservice=?', ['pending', 'delivering', stores[store]],
                 function (err, resu) {
 
                     if (resu && resu.length > 0) {
