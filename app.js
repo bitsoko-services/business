@@ -611,6 +611,7 @@ ReqRes = function ReqRes(req, res) {
                 // cannot find store page. creating it so we can save to cache and reload faster next time
 		    console.log('info! cant find '+sendFl+' creating new enterprise page');
                 when(entFunc.createEnterprisePage(req), function (r) {
+			console.log(r);
 		  return res.end(r);
 
                 }, function (err) {
