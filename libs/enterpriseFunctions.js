@@ -654,7 +654,7 @@ exports.bitsStoreDet = function(d,e){
 
   var deferred = new Deferred();
 
-  console.log(d);
+  //console.log(d);
 	if(d==undefined){
 	deferred.reject('no store found');
 	    return;
