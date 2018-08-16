@@ -138,11 +138,11 @@ nCmd.get(prepDirC, function (data, err, stderr) {
 
 
 
+                console.log('==============================================================>>>>>>')
+                console.log(allSettings)
+
                 stores = new Array();
-                for (var setng in allServices) {
-                    console.log('==============================================================>>>>>>')
-                    console.log(allSettings[setng])
-                }
+
                 for (var servi in allServices) {
 
                     stores.push(allServices[servi].id);
