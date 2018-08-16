@@ -123,7 +123,7 @@ var prepDirC = `
 allManagers = [];
 allNewManagers = [];
 allPromos = [];
-allProdCat=[];
+allProdCat = [];
 nCmd.get(prepDirC, function (data, err, stderr) {
     if (!err) {
         console.log('created directories');
@@ -131,16 +131,16 @@ nCmd.get(prepDirC, function (data, err, stderr) {
         request(mainDomain + "/getEnterprise/?servEntID=" + entDevID, function (error, response, body) {
             if (!error) {
                 allServices = JSON.parse(body).services;
-  allSettings = JSON.parse(body).settings;
+                allSettings = JSON.parse(body).settings;
                 allInfo = JSON.parse(body).enterpriseInfo;
                 entContract = JSON.parse(body).enterpriseContract;
-              //  console.log(allInfo, allSettings);
+                //  console.log(allInfo, allSettings);
 
 
-              
+
                 stores = new Array();
                 for (var servi in allServices) {
-//console.log('==============================================================>>>>>>'+allInfo.uid,allServices[servi].owner,allServices[servi].id)
+                    //console.log('==============================================================>>>>>>'+allInfo.uid,allServices[servi].owner,allServices[servi].id)
 
                     stores.push(allServices[servi].id);
                 }
@@ -250,7 +250,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                 //---------add the section images------//
                 try {
 
-//                    console.log('!INFO section1 data ', allInfo.entImageList);
+                    //                    console.log('!INFO section1 data ', allInfo.entImageList);
 
                     entImageList = JSON.parse(allInfo.entImageList);
                     if (entImageList.length > 1) {
@@ -272,7 +272,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
 
                 //---------add the section icons------//
                 try {
-// console.log('!INFO section1 data ', allInfo.entIconList);
+                    // console.log('!INFO section1 data ', allInfo.entIconList);
                     var icnItms = JSON.parse(allInfo.entIconList);
                     if (icnItms.length > 1) {
 
@@ -293,61 +293,63 @@ nCmd.get(prepDirC, function (data, err, stderr) {
 
 
                 for (var ii in allServices) {
-                    try{
-                    var eaCat=JSON.parse(allServices[ii].productCategory);
-                    }catch(e){
-		    continue;
-		    }
-			
+                    try {
+                        var eaCat = JSON.parse(allServices[ii].productCategory);
+                    } catch (e) {
+                        continue;
+                    }
+
                     for (var ix in eaCat) {
-                    
-                        eaCat[ix]['servList']=[];
+
+                        eaCat[ix]['servList'] = [];
                         allProdCat.push(eaCat[ix]);
-                }
+                    }
                 }
 
-                
-function squashByName(arr) {
-    var tmp = [];
-    var tmpID = [];
-    for (var i = 0; i < arr.length; i++) {
-        if (tmpID.indexOf(arr[i].name) == -1) {
-            tmp.push(arr[i]);
-            tmpID.push(arr[i].name);
-        }
-    }
-    return tmp;
-}
-                
-                allProdCat=squashByName(allProdCat);
-                
-                
-                
+
+                function squashByName(arr) {
+                    var tmp = [];
+                    var tmpID = [];
+                    for (var i = 0; i < arr.length; i++) {
+                        if (tmpID.indexOf(arr[i].name) == -1) {
+                            tmp.push(arr[i]);
+                            tmpID.push(arr[i].name);
+                        }
+                    }
+                    return tmp;
+                }
+
+                allProdCat = squashByName(allProdCat);
+
+
+
                 aPs = JSON.parse(body).enterprisePromos;
                 allDomains = allInfo.domains;
                 for (var ii in allServices) {
+                    console.log("======================allServices[ii]===============================")
+                    console.log(allServices[ii])
                     allServices[ii].banner = allServices[ii].bannerPath;
                     allServices[ii].desc = allServices[ii].description
                     allServices[ii].title = allServices[ii].name;
                     //console.log(allServices[ii].promotions,"======== Promotions ====");
                     var aMans = allServices[ii].managers
-			try{
-			
-                    var cats=JSON.parse(allServices[ii].productCategory);
-			}catch(e){
-			
-                    var cats=[];
-			}
-                    for(var pcc in allProdCat){
-                        for(var pc in cats){
-                        
-                        if(allProdCat[pcc].name==cats[pc].name){
-                           allProdCat[pcc]['servList'].push(allServices[ii]);
-                           }
+                    try {
+
+                        var cats = JSON.parse(allServices[ii].productCategory);
+                    } catch (e) {
+
+                        var cats = [];
                     }
-                   
+                    for (var pcc in allProdCat) {
+                        for (var pc in cats) {
+
+                            if (allProdCat[pcc].name == cats[pc].name) {
+                                allProdCat[pcc]['servList'].push(allServices[ii]);
+                            }
+                        }
+
                     }
-                    
+
                     for (var iii in aMans) {
                         aMans[iii].sID = allServices[ii].id;
                         allManagers.push(aMans[iii]);
@@ -383,7 +385,7 @@ function squashByName(arr) {
                 try {
                     //var aPs = allPromos;
                     for (var iiii in aPs) {
-                        
+
 
                         if (aPs[iiii].promoStatus == "active") {
 
@@ -416,19 +418,19 @@ function squashByName(arr) {
                     console.log(err)
                 }
 
-matchShops();
-		    for(var pcc in allProdCat){
-                         if(allProdCat[pcc]['servList'].length==0){
-                           // remove allProdCat[pcc]
-				 
-			
-var index = allProdCat.indexOf(allProdCat[pcc]);
-if (index > -1) {
-  allProdCat.splice(index, 1);
-}
-                           }
-                   
+                matchShops();
+                for (var pcc in allProdCat) {
+                    if (allProdCat[pcc]['servList'].length == 0) {
+                        // remove allProdCat[pcc]
+
+
+                        var index = allProdCat.indexOf(allProdCat[pcc]);
+                        if (index > -1) {
+                            allProdCat.splice(index, 1);
+                        }
                     }
+
+                }
                 //============================================   server setup complete, start serving content   ========//
 
 
@@ -607,23 +609,23 @@ ReqRes = function ReqRes(req, res) {
         console.log(req.params[0]);
         if (req.params[0] == '/index.html' || req.params[0] == '/') {
             console.log('serving homepage')
-		
+
             try {
 
                 //getting store index page information
                 var sendFl = __dirname + '/index.html';
-                
+
                 fs.accessSync(sendFl, fs.F_OK);
-		     console.log('info! serving cache enterprise page');
+                console.log('info! serving cache enterprise page');
                 res.sendFile(sendFl);
 
 
 
             } catch (e) {
                 // cannot find store page. creating it so we can save to cache and reload faster next time
-		    console.log('info! cant find '+sendFl+' creating new enterprise page');
+                console.log('info! cant find ' + sendFl + ' creating new enterprise page');
                 when(entFunc.createEnterprisePage(req), function (r) {
-		 return res.end(r);
+                    return res.end(r);
 
                 }, function (err) {
                     console.log('err! Unable to create store page', err);
