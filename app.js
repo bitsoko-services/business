@@ -140,7 +140,8 @@ nCmd.get(prepDirC, function (data, err, stderr) {
 
                 stores = new Array();
                 for (var servi in allServices) {
-                    //console.log('==============================================================>>>>>>'+allInfo.uid,allServices[servi].owner,allServices[servi].id)
+                    console.log('==============================================================>>>>>>')
+                    console.log(allServices[servi])
 
                     stores.push(allServices[servi].id);
                 }
@@ -326,8 +327,6 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                 aPs = JSON.parse(body).enterprisePromos;
                 allDomains = allInfo.domains;
                 for (var ii in allServices) {
-                    console.log("======================allServices[ii]===============================")
-                    console.log(allServices[ii])
                     allServices[ii].banner = allServices[ii].bannerPath;
                     allServices[ii].desc = allServices[ii].description
                     allServices[ii].title = allServices[ii].name;
