@@ -35,15 +35,15 @@ exports.createEnterprisePage = function(req) {
     var pugFile = __dirname.slice(0, -5) + '/themes/simple/templates/index.amp.pug';
 
     console.log('creating from =========================>>>' + pugFile);
+	when(entFunc.getAllProducts(), function (r) {
+		console.log("PRODUCT LIST=======================");
+		console.log(r);
+
+	}, function (err) {
+		console.log('err! Unable to create store products',err);
+	})
     fs.readFile(pugFile, function(error, source) {
         //TO-DO switch to new default
-		when(entFunc.getAllProducts(), function (r) {
-			console.log("PRODUCT LIST=======================");
-			console.log(r);
-
-		}, function (err) {
-			console.log('err! Unable to create store products',err);
-		})
         //fs.readFile(__dirname + '/themes/default/templates/index.amp.pug', function (error, source) {
         var data = {
             name: allInfo.name,
