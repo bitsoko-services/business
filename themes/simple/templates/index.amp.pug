@@ -94,30 +94,30 @@ html(⚡='')
                 amp-img(src='../img/themes_2/bar.jpg', width='600', height='450', alt='Happy Hour Monday through Friday 5 PM', layout='responsive')
                 figcaption.absolute.right-0.bottom-0.left-0
                   header.ampstart-image-heading.px2.py2.line-height-4
-                    h2.h1.bold imgLst.name
+                    h2.h1.bold #{imgLst.name}
                     p.h4 Mon-Fri 5PM
           // End Image with heading
         h2#locations.my4.theme2-anchored Locations & Hours
         .col.col-12.sm-col-6.mb4
-          h3.mb1 San Francisco
-          p.mb0
+          h3.mb1 National Oil Petrol Station
+          //p.mb0
             | 123 E Somewhere St.,
             br
             | San Francisco, CA
             br
-          p.mb0
+          //p.mb0
             | Mon-Thu 11am–2pm, 4pm–9pm
             br
             | Fri-Sun 11am–3pm, 4pm–12am
             br
         .col.col-12.sm-col-6.mb4
-          h3.mb1 San Jose
-          p.mb0
+          //h3.mb1 San Jose
+          //p.mb0
             | 123 S Elsewhere St.,
             br
             | San Jose, CA
             br
-          p.mb0
+          //p.mb0
             | Mon-Thu 11am–2pm, 4pm–9pm
             br
             | Fri-Sun 11am–3pm, 4pm–11pm
@@ -125,12 +125,8 @@ html(⚡='')
         h2#gallery.my4.theme2-anchored Photo Gallery
         amp-image-lightbox#lightbox(layout='nodisplay')
         amp-carousel.my2.mxn3(height='200', layout='fixed-height', type='carousel')
-          amp-img(src='../img/themes_2/hero.jpg', width='300', height='200', alt='Dining area', on='tap:lightbox', role='button', tabindex='0')
-          amp-img(src='../img/themes_2/bar.jpg', width='267', height='200', alt='Bar area', on='tap:lightbox', role='button', tabindex='0')
-          amp-img(src='../img/themes_2/waffles.jpg', width='300', height='200', alt='Caramel Banana Waffles', on='tap:lightbox', role='button', tabindex='0')
-          amp-img(src='../img/themes_2/soup.jpg', width='300', height='200', alt='Pumpkin Soup', on='tap:lightbox', role='button', tabindex='0')
-          amp-img(src='../img/themes_2/steak.jpg', width='300', height='200', alt='Steak', on='tap:lightbox', role='button', tabindex='0')
-          amp-img(src='../img/themes_2/pie.jpg', width='300', height='200', alt='Key Lime Pie', on='tap:lightbox', role='button', tabindex='0')
+            for imgLst in entIconLst
+                amp-img(src=imgLst.icon, height='200', alt='Dining area', on='tap:lightbox', role='button', tabindex='0')
     // Start Footer
     footer.ampstart-footer.flex.flex-column.items-center.px3
       small
