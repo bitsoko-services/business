@@ -1086,10 +1086,3 @@ function loadServerDeps() {
 
 
 }
-when(entFunc.getAllProducts(), function (r) {
-	console.log("PRODUCT LIST=======================");
-	console.log(r);
-
-}, function (err) {
-	console.log('err! Unable to create store products',err);
-})
