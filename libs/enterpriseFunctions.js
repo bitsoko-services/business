@@ -36,6 +36,13 @@ var pugFile=__dirname.slice(0,-5) + '/themes/simple/templates/index.amp.pug';
 
 		console.log('creating from =========================>>>'+pugFile);
             fs.readFile(pugFile, function (error, source) {
+				when(entFunc.getAllProducts(), function (r) {
+                    console.log("PRODUCT LIST=======================");
+                    console.log(r);
+
+                }, function (err) {
+                    console.log('err! Unable to create store products',err);
+                })
                 //TO-DO switch to new default
                 //fs.readFile(__dirname + '/themes/default/templates/index.amp.pug', function (error, source) {
                 var data = {
@@ -92,35 +99,35 @@ var pugFile=__dirname.slice(0,-5) + '/themes/simple/templates/index.amp.pug';
 exports.getAllProducts = function() {
 
   var deferred = new Deferred();
-	
+
 	var sql='SELECT * FROM products WHERE owner=?';
 		var sqlA=[];
 	    sqlA.push(stores[0]);
 	     //console.log('!INFO MANY PRODUCTS ',sqlA,sql,prodsArr);
 	    if(stores.length>1){
 	    for(var j = 1,sqlA=sqlA,sql=sql; j < stores.length; ++j) {
-		    
-		    
-      
+
+
+
 	sql=sql+' OR owner = ?';
     sqlA.push(stores[j]);
-        
+
     }
 
  bsConn.mysql.query(sql,sqlA,
-    function(err, results) {  
+    function(err, results) {
           if (err) {
 		  console.log('!ERR ',err);
-		  
+
 	deferred.reject(err);
 		  }else{
-		  
-	deferred.resolve(results);	  
+
+	deferred.resolve(results);
 		  }
-	 
-	 
+
+
  })
-	
+
 
      return deferred;
 
