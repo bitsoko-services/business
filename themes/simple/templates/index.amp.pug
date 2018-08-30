@@ -2,7 +2,7 @@ doctype html
 html(⚡='')
   head
     meta(charset='utf-8')
-    title Beck & Galo
+    title  #{name}
     link(rel='canonical', href='https://www.ampstart.com/templates/themes_2/home.amp')
     meta(name='viewport', content='width=device-width,minimum-scale=1,initial-scale=1')
     script(async='', src='https://cdn.ampproject.org/v0.js')
@@ -66,8 +66,8 @@ html(⚡='')
     .center
       // Start Fullpage Hero
       figure.ampstart-image-fullpage-hero.m0.relative.mb4
-        amp-img(width='404', height='720', alt='Welcome to Beck & Galo Modern American Cuisine', layout='responsive', src='../img/themes_2/hero.jpg', media='(max-width: 415px)')
-        amp-img(height='720', alt='Welcome to Beck & Galo Modern American Cuisine', layout='fixed-height', src='../img/themes_2/hero.jpg', media='(min-width: 416px)')
+        amp-img(width='404', height='720', alt='Welcome to  #{name} Modern Afican Cuisine', layout='responsive', src=entBanner, media='(max-width: 415px)')
+        amp-img(height='720', alt='Welcome to Beck & Galo Modern American Cuisine', layout='fixed-height', src=entBanner, media='(min-width: 416px)')
         figcaption.absolute.top-0.right-0.bottom-0.left-0
           header.p3
             h1.ampstart-fullpage-hero-heading.mb3
@@ -76,7 +76,7 @@ html(⚡='')
                 span.h1.block.bold.caps.my1 Beck & Galo
                 span.h6.block.caps Modern American Cuisine
           footer.absolute.left-0.right-0.bottom-0
-            a.ampstart-btn.inline-block.ampstart-fullpage-hero-cta.h5.m3.text-decoration-none(href='menu.amp.html') View Menu
+            a.ampstart-btn.inline-block.ampstart-fullpage-hero-cta.h5.m3.text-decoration-none(href='menu.amp.pug') View Menu
       // End Fullpage Hero
     main#content(role='main')
       article.px3

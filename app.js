@@ -136,11 +136,6 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                 entContract = JSON.parse(body).enterpriseContract;
                 //  console.log(allInfo, allSettings);
 
-
-
-                console.log('==============================================================>>>>>>')
-                console.log(allSettings)
-
                 stores = new Array();
 
                 for (var servi in allServices) {
@@ -167,10 +162,10 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                             bsConn = {
                                 /*
   maria: function (){
-      
+
      var q= new Client({
   host: dbHost,
-  user: dbUser, 
+  user: dbUser,
   password: dbPass,
   db: 'bitsoko'
 });
@@ -179,7 +174,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
     });
       q.connect();
       return q;
-      
+
                     }(),
     */
                                 mysql: connectionSQL
@@ -359,7 +354,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                     var options = {
                         url: mainDomain + allServices[ii].banner,
                         dest: 'business/bitsAssets/tmp/services/',
-                        //dest: '/' 
+                        //dest: '/'
                     }
                     imgDownloader.image(options).then(function (filename, image) {
                         //console.log('File saved to', filename)
@@ -370,7 +365,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                     var options = {
                         url: mainDomain + allServices[ii].banner.replace(".png", "-128.png"),
                         dest: 'business/bitsAssets/tmp/services/',
-                        //dest: '/' 
+                        //dest: '/'
                     }
                     imgDownloader.image(options).then(function (filename, image) {
                         //console.log('File saved to', filename)
@@ -407,7 +402,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                         var options = {
                             url: mainDomain + aPs[iiii].promoBanner,
                             dest: 'business/bitsAssets/tmp/promotions/',
-                            //dest: '/' 
+                            //dest: '/'
                         }
                         imgDownloader.image(options).then(function (filename, image) {
                             //console.log('Promo File saved to', filename)
@@ -585,7 +580,7 @@ le = LE.create({
     server: LE.productionServerUrl // or LE.productionServerUrl
         //        ,
         //    server: LE.stagingServerUrl
-        //, store: leStore 
+        //, store: leStore
         ,
     challenges: {
         'http-01': require('le-challenge-fs').create({
@@ -662,34 +657,34 @@ ReqRes = function ReqRes(req, res) {
 
             }
 
-            /*	
-		
+            /*
+
 			     if(getBitsWinOpt(req.url,'s')=='3'){
 				     //this is a sokopos link
-				var sid=getBitsWinOpt(req.url,'a'); 
+				var sid=getBitsWinOpt(req.url,'a');
 				}else{
 					//this is a enterprise store link
-				var sid=getBitsWinOpt(req.url,'s'); 
+				var sid=getBitsWinOpt(req.url,'s');
 				}
-		    
+
          //getting store information
 		   if(req.url.includes('/bitsBeta/')) {
-	var indxPth='/bitsBeta/index.html';			     
+	var indxPth='/bitsBeta/index.html';
 				     }else{
-	var indxPth='/bits/index.html';			     
+	var indxPth='/bits/index.html';
 				     }
-		    
-		    	
+
+
 		console.log('SERVICEID!!!!!!!!!',req.url,sid);
-		    	
+
 	      when(entFunc.returnMerchantServices('',{service:sid,id:sid}), function(r){
-		      
-		      
-			
-			
+
+
+
+
 	    when(entFunc.bitsStoreDet(sid),function(rr){
 		fs.readFile(__dirname + indxPth, function(error, source){
-  
+
 html2jade.convertHtml(source, {}, function (err, jd) {
 	var thm = rr.theme;
 	if(thm== null || thm== 'null' || thm== ''){
@@ -711,22 +706,22 @@ data.body = process.argv[2];
     //res.writeHead(200);
     res.end(html);
 });
-});     
-		    
-		    
+});
+
+
 	    },function(err){
 	    console.log('err! cannot show merchant share info! merchant '+sid+' not found!');
 	    })
-  	
-	console.log('INFO!!!! ',JSON.stringify(r.res));  
-	
-		
-    
+
+	console.log('INFO!!!! ',JSON.stringify(r.res));
+
+
+
 }, function(error){
 		console.log('ERR: service profile error',error);
-    
-}); 	
-	
+
+});
+
 */
             //console.log('SOKO Request, ', req.params[0]);
             //fs.accessSync(__dirname + req.params[0], fs.F_OK);
@@ -840,8 +835,8 @@ installCerts = function () {
         agreeToTerms: leAgree // hook to allow user to view and accept LE TOS
             ,
         server: LE.productionServerUrl // or LE.productionServerUrl
-            //, server: LE.stagingServerUrl 
-            //, store: leStore 
+            //, server: LE.stagingServerUrl
+            //, store: leStore
             ,
         challenges: {
             'http-01': require('le-challenge-fs').create({
@@ -861,25 +856,25 @@ installCerts = function () {
     });
     critiMSG = "RUNNING ON INSECURE ENVIROMENT!!";
     /*
-      
+
     insapp = express();
     insapp.use(compress());
     // If using express you should use the middleware
-    	 
+
     insapp.use('/', le.middleware(require('redirect-https')()));
-    http = require('http');    
+    http = require('http');
     inserver = http.createServer(insapp);
     io = require('socket.io')(inserver);
     insapp.get(/^(.+)$/, function (req, res) {
-      ReqRes(req, res);   
-     
+      ReqRes(req, res);
+
     });
      inserver.listen(insPORT, '127.0.0.1', function(err) {
       if (err) throw err;
      console.log("Listening for ACME http-01 challenges on", this.address());
     });
     */
-    // handles acme-challenge and redirects to https 
+    // handles acme-challenge and redirects to https
     require('http').createServer(le.middleware(require('redirect-https')())).listen(insPORT, function () {
         console.log("Listening for ACME http-01 challenges on", this.address());
     });
@@ -941,7 +936,7 @@ function leAgree(opts, agreeCb) {
 
 function createCert() {
     critiMSG = "RUNNING ON INSECURE ENVIROMENT!!";
-    // handles acme-challenge and redirects to https 
+    // handles acme-challenge and redirects to https
     require('http').createServer(le.middleware(require('redirect-https')())).listen(insPORT, function () {
         console.log("Listening for ACME http-01 challenges on", this.address());
     });
@@ -1038,7 +1033,7 @@ function matchShops() {
     // create empty array for the reconstructed manager array.
     managersShop = new Object();
     managersShop.manager = new Array();
-    //step one loop thu managers list and get m.name, shopID and userID	
+    //step one loop thu managers list and get m.name, shopID and userID
     for (var iv in allManagers) {
         //console.log("looping managers",allManagers[iv].sID,allManagers[iv].uid,allManagers[iv].name)
         for (var iiiv in allServices) {
