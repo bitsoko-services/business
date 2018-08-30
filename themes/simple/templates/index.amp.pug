@@ -67,18 +67,18 @@ html(⚡='')
       // Start Fullpage Hero
       figure.ampstart-image-fullpage-hero.m0.relative.mb4
         amp-img(width='404', height='720', alt='Welcome to  #{name} Modern Afican Cuisine', layout='responsive', src=entBanner, media='(max-width: 415px)')
-        amp-img(height='720', alt='Welcome to Beck & Galo Modern American Cuisine', layout='fixed-height', src=entBanner, media='(min-width: 416px)')
+        amp-img(height='720', alt='', layout='fixed-height', src=entBanner, media='(min-width: 416px)')
         figcaption.absolute.top-0.right-0.bottom-0.left-0
           header.p3
             h1.ampstart-fullpage-hero-heading.mb3
               span.ampstart-fullpage-hero-heading-text
                 span.h6.block.caps Welcome to
-                span.h1.block.bold.caps.my1 Beck & Galo
-                span.h6.block.caps Modern American Cuisine
+                span.h1.block.bold.caps.my1 #{name}
+                span.h6.block.caps Modern African Cuisine
           footer.absolute.left-0.right-0.bottom-0
             a.ampstart-btn.inline-block.ampstart-fullpage-hero-cta.h5.m3.text-decoration-none(href='menu.amp.pug') View Menu
       // End Fullpage Hero
-    main#content(role='main')
+    //main#content(role='main')
       article.px3
         h2#story.my4.theme2-anchored Our Story
         p.mb1.ampstart-dropcap
@@ -89,12 +89,13 @@ html(⚡='')
           | Suspendisse eu aliquet libero. Aenean malesuada vestibulum iaculis. Curabitur vitae ipsum interdum, feugiat odio non, lacinia nibh. Nulla vitae volutpat massa. Curabitur porttitor viverra massa, id lacinia est ornare non. Aliquam erat volutpat. Integer lobortis dictum dolor, at convallis nulla lacinia vitae. Cras sit amet placerat lectus. Vestibulum pulvinar finibus dui eget egestas. Quisque et sagittis urna. Nulla facilisi. Nunc malesuada, arcu quis volutpat hendrerit, dui libero eleifend ipsum, sit amet hendrerit dui ligula nec enim. Nunc dictum efficitur tempus. Fusce suscipit feugiat tellus, ac bibendum nunc semper suscipit.
         .my4.mxn3.center
           // Start Image with heading
-          figure.ampstart-image-with-heading.m0.relative.mb4
-            amp-img(src='../img/themes_2/bar.jpg', width='600', height='450', alt='Happy Hour Monday through Friday 5 PM', layout='responsive')
-            figcaption.absolute.right-0.bottom-0.left-0
-              header.ampstart-image-heading.px2.py2.line-height-4
-                h2.h1.bold Happy Hour
-                p.h4 Mon-Fri 5PM
+          for imgLst in entIconLst
+              figure.ampstart-image-with-heading.m0.relative.mb4
+                amp-img(src='../img/themes_2/bar.jpg', width='600', height='450', alt='Happy Hour Monday through Friday 5 PM', layout='responsive')
+                figcaption.absolute.right-0.bottom-0.left-0
+                  header.ampstart-image-heading.px2.py2.line-height-4
+                    h2.h1.bold imgLst.name
+                    p.h4 Mon-Fri 5PM
           // End Image with heading
         h2#locations.my4.theme2-anchored Locations & Hours
         .col.col-12.sm-col-6.mb4
@@ -133,5 +134,5 @@ html(⚡='')
     // Start Footer
     footer.ampstart-footer.flex.flex-column.items-center.px3
       small
-        | © Beck & Galo
+        | © #{name}
     // End Footer

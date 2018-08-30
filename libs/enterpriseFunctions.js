@@ -65,7 +65,7 @@ var pugFile=__dirname.slice(0,-5) + '/themes/simple/templates/index.amp.pug';
                     entSettings: entSettings,
                     managers: allNewManagers,
                     cid: '000',
-                    entBanner:"https://photogallerylinks.com/pics/1564.jpg",
+                    entBanner:"https://3m3cna178rlp1rclw43v482p-wpengine.netdna-ssl.com//images/2018/01/kout.jpg",
                     entIconLst:[  { icon: 'https://lh6.googleusercontent.com/-u_vqwC6YAv0/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7psnnp0lLLYYuF6NVo0fncsVRNJMg/s96-c/photo.jpg',name: 'Bit Coin' },{ icon: 'https://lh6.googleusercontent.com/-u_vqwC6YAv0/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7psnnp0lLLYYuF6NVo0fncsVRNJMg/s96-c/photo.jpg',name: 'Bit Coin' },{ icon: 'https://lh6.googleusercontent.com/-u_vqwC6YAv0/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7psnnp0lLLYYuF6NVo0fncsVRNJMg/s96-c/photo.jpg',name: 'Bit Coin' } ],
                     entImgLst:entImageList
 
