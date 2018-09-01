@@ -32,7 +32,9 @@ function getBitsWinOpt(str, aKey) {
 exports.createEnterprisePage = function(req) {
 
     var deferred = new Deferred();
-    var pugFile = __dirname.slice(0, -5) + '/themes/simple/templates/index.amp.pug';
+    //var pugFile = __dirname.slice(0, -5) + '/themes/simple/templates/index.amp.pug';
+	// for demos only!!!!
+    var pugFile = __dirname.slice(0, -5) + '/themes/simple/templates/index-demo.amp.pug';
 
     console.log('creating from =========================>>>' + pugFile);
 	when(entFunc.getAllProducts(), function (r) {
@@ -72,7 +74,7 @@ exports.createEnterprisePage = function(req) {
             entSettings: entSettings,
             managers: allNewManagers,
             cid: '000',
-            entBanner: "https://3m3cna178rlp1rclw43v482p-wpengine.netdna-ssl.com//images/2018/01/kout.jpg",
+            entBanner: "http://drivesure.co.bw/wp-content/uploads/2017/07/wire-car.jpg",
             entIconLst: [{
                 icon: 'https://lh6.googleusercontent.com/-u_vqwC6YAv0/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7psnnp0lLLYYuF6NVo0fncsVRNJMg/s96-c/photo.jpg',
                 name: 'Bit Coin'
