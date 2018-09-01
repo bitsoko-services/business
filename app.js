@@ -87,7 +87,8 @@ serverFiles = [
 	'/bitsAssets/js/jspdf/jspdf.plugin.autotable.js',
 	'/bitsAssets/js/globalServices.js',
 	'/bitsAssets/js/knockout-3.1.0.js',
-	'/bitsAssets/html/token-market-widget.html'
+	'/bitsAssets/html/token-market-widget.html',
+	'/bitsAssets/js/payWorker.js'
 
 ];
 
