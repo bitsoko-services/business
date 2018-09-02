@@ -254,18 +254,18 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                     entImageList = JSON.parse(allInfo.entImageList);
                     if (entImageList.length > 1) {
 
-                        entImageListAvail = false;
-                        entImageList = imgItms;
+                        entSettings.entImageListDisabled = false;
+                        entSettings.entImageList = entImageList;
 
                     } else {
 
-                        entImageListAvail = true;
+                        entSettings.entImageListDisabled = true;
                     }
 
                 } catch (err) {
                     console.log('!INFO unable to get images section', err);
 
-                    entImageListAvail = true;
+                    entSettings.entImageListDisabled = true;
                 }
                 //-----------------------------------------//
 
