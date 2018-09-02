@@ -84,8 +84,8 @@ exports.createEnterprisePage = function(req) {
             }, {
                 icon: 'https://lh6.googleusercontent.com/-u_vqwC6YAv0/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7psnnp0lLLYYuF6NVo0fncsVRNJMg/s96-c/photo.jpg',
                 name: 'Bit Coin'
-            }],
-            entImgLst: entImageList
+            }]//,
+           // entImgLst: entImageList
 
         }
         data.body = process.argv[2];
