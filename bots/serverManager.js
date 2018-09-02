@@ -45,5 +45,14 @@ exports.init = function () {
 
         console.log('INFO: starting log cleaner bot');
         exports.logCleanerBot();
+   
+ setInterval(function(){ 
+ when(entFunc.createEnterprisePage(''), function (r) {
+                    console.log('INFO! successfully updated homepage');
+
+                }, function (err) {
+                    console.log('err! Unable to update store page', err);
+                })
+ }, heartBeat*(3*60)); 
 
 }
