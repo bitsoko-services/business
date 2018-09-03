@@ -38,8 +38,6 @@ exports.createEnterprisePage = function(req) {
 
     console.log('creating from =========================>>>' + pugFile);
 	when(entFunc.getAllProducts(), function (r) {
-		console.log("PRODUCT LIST=======================");
-		console.log(r);
  fs.readFile(pugFile, function(error, source) {
         //TO-DO switch to new default
         //fs.readFile(__dirname + '/themes/default/templates/index.amp.pug', function (error, source) {
