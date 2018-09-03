@@ -40,11 +40,7 @@ exports.createEnterprisePage = function(req) {
 	when(entFunc.getAllProducts(), function (r) {
 		console.log("PRODUCT LIST=======================");
 		console.log(r);
-
-	}, function (err) {
-		console.log('err! Unable to create store products',err);
-	})
-    fs.readFile(pugFile, function(error, source) {
+ fs.readFile(pugFile, function(error, source) {
         //TO-DO switch to new default
         //fs.readFile(__dirname + '/themes/default/templates/index.amp.pug', function (error, source) {
         var data = {
@@ -102,6 +98,10 @@ exports.createEnterprisePage = function(req) {
 
     });
 
+	}, function (err) {
+		console.log('err! Unable to create store products',err);
+	})
+   
     return deferred;
 
 }
