@@ -32,7 +32,7 @@ html(⚡='')
     link(href='https://fonts.googleapis.com/css?family=Inconsolata|Montserrat:400,500,600,700|Crimson+Text:400,600', rel='stylesheet')
     script(async custom-element="amp-web-push" src="https://cdn.ampproject.org/v0/amp-web-push-0.1.js")
     amp-web-push(id="amp-web-push" layout="nodisplay" helper-iframe-url="/helper-iframe.html" permission-dialog-url="/permission-dialog.html" service-worker-url="/sw.js")
-    for store in stores		 
+    for store in stores
      link(rel='prefetch', href="/bits/?s="+store.id)
     style(type="text/css").
         amp-web-push-widget.amp-invisible {
@@ -385,7 +385,7 @@ html(⚡='')
       .clearfix.pt2
         amp-position-observer(on='enter:recentSlideIn.start', layout='nodisplay')
         ul.list-reset.m0.p0.center.justify-center.fit
-            for imgLst in entImgLst
+            for imgLst in entSettings.entImageList
                 li.px1.mt1.block.align-top.land-see-pre-animate.land-see-post-item.land-see-post-item-wide.col.col-6.land-see-recent
                     a.text-decoration-none(href='#')
                       amp-img.land-see-post-image.cover(alt='', media='', width='409', height='370', layout='responsive', src=imgLst.icon)
@@ -431,7 +431,7 @@ html(⚡='')
                          a.text-decoration-none(href='/bits/?s='+shopCat.id)
                            amp-img.land-see-post-image.cover(alt='', media='', width='409', height='370', layout='responsive', src=shopCat.banner)
                          h4.land-see-post-title.ampstart-title-sm.pt1
-                           a.text-decoration-none(href='/bits/?s='+shopCat.id) #{shopCat.name} 
+                           a.text-decoration-none(href='/bits/?s='+shopCat.id) #{shopCat.name}
                          p.ampstart-caption.pt1.pb3
                            | #{shopCat.description}
     a.land-see-cta-link.mx-auto(href='https://www.instagram.com/lifeatgoogle/')
@@ -446,7 +446,7 @@ html(⚡='')
         form.p0.m0.px3.mb4(method='GET', action='helper-iframe.html', target='_top')
           fieldset.border-none.p0.m0
             h2.land-see-subs-heading-text
-              | Weekly inspiration from 
+              | Weekly inspiration from
               span.bold #{name}
             // A subscription widget
             amp-web-push-widget(visibility='unsubscribed' layout='fixed' width='250' height='40')
@@ -495,6 +495,6 @@ html(⚡='')
           li.px1
             a.text-decoration-none.ampstart-label(href='#') Contact
       small
-        | © #{name}, 2019 • 
+        | © #{name}, 2019 •
         a.text-decoration-none(href='#') Terms & Conditions
     // End Footer
