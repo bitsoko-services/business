@@ -67,19 +67,7 @@ exports.createEnterprisePage = function(req) {
             promos: allPromos,
             entSettings: entSettings,
             managers: allNewManagers,
-            cid: '000',
-            entBanner: "http://drivesure.co.bw/wp-content/uploads/2017/07/wire-car.jpg",
-            entIconLst: [{
-                icon: 'https://lh6.googleusercontent.com/-u_vqwC6YAv0/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7psnnp0lLLYYuF6NVo0fncsVRNJMg/s96-c/photo.jpg',
-                name: 'Bit Coin'
-            }, {
-                icon: 'https://lh6.googleusercontent.com/-u_vqwC6YAv0/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7psnnp0lLLYYuF6NVo0fncsVRNJMg/s96-c/photo.jpg',
-                name: 'Bit Coin'
-            }, {
-                icon: 'https://lh6.googleusercontent.com/-u_vqwC6YAv0/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7psnnp0lLLYYuF6NVo0fncsVRNJMg/s96-c/photo.jpg',
-                name: 'Bit Coin'
-            }]//,
-           // entImgLst: entImageList
+            cid: '000'
 
         }
         data.body = process.argv[2];
