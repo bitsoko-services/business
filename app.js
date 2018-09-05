@@ -246,7 +246,13 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                 }
                 //-----------------------------------------//
 
-                //---------add the section images------//
+				//Check cover image
+				if(cover == ""){
+					coverDisabled = true;
+				}else{
+					coverDisabled = false;
+				}
+				//---------add the section images------//
                 try {
 
                     //                    console.log('!INFO section1 data ', allInfo.entImageList);
