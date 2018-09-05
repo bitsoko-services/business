@@ -7,4 +7,4 @@ nvm install 8.0
 npm install debug write forever express node-cmd image-downloader download-file node-gcm promised-io compression socket.io pug mysql express-force-ssl html2jade newline-remove
 iptables -t nat -I PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8081
 iptables -t nat -I PREROUTING -p tcp --dport 443 -j REDIRECT --to-port 8080
-node business/index.js test
+node business/index.js start
