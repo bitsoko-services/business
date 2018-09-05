@@ -32,9 +32,9 @@ function getBitsWinOpt(str, aKey) {
 exports.createEnterprisePage = function(req) {
 
     var deferred = new Deferred();
-    // var pugFile = __dirname.slice(0, -5) + '/themes/simple/templates/index.amp.pug';
+    var pugFile = __dirname.slice(0, -5) + '/themes/default/templates/index.amp.pug';
 	// for demos only!!!!
-    var pugFile = __dirname.slice(0, -5) + '/themes/simple/templates/index-demo.amp.pug';
+    // var pugFile = __dirname.slice(0, -5) + '/themes/simple/templates/index-demo.amp.pug';
 
     console.log('creating from =========================>>>' + pugFile);
 	when(entFunc.getAllProducts(), function (r) {
