@@ -44,7 +44,7 @@ exports.createEnterprisePage = function(req) {
         var data = {
             name: allInfo.name,
             cover: allInfo.cover,
-            coverDisabled: coverDisabled,
+            coverDisabled: allInfo.coverDisabled,
             tagline: allInfo.tagline,
             socialLinks: ['/bits/images/facebook.png', '/bits/images/twitter.png', '/bits/images/linkedin.png'],
             reviews: [{
