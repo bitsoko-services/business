@@ -260,13 +260,15 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                     } else {
 
                         entSettings.entImageListDisabled = true;
+						entSettings.entImageList = [];
                     }
 
                 } catch (err) {
                     console.log('!INFO unable to get images section', err);
 
                     entSettings.entImageListDisabled = true;
-                }
+					entSettings.entImageList = [];
+				}
                 //-----------------------------------------//
 
                 //---------add the section icons------//
@@ -276,15 +278,17 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                     if (icnItms.length > 0) {
 
                         entSettings.entIconListDisabled = false;
-                        entSettings.entIconList = icnItms;
+						entSettings.entIconList = icnItms;
 
                     } else {
 
-                        entSettings.entIconListDisabled = true;
+						entSettings.entIconList = [];
+    					entSettings.entIconListDisabled = true;
                     }
 
                 } catch (err) {
                     console.log('!INFO unable to get icons section', err);
+					entSettings.entIconList = [];
 
                     entSettings.entIconListDisabled = true;
                 }
