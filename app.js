@@ -247,10 +247,10 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                 //-----------------------------------------//
 
 				//Check cover image
-				if(cover == ""){
-					coverDisabled = true;
+				if(allInfo.cover == ""){
+					allInfo.coverDisabled = true;
 				}else{
-					coverDisabled = false;
+					allInfo.coverDisabled = false;
 				}
 				//---------add the section images------//
                 try {
