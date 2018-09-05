@@ -10,7 +10,7 @@ primaryColor = '#0f5f76';
 
 heartBeat = 20000;
 var bitsokoEmail = 'bitsokokenya@gmail.com';
-var mainDomain = 'https://35.194.249.229:443'
+var mainDomain = 'https://bitsoko.co.ke'
 var compress = require('compression');
 nCmd = require('node-cmd');
 https = require('https');
