@@ -361,7 +361,7 @@ html(⚡='')
                     .caption
                         h4 #{promo.promoName}
                         p #{promo.promoDesc}
-                        a(href="/bits/?s="+ promoOwner + "#pid=" + id) open
+                        a(href="/bits/?s="+ promo.promoOwner + "#pid=" + promo.id) open
 
         .mobileView
             amp-carousel.carousel2(layout='responsive' height='450' width='500' type='slides' autoplay delay="3000")
@@ -379,7 +379,7 @@ html(⚡='')
                     .caption
                         h4 #{promo.promoName}
                         p #{promo.promoDesc}
-                        a(href="/bits/?s="+ promoOwner + "#pid=" + id) open
+                        a(href="/bits/?s="+ promo.promoOwner + "#pid=" + promo.id) open
     section.land-see-popular-content.mx-auto
       h4.land-see-section-header.ml1 About
       .clearfix.pt2
