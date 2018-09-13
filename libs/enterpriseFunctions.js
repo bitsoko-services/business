@@ -29,6 +29,41 @@ function getBitsWinOpt(str, aKey) {
 
 
 
+exports.getAllServices = function(req) {
+
+    var deferred = new Deferred();
+	console.log('which domain??!!   ',allDomains[0]);
+if(allDomains[0]=='supplies.bitsoko.co.ke'){
+	
+	
+	bsConn.mysql.query('SELECT * FROM services',
+        function(err, results) {
+            if (err) {
+	
+            deferred.reject('no services');	    
+	    }else{
+	    
+            deferred.resolve(results);
+	    }
+	});
+
+}else{
+	
+	bsConn.mysql.query('SELECT * FROM services WHERE owner=?', [allInfo.uid],
+        function(err, results) {
+            if (err) {
+	
+            deferred.reject('no services');	    
+	    }else{
+	    
+            deferred.resolve(results);
+	    }
+	});
+}
+  return deferred;
+
+}
+
 exports.createEnterprisePage = function(req) {
 
     var deferred = new Deferred();
