@@ -126,6 +126,7 @@ allManagers = [];
 allNewManagers = [];
 allPromos = [];
 allProdCat = [];
+allServices= [];
 nCmd.get(prepDirC, function (data, err, stderr) {
     if (!err) {
         console.log('created directories');
