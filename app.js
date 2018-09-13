@@ -4,7 +4,9 @@ jade = require('pug');
 var LE = require('greenlock');
 var insPORT = 8081;
 var PORT = 8080;
+var allInfo;
 allDomains = [];
+ 
 
 primaryColor = '#0f5f76';
 
@@ -131,18 +133,11 @@ nCmd.get(prepDirC, function (data, err, stderr) {
 
         request(mainDomain + "/getEnterprise/?servEntID=" + entDevID, function (error, response, body) {
             if (!error) {
-                allServices = JSON.parse(body).services;
+                //allServices = JSON.parse(body).services;
                 allSettings = JSON.parse(body).settings;
                 allInfo = JSON.parse(body).enterpriseInfo;
                 entContract = JSON.parse(body).enterpriseContract;
                 //  console.log(allInfo, allSettings);
-
-                stores = new Array();
-
-                for (var servi in allServices) {
-
-                    stores.push(allServices[servi].id);
-                }
 
                 //create database settings
 
@@ -183,7 +178,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                             }
 
                             console.log('Database access provisioned');
-
+doDBStuff();
 
                         });
 
@@ -302,20 +297,6 @@ nCmd.get(prepDirC, function (data, err, stderr) {
                 //-----------------------------------------//
 
 
-                for (var ii in allServices) {
-                    try {
-                        var eaCat = JSON.parse(allServices[ii].productCategory);
-                    } catch (e) {
-                        continue;
-                    }
-
-                    for (var ix in eaCat) {
-
-                        eaCat[ix]['servList'] = [];
-                        allProdCat.push(eaCat[ix]);
-                    }
-                }
-
 
                 function squashByName(arr) {
                     var tmp = [];
@@ -335,58 +316,7 @@ nCmd.get(prepDirC, function (data, err, stderr) {
 
                 aPs = JSON.parse(body).enterprisePromos;
                 allDomains = allInfo.domains;
-                for (var ii in allServices) {
-                    allServices[ii].banner = allServices[ii].bannerPath;
-                    allServices[ii].desc = allServices[ii].description
-                    allServices[ii].title = allServices[ii].name;
-                    //console.log(allServices[ii].promotions,"======== Promotions ====");
-                    var aMans = allServices[ii].managers
-                    try {
-
-                        var cats = JSON.parse(allServices[ii].productCategory);
-                    } catch (e) {
-
-                        var cats = [];
-                    }
-                    for (var pcc in allProdCat) {
-                        for (var pc in cats) {
-
-                            if (allProdCat[pcc].name == cats[pc].name) {
-                                allProdCat[pcc]['servList'].push(allServices[ii]);
-                            }
-                        }
-
-                    }
-
-                    for (var iii in aMans) {
-                        aMans[iii].sID = allServices[ii].id;
-                        allManagers.push(aMans[iii]);
-                    }
-                    // Download to a directory and save with the original filename
-                    var options = {
-                        url: mainDomain + allServices[ii].banner,
-                        dest: 'business/bitsAssets/tmp/services/',
-                        //dest: '/'
-                    }
-                    imgDownloader.image(options).then(function (filename, image) {
-                        //console.log('File saved to', filename)
-                    }).catch(function (err) {
-                        console.log(err)
-                    })
-                    // Download smaller image
-                    var options = {
-                        url: mainDomain + allServices[ii].banner.replace(".png", "-128.png"),
-                        dest: 'business/bitsAssets/tmp/services/',
-                        //dest: '/'
-                    }
-                    imgDownloader.image(options).then(function (filename, image) {
-                        //console.log('File saved to', filename)
-                    }).catch(function (err) {
-                        console.log(err)
-                    })
-                }
-                //console.log(allServices);
-
+               
 
 
 
@@ -1097,4 +1027,82 @@ function loadServerDeps() {
     }
 
 
+}
+
+function doDBStuff(){
+  when(entFunc.getAllServices(), function (allServices) {
+                 allServices=allServices;
+                stores = new Array();
+
+                for (var ii in allServices) {
+			
+			stores.push(allServices[ii].id);
+			
+                    try {
+                        var eaCat = JSON.parse(allServices[ii].productCategory);
+                    } catch (e) {
+                        continue;
+                    }
+
+                    for (var ix in eaCat) {
+
+                        eaCat[ix]['servList'] = [];
+                        allProdCat.push(eaCat[ix]);
+                    }
+              
+                    allServices[ii].banner = allServices[ii].bannerPath;
+                    allServices[ii].desc = allServices[ii].description
+                    allServices[ii].title = allServices[ii].name;
+                    //console.log(allServices[ii].promotions,"======== Promotions ====");
+                    var aMans = allServices[ii].managers
+                    try {
+
+                        var cats = JSON.parse(allServices[ii].productCategory);
+                    } catch (e) {
+
+                        var cats = [];
+                    }
+                    for (var pcc in allProdCat) {
+                        for (var pc in cats) {
+
+                            if (allProdCat[pcc].name == cats[pc].name) {
+                                allProdCat[pcc]['servList'].push(allServices[ii]);
+                            }
+                        }
+
+                    }
+
+                    for (var iii in aMans) {
+                        aMans[iii].sID = allServices[ii].id;
+                        allManagers.push(aMans[iii]);
+                    }
+                    // Download to a directory and save with the original filename
+                    var options = {
+                        url: mainDomain + allServices[ii].banner,
+                        dest: 'business/bitsAssets/tmp/services/',
+                        //dest: '/'
+                    }
+                    imgDownloader.image(options).then(function (filename, image) {
+                        //console.log('File saved to', filename)
+                    }).catch(function (err) {
+                        console.log(err)
+                    })
+                    // Download smaller image
+                    var options = {
+                        url: mainDomain + allServices[ii].banner.replace(".png", "-128.png"),
+                        dest: 'business/bitsAssets/tmp/services/',
+                        //dest: '/'
+                    }
+                    imgDownloader.image(options).then(function (filename, image) {
+                        //console.log('File saved to', filename)
+                    }).catch(function (err) {
+                        console.log(err)
+                    })
+                }
+                //console.log(allServices);
+
+
+                }, function (err) {
+                    console.log('err! Unable to get services', err);
+                })
 }
