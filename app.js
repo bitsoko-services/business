@@ -298,22 +298,6 @@ doDBStuff();
 
 
 
-                function squashByName(arr) {
-                    var tmp = [];
-                    var tmpID = [];
-                    for (var i = 0; i < arr.length; i++) {
-                        if (tmpID.indexOf(arr[i].name) == -1) {
-                            tmp.push(arr[i]);
-                            tmpID.push(arr[i].name);
-                        }
-                    }
-                    return tmp;
-                }
-
-                allProdCat = squashByName(allProdCat);
-
-
-
                 aPs = JSON.parse(body).enterprisePromos;
                 allDomains = allInfo.domains;
                
@@ -645,7 +629,7 @@ data.body = process.argv[2];
 //jade.render
     var template = jade.compile(jd);
     var html = template(data);
-    //res.writeHead(200);
+    //res.writeHead(200);                                                                   
     res.end(html);
 });
 });
@@ -1029,6 +1013,21 @@ function loadServerDeps() {
 
 }
 
+
+
+                function squashByName(arr) {
+                    var tmp = [];
+                    var tmpID = [];
+                    for (var i = 0; i < arr.length; i++) {
+                        if (tmpID.indexOf(arr[i].name) == -1) {
+                            tmp.push(arr[i]);
+                            tmpID.push(arr[i].name);
+                        }
+                    }
+                    return tmp;
+                }
+
+
 function doDBStuff(){
   when(entFunc.getAllServices(), function (allServices) {
                  allServices=allServices;
@@ -1062,6 +1061,9 @@ function doDBStuff(){
 
                         var cats = [];
                     }
+			
+                allProdCat = squashByName(allProdCat);
+			
                     for (var pcc in allProdCat) {
                         for (var pc in cats) {
 
@@ -1071,6 +1073,10 @@ function doDBStuff(){
                         }
 
                     }
+			
+			
+
+
 
                     for (var iii in aMans) {
                         aMans[iii].sID = allServices[ii].id;
