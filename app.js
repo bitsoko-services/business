@@ -556,7 +556,19 @@ ReqRes = function ReqRes(req, res) {
 
             }
 
-        } else if (req.url.includes('/bits/?s=')) {
+        } else if(req.url.includes('/orderManager/?')){
+	
+	    
+//res.setHeader('Access-Control-Allow-Origin', 'https://bitsoko.io');
+return when(entFunc.getOrderManager(getBitsWinOpt(req.url,'oid'),getBitsWinOpt(req.url,'act')),function(r){ 
+ //console.log('resping '+JSON.stringify(r));
+	
+		 res.setHeader('content-type', 'application/json'); 
+	res.end(JSON.stringify(r));
+},function(err){
+	console.log('error in managing order',err);
+});
+}else if (req.url.includes('/bits/?s=')) {
 
 
             try {
