@@ -26,7 +26,49 @@ function getBitsWinOpt(str, aKey) {
 }
 
 
+exports.getOrderManager = function(oid,act) {
+    console.log(oid,act);
+  var deferred = new Deferred();
+    try{
+	    //either complete or cancel this order
+       if(act=='complete'){
+       
+     
+bsConn.mysql.query('UPDATE orders SET state = ? WHERE id = ?',['complete',parseInt(oid)],
+       
+        function(err, results) { 
 
+    deferred.resolve({ action : act, "status" : "ok"});  
+});   
+       }else if(act=='reject'){
+       
+     
+bsConn.mysql.query('UPDATE orders SET state = ? AND deliveredBy = ? WHERE id = ?',['pending',0,parseInt(oid)],
+       
+        function(err, results) { 
+
+    deferred.resolve({ action : act, "status" : "ok"});  
+});   
+       }else if(act=='cancel'){
+           
+var sql = "DELETE from orders WHERE id = ?";
+ 
+var query = bsConn.mysql.query(sql, [parseInt(oid)], function(err, result) {
+    if(err){
+        deferred.resolve({ action : act, "status" : "ok"});  
+       }else{
+    deferred.resolve({ action : act, "status" : "bad"});    
+       }
+});
+	       
+       } 
+    }catch(e){
+       deferred.reject(e); 
+    }
+    
+    
+    return deferred;
+}
 
 
 exports.getAllServices = function(req) {
