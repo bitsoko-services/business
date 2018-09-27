@@ -1048,12 +1048,22 @@ function doDBStuff(){
                 for (var ii in allServices) {
 			
 			stores.push(allServices[ii].id);
-			
+		
+			if(allDomains[0]=='supplies.bitsoko.co.ke'){
+					
+                    try {
+                        var eaCat = JSON.parse(allServices[ii].inventoryCategory);
+                    } catch (e) {
+                        continue;
+                    }
+			}else{
+				
                     try {
                         var eaCat = JSON.parse(allServices[ii].productCategory);
                     } catch (e) {
                         continue;
                     }
+			}
 
                     for (var ix in eaCat) {
 
@@ -1065,7 +1075,21 @@ function doDBStuff(){
                     allServices[ii].desc = allServices[ii].description
                     allServices[ii].title = allServices[ii].name;
                     //console.log(allServices[ii].promotions,"======== Promotions ====");
-                    var aMans = allServices[ii].managers
+                    var aMans = allServices[ii].managers;
+			
+			if(allDomains[0]=='supplies.bitsoko.co.ke'){
+			
+			
+                    try {
+
+                        var cats = JSON.parse(allServices[ii].inventoryCategory);
+                    } catch (e) {
+
+                        var cats = [];
+                    }
+			}else{
+			
+			
                     try {
 
                         var cats = JSON.parse(allServices[ii].productCategory);
@@ -1073,6 +1097,7 @@ function doDBStuff(){
 
                         var cats = [];
                     }
+			}
 			
                 allProdCat = squashByName(allProdCat);
 			
