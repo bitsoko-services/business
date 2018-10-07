@@ -1067,15 +1067,15 @@ function doDBStuff(){
                     }
 			}
 
-                    for (var ix in eaCat) {
-			
 			if(allDomains[0]=='supplies.bitsoko.co.ke'){
 			//add extra categories
 				
-				allProdCat.concat(suppliesAssets);
+				eaCat=suppliesAssets;
 				
 			}
-			    
+			   
+                    for (var ix in eaCat) {
+			 
                         eaCat[ix]['servList'] = [];
                         allProdCat.push(eaCat[ix]);
 			    
