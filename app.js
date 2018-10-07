@@ -31,7 +31,7 @@ html2jade = require('html2jade');
 stores = [];
 Cid = '476194103258-98t0j7p1lrela49ispgj3jfokl2r3ils.apps.googleusercontent.com';
 writeFile = require('write');
-suppliesAssets=[{"name":"Packaging"}];
+suppliesAssets=[{"name":"Potatoes","added":1512852341380},{"name":"Eggs","added":1512852347217}];
 
 //database credentials
 dbHost = '104.199.152.117';
@@ -1067,12 +1067,6 @@ function doDBStuff(){
                     }
 			}
 
-			if(allDomains[0]=='supplies.bitsoko.co.ke'){
-			//add extra categories
-				
-				eaCat=suppliesAssets;
-				
-			}
 			   
                     for (var ix in eaCat) {
 			 
@@ -1109,6 +1103,14 @@ function doDBStuff(){
 			}
 			
                 allProdCat = squashByName(allProdCat);
+			
+			
+			if(allDomains[0]=='supplies.bitsoko.co.ke'){
+			//add extra categories
+				
+				cats=suppliesAssets;
+				
+			}
 			
                     for (var pcc in allProdCat) {
                         for (var pc in cats) {
