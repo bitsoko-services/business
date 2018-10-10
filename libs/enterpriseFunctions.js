@@ -283,6 +283,11 @@ exports.createStorePage = function(req) {
                     html = html.replace(/https:\/\/bitsoko.io\/bitsAssets/g, "/bitsAssets")
                     html = html.replace(/https:\/\/bitsoko.co.ke\/bitsAssets/g, "/bitsAssets")
 
+// lets inline the materializejs
+		fs.readFile('business/bitsAssets/js/materialize/materialize.min.js', function(error, source){
+			
+			if(error)console.log(error);
+		html = html.replace('<script async="" src="/bitsAssets/js/materialize/materialize.min.js"></script>','<script>'+source+'</script>')
 
 
                     // lets inline the stylesheets to improve performance
@@ -323,6 +328,8 @@ exports.createStorePage = function(req) {
 
 
 
+
+                    })
 
                     })
 
