@@ -20,4 +20,4 @@ RUN npm install debug write forever express node-cmd image-downloader download-f
 EXPOSE 8081
 EXPOSE 8080
 
-ENTRYPOINT node business/index.js start
+# ENTRYPOINT node business/index.js start
