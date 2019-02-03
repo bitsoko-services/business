@@ -9,6 +9,8 @@ FROM ubuntu:14.04
 # File Author / Maintainer
 MAINTAINER bitsoko@bitsoko.io
 
+RUN apt-get update
+
 RUN apt-get install -y curl nodejs npm git iptables
 
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
