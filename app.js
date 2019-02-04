@@ -34,9 +34,9 @@ writeFile = require('write');
 suppliesAssets=[{"name":"Potatoes","added":1512852341380},{"name":"Eggs","added":1512852347217}];
 
 //database credentials
-dbHost = '104.199.152.117';
+dbHost = 'db.your.domain';
 dbUser = 'root';
-dbPass = '12sokorus12';
+dbPass = '';
 dbName = 'bitsoko';
 
 //Load Service Dependencies
