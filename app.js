@@ -29,9 +29,11 @@ html2jade = require('html2jade');
 
 //Global variables
 stores = [];
-Cid = '476194103258-98t0j7p1lrela49ispgj3jfokl2r3ils.apps.googleusercontent.com';
+
+//to enable google logins
+Cid = '';//eg 476.............................ls.apps.googleusercontent.com
 writeFile = require('write');
-suppliesAssets=[{"name":"Potatoes","added":1512852341380},{"name":"Eggs","added":1512852347217}];
+suppliesAssets=[{"name":"example item","added":1512852341380}];
 
 //database credentials
 dbHost = 'db.your.domain';
